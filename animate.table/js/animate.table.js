@@ -30,8 +30,11 @@
         var rowAddedCallBack = options.rowAdded;
 
         _.templateSettings = {
-            interpolate: /\{\{(.+?)\}\}/g
+            interpolate: /\{\{(.+?)\}\}/g,
+            evaluate    : /<%([\s\S]+?)%>/g,
+            escape      : /<%-([\s\S]+?)%>/g
         };
+
 
         container = $(container);
         container.addClass(options.styles);

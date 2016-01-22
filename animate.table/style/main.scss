@@ -1,0 +1,88 @@
+
+*, *:after, *:before { -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; }
+body, html { font-size: 100%; padding: 0; margin: 0;}
+
+/* Clearfix hack by Nicolas Gallagher: http://nicolasgallagher.com/micro-clearfix-hack/ */
+.clearfix:before, .clearfix:after { content: " "; display: table; }
+.clearfix:after { clear: both; }
+
+body {
+    font-family: 'Lato', Calibri, Arial, sans-serif;
+    background: #fff;
+    overflow: hidden;
+}
+
+.splash {
+  background: #35B9F9;
+  height: 480px;
+  padding-top: 120px;
+  color: #fff;
+  .title {
+    text-align: center;
+    font-size: 72px;
+    color: #F1FF51;
+    span.extra {
+      color: #fff;
+    }
+  }
+
+  .desc {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 36px;
+  }
+
+  .btngroup {
+    text-align: center;
+    margin-top: 50px;
+    button {
+      width: 240px;
+      word-spacing: normal;
+      margin-bottom: 5px;
+      font-family: "Raleway", sans-serif;
+      font-size: 25px;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: #333;
+      display: inline-block;
+      vertical-align: middle;
+      padding: 0 20px;
+      text-align: center;
+      line-height: 35px;
+      background: #f1ff51;
+      -webkit-border-radius: 2px;
+      -moz-border-radius: 2px;
+      border-radius: 2px;
+      line-height: 60px;
+      padding: 0 20px;
+      text-align: center;
+      border: none;
+      margin: 10px;
+    }
+  }
+
+}
+
+.wrapper {
+  margin: 0 auto;
+  width: 1080px;
+}
+
+.list {
+  margin-top: 50px;
+  #nav-table {
+    .ultra-cell {
+      border-right: none;
+      border-bottom: none;
+      font-weight: bold;
+      font-size: 24px;
+      padding: 10px ;
+      color: #666;
+
+      .sub {
+        margin-left: 10px;
+        font-size: 20px;
+      }
+    }
+  }
+}

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Animate.Table</title>
+
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/underscore-min.js"></script>
+    <script type="text/javascript" src="js/animate.table.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="style/main.css">
+    <link rel="stylesheet" type="text/css" href="style/default.css">
+
+    <link rel="stylesheet" type="text/css" href="style/animations.css">
+    <link rel="stylesheet" type="text/css" href="style/ultra.css">
+
+    <script type="text/javascript">
+        var menu = [
+            {
+                title: "Get started",
+                style: ""
+            },
+            {
+                title: "Download",
+                style: ""
+            },
+            {
+                title: "Options & API",
+                style: ""
+            },
+            {
+                title: "Demos",
+                style: ""
+            },
+            {
+                title: "simple table",
+                style: "sub"
+            }
+        ];
+    </script>
+
+</head>
+
+<body>
+
+    <div class="splash">
+        <div class="wrapper">
+            <div class="title">
+                <span class="extra">animate</span>.<span>table</span>
+            </div>
+            <div class="desc">
+                Table updated with animation
+            </div>
+            <div class="btngroup">
+                <button>GET STARTED</button>
+                <button>DOWNLOAD</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="list">
+        <div class="wrapper">
+            <div class="nav">
+                <div id="nav-table"></div>
+            </div>
+            <div class="content">
+
+
+            </div>
+
+        </div>
+    </div>
+
+<script>
+
+    $("#nav-table").animatedTable({
+        rowTemplates: ["<div class='{{style}}'>{{title}}</div>"]
+    }).data(menu);
+
+</script>
+
+</body>
+</html>
