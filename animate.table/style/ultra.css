@@ -1,5 +1,6 @@
 .ultratable * {
-  box-sizing: border-box; }
+  box-sizing: border-box;
+  padding: 0; }
 .ultratable .ultra-header {
   display: table-header-group; }
 .ultratable .ultra-body {
@@ -14,10 +15,12 @@
   vertical-align: middle; }
   .ultratable .ultra-cell .cell-banned {
     position: absolute; }
-.ultratable .pagination ul.numbers li {
-  list-style: none;
-  float: left;
-  margin: 5px 5px;
-  padding: 5px 10px; }
+.ultratable .pagination {
+  padding: 0; }
+  .ultratable .pagination ul.numbers li {
+    list-style: none;
+    float: left;
+    margin: 5px 5px;
+    padding: 5px 10px; }
 
 /*# sourceMappingURL=ultra.css.map */

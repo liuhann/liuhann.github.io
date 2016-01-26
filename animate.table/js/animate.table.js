@@ -4,28 +4,29 @@
 
 (function($, _) {
 
-    var DEFAULT_OPTIONS = {
-        styles: "ultratable",
-        headers: [],
-        headerTemplate: "<div>{{data}}</div>",
-        page: null,
-        headerWidth: [],
-        dataWidth:null,
-        rowTemplates: null,
-        pageEntranceWithHeader: true,
-        pageEntranceCellDelay: 40,
-        pageEntranceAnimation: "pt-page-moveFromLeft",
-        pageExistAnimation: "pt-page-rotatePushLeft",
-        rowUpdateEffect: "pulse",
-        rowUpdateSelector: null,
-        rowUpdateInAnimation: null,
-        rowUpdateOutAnimation: null
-    };
-
     var ANIMATION_END_EVENT_NAMES = "webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend";
 
-    function AnimatedTable(initData, container) {
-        var  options =_.extend(DEFAULT_OPTIONS, initData);
+    function AnimatedTable(options, container) {
+
+        var DEFAULT_OPTIONS = {
+            styles: "ultratable",
+            headers: [],
+            headerTemplate: "<div>{{data}}</div>",
+            page: null,
+            headerWidth: [],
+            dataWidth:null,
+            rowTemplates: null,
+            pageEntranceWithHeader: true,
+            pageEntranceCellDelay: 40,
+            pageEntranceAnimation: "pt-page-moveFromLeft",
+            pageExistAnimation: "pt-page-rotatePushLeft",
+            rowUpdateEffect: "pulse",
+            rowUpdateSelector: null,
+            rowUpdateInAnimation: null,
+            rowUpdateOutAnimation: null
+        };
+
+        options = _.extend(DEFAULT_OPTIONS , options);
         var rowsData = null;
         var rowAddedCallBack = options.rowAdded;
 
@@ -35,15 +36,12 @@
             escape      : /<%-([\s\S]+?)%>/g
         };
 
-
         container = $(container);
-        container.addClass(options.styles);
+        container.addClass(options.styles).addClass("ultratable");
 
         var header = $("<div></div>").addClass("ultra-header");
         var body = $("<div/>").addClass("ultra-body");
         var pager = $("<div/>").addClass("ultra-footer");
-
-
 
         if(!options.headerTemplate) {
             console.error("headerTemplate chould not be null");
@@ -332,8 +330,6 @@
             rowAddedCallBack = cb;
         }
 
-
-
         function init() {
             addHeader();
             container.append(header);
@@ -344,8 +340,6 @@
             }
             container.append(pager);
         }
-
-
         init();
         return {
             insertRow: insertRow,

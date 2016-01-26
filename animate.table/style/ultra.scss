@@ -1,6 +1,7 @@
 .ultratable {
   * {
     box-sizing: border-box;
+    padding: 0;
   }
   .ultra-header {
     display: table-header-group;
@@ -25,6 +26,7 @@
     }
   }
   .pagination {
+    padding: 0;
     ul.numbers {
       li {
         list-style: none;
