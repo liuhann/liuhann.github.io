@@ -4,12 +4,16 @@
 .ultratable .ultra-header {
   display: table-header-group; }
 .ultratable .ultra-body {
-  display: table-row-group;
-  border-collapse: separate; }
-  .ultratable .ultra-body.leaving {
-    position: absolute; }
-  .ultratable .ultra-body .ultra-row {
-    display: table-row; }
+  display: table;
+  border-collapse: separate;
+  position: relative;
+  overflow: hidden; }
+  .ultratable .ultra-body .ultra-body-content {
+    display: table-row-group; }
+    .ultratable .ultra-body .ultra-body-content.leaving {
+      position: absolute; }
+    .ultratable .ultra-body .ultra-body-content .ultra-row {
+      display: table-row; }
 .ultratable .ultra-cell {
   display: table-cell;
   vertical-align: middle; }

@@ -3,9 +3,16 @@
   -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box;
 }
 
+pre {
+  background-color: #333;
+  color: #fff;
+  border-left: 4px solid #1AF11E;
+}
+
 body, html {
   padding: 0;
   margin: 0;
+  -webkit-transition: -webkit-transform .4s cubic-bezier(0.22, 0.61, 0.36, 1);
 }
 
 /* Clearfix hack by Nicolas Gallagher: http://nicolasgallagher.com/micro-clearfix-hack/ */
@@ -22,53 +29,90 @@ body {
   height: 480px;
   padding-top: 120px;
   color: #fff;
-  .title {
-    text-align: center;
-    font-size: 72px;
-    color: #F1FF51;
-    span.extra {
-      color: #fff;
+
+  .wrapper {
+    >.title {
+      text-align: center;
+      font-size: 72px;
+      color: #F1FF51;
+      span.extra {
+        color: #fff;
+      }
     }
-  }
 
-  .desc {
-    text-align: center;
-    margin-top: 20px;
-    font-size: 36px;
-  }
-
-  .btngroup {
-    text-align: center;
-    margin-top: 50px;
-    button {
-      width: 220px;
-      word-spacing: normal;
-      margin-bottom: 5px;
-      font-family: "Raleway", sans-serif;
-      font-size: 22px;
-      font-weight: 700;
-      text-transform: uppercase;
-      color: #333;
-      display: inline-block;
-      vertical-align: middle;
-      padding: 0 20px;
+    .desc {
       text-align: center;
-      line-height: 35px;
-      background: #f1ff51;
-      -webkit-border-radius: 2px;
-      -moz-border-radius: 2px;
-      border-radius: 2px;
-      line-height: 60px;
-      padding: 0 20px;
-      text-align: center;
-      border: none;
-      margin: 10px;
+      margin-top: 20px;
+      font-size: 36px;
+    }
 
-      &.smaller {
-        font-size: 16px;
+    .btngroup {
+      text-align: center;
+      margin-top: 50px;
+      margin-bottom: 25px;
+      button {
+        width: 220px;
+        word-spacing: normal;
+        margin-bottom: 5px;
+        font-family: "Raleway", sans-serif;
+        font-size: 22px;
+        font-weight: 700;
+        text-transform: uppercase;
+        color: #333;
+        display: inline-block;
+        vertical-align: middle;
+        padding: 0 20px;
+        text-align: center;
+        line-height: 35px;
+        background: #f1ff51;
+        -webkit-border-radius: 2px;
+        -moz-border-radius: 2px;
+        border-radius: 2px;
+        line-height: 60px;
+        padding: 0 20px;
+        text-align: center;
+        border: none;
+        margin: 10px;
+
+        &.smaller {
+          font-size: 16px;
+        }
+      }
+    }
+    .min-header {
+      opacity: 0;
+      font-size: 28px;
+      >div {
+        float: left;
+        span.title {
+          color: #F1FF51;
+        }
+      }
+      >ul {
+        margin: 0;
+        float: right;
+        li {
+          margin: 0px 10px;
+          float: left;
+          list-style: none;
+          font-size: 20px;
+        }
       }
     }
   }
+  &.min {
+    -webkit-transform: translateY(-400px);
+    transform: translateY(-400px);
+  }
+}
+
+body.min {
+    -webkit-transform: translateY(-400px);
+    transform: translateY(-400px);
+  .splash .wrapper .min-header {
+    opacity: 1;
+  }
+
 }
 
 .wrapper {

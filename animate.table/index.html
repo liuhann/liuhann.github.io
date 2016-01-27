@@ -7,10 +7,8 @@
     <script type="text/javascript" src="js/jquery.min.js"></script>
     <script type="text/javascript" src="js/underscore-min.js"></script>
     <script type="text/javascript" src="js/animate.table.js"></script>
-    <script type="text/javascript" src="js/highlight.pack.js"></script>
 
     <link rel="stylesheet" type="text/css" href="style/main.css">
-    <link rel="stylesheet" type="text/css" href="style/default.css">
 
     <link rel="stylesheet" type="text/css" href="style/animations.css">
     <link rel="stylesheet" type="text/css" href="style/ultra.css">
@@ -21,7 +19,7 @@
             {
                 title: "Get started",
                 style: "",
-                url: "index.html"
+                url: "sub/getstarted.html"
             },
             {
                 title: "Download",
@@ -29,7 +27,7 @@
             },
             {
                 title: "Animation Selector",
-                style: ""
+                url: "sub/animation-selector.html"
             },
             {
                 title: "Options & API",
@@ -48,7 +46,7 @@
 </head>
 
 <body>
-    <div class="splash ">
+    <div class="splash">
         <div class="wrapper">
             <div class="title">
                 <span class="extra">animate</span>.<span>table</span>
@@ -61,222 +59,40 @@
                 <button class="smaller">HOW WE ANIMATED</button>
                 <button>DOWNLOAD</button>
             </div>
+
+            <div class="min-header">
+                <div>
+                    <span class="extra">animate</span>.<span class="title">table</span>
+                </div>
+                <ul>
+                    <li>Download</li>
+                    <li>Github</li>
+                </ul>
+            </div>
         </div>
     </div>
-
     <div class="list">
         <div class="wrapper">
             <div class="nav">
                 <div id="nav-table"></div>
             </div>
-            <div class="content">
-                <h2>Get Started</h2>
-                <p>
-                    animate.table is a jquery plugin(would be react component in future) which can initialize a html table by json data with animations.
-                    animate.table is also a dynamic table. you can also insert\remove\update table or rows with animation.
-                </p>
-
-                <p>How easy is it to use me? Follow these steps</p>
-
-<p>include your js at the head</p>
-<pre>
-<code class="html">
-    &lt;script type=&quot;text/javascript&quot; src=&quot;js/jquery.min.js&quot;&gt;&lt;/script&gt;
-    &lt;script type=&quot;text/javascript&quot; src=&quot;js/underscore-min.js&quot;&gt;&lt;/script&gt;
-    &lt;script type=&quot;text/javascript&quot; src=&quot;js/animate.table.js&quot;&gt;&lt;/script&gt;
-</code>
-</pre>
-
-<p>And then prepare your data and the div to draw it !</p>
-
-<pre>
-<code class="html">
-&lt;div id=&quot;mytable&quot;&gt;&lt;/div&gt;
-</code>
-</pre>
-
-
-<p>and then initialize table with data</p>
-<pre>
-<code class="js">
-    $("#yourtable").animatedTable().data(rowsData);
-</code>
-</pre>
-    <script>
-        var rowsData =  [{
-            "singer": "Justin Bieber",
-            "name": "Sorry",
-            "image": "q38875uo1kh.jpg",
-            "history": "2"
-        }, {
-            "singer": "Adele",
-            "name": "Hello",
-            "image": "q42396myajr.jpg",
-            "history": "1"
-        }, {
-            "singer": "Justin Bieber",
-            "name": "Love Yourself",
-            "image": "q38875uo1kh.jpg",
-            "history": "3"
-        }, {
-            "singer": "Drake",
-            "name": "Hotline Bling",
-            "image": "q28676n7nz0.jpg",
-            "history": "4"
-        }, {
-            "singer": "twenty one pilots",
-            "name": "Stressed Out",
-            "image": "q39056czrzc.jpg",
-            "history": "9"
-        }, {
-            "singer": "Selena Gomez",
-            "name": "Same Old Love",
-            "image": "q37601avc7s.jpg",
-            "history": "7"
-        }, {
-            "singer": "Shawn Mendes",
-            "name": "Stitches",
-            "image": "q43889ku28d.jpg",
-            "history": "6"
-        }, {
-            "singer": "Justin Bieber",
-            "name": "What Do You Mean?",
-            "image": "q38875uo1kh.jpg",
-            "history": "5"
-        }, {
-            "singer": "Alessia Cara",
-            "name": "Here",
-            "image": "q43464ipfsx.jpg",
-            "history": "8"
-        }, {
-            "singer": "Meghan Trainor Featuring John Legend",
-            "name": "Like I'm Gonna Lose You",
-            "image": "q24213mn5do.jpg",
-            "history": "10"
-        }, {
-            "singer": "The Weeknd",
-            "name": "The Hills",
-            "image": "q25361d2jtk.jpg",
-            "history": "11"
-        }, {
-            "singer": "Drake &amp; Future",
-            "name": "Jumpman",
-            "image": "q28676n7nz0.jpg",
-            "history": "13"
-        }];
-        $(function() {
-            $("#yourtable").animatedTable().data(rowsData);
-        })
-    </script>
-<div id="yourtable">
-
-</div>
-
-<p>The data is: </p>
-<pre>
-<code class="json">
-var rowsData =  [{
-    "singer": "Justin Bieber",
-    "name": "Sorry",
-    "image": "q38875uo1kh.jpg",
-    "history": "2"
-    }, {
-    "singer": "Adele",
-    "name": "Hello",
-    "image": "q42396myajr.jpg",
-    "history": "1"
-    }
-    ];
-</code>
-</pre>
-
-<p>Or like this: </p>
-<pre>
-<code class="json">
-    var rowsData =  [["Justin Bieber",
-            "Sorry",
-            "q38875uo1kh.jpg",
-            "2"
-        ], ["Adele",
-            "Hello",
-            "q42396myajr.jpg",
-            "1"
-        ]
-    ];
-</code>
-</pre>
-
-<p>The first rowsData is good because we can paint the row and cells with cellTemplating </p>
-<pre>
-<code class="js">
-    $(&quot;#yourtable&quot;).animatedTable({
-    rowTemplates: [
-    &quot;&lt;div class=&#39;last-week&#39;&gt;Last Week {{history}}&lt;/div&gt;&quot;,
-    &quot;&lt;div class=&#39;song&#39;&gt;{{singer}}&lt;/div&gt;&quot;,
-    &quot;&lt;div class=&#39;singer&#39;&gt;{{name}}&lt;/div&gt;&quot;
-    ],
-    styles: "monster"
-    }).data(rowsData);
-</code>
-</pre>
-<p>Note that we add  <em>styles: "monster"</em> config to make it tidy and beautiful </p>
-
-<script>
-    $(function() {
-        $("#yourtable-01").animatedTable({
-            rowTemplates: [
-                " <div class='last-week'>Last Week {{history}}</div>",
-                " <div class='song'>{{singer}}</div>",
-                "<div class='singer'>{{name}}</div>"
-            ],
-            styles: "monster"
-        }).data(rowsData);
-    })
-
-</script>
-<div id="yourtable-01">
-
-</div>
-
-<p>We can also set table entrance animation or paging animation by the setting.</p>
-
-                <script>
-                    $(function() {
-                        $("#yourtable-02").animatedTable({
-                            headerWidth:[100, 200, 400, 300],
-                            headers: ["Rank", " Last Week  ", "Singer", "Song"],
-                            rowTemplates: [
-                                " <div class='last-week'>{{_index}}</div>",
-                                " <div class='last-week'>{{history}}</div>",
-                                " <div class='song'>{{singer}}</div>",
-                                "<div class='singer'>{{name}}</div>"
-                            ],
-                            pageEntranceAnimation: "pt-page-moveFromTop",
-                            pageExistAnimation: "pt-page-moveToBottom",
-                            page: {
-                              per: 4
-                            },
-                            styles: "monster"
-                        }).data(rowsData);
-                    })
-
-                </script>
-                <div id="yourtable-02">
-
-                </div>
+            <div class="content" id="content">
             </div>
         </div>
     </div>
-
-
-
-<script>
+<script language="javascript">
     $("#nav-table").animatedTable({
-        rowTemplates: ["{{title}}"]
+        rowTemplates: ["<a >{{title}}</a>"]
+    }).rowAdded(function(row, rowData, index, rowsData) {
+        $(row).click(function() {
+            $("body").addClass("min");
+            $("#content").load(rowData.url);
+        })
     }).data(menu);
+
+    $(function() {
+        $("#content").load("sub/getstarted.html");
+    });
 </script>
-
-
-<script>hljs.initHighlightingOnLoad();</script>
 </body>
 </html>

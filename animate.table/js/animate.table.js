@@ -7,8 +7,7 @@
     var ANIMATION_END_EVENT_NAMES = "webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend";
 
     function AnimatedTable(options, container) {
-
-        var DEFAULT_OPTIONS = {
+        var default_options = {
             styles: "ultratable",
             headers: [],
             headerTemplate: "<div>{{data}}</div>",
@@ -18,15 +17,18 @@
             rowTemplates: null,
             pageEntranceWithHeader: true,
             pageEntranceCellDelay: 40,
+            pageAnimations:[],
             pageEntranceAnimation: "pt-page-moveFromLeft",
             pageExistAnimation: "pt-page-rotatePushLeft",
             rowUpdateEffect: "pulse",
             rowUpdateSelector: null,
             rowUpdateInAnimation: null,
-            rowUpdateOutAnimation: null
+            rowUpdateOutAnimation: null,
+            bodyHeight: null,
+            bodyWidth: null
         };
 
-        options = _.extend(DEFAULT_OPTIONS , options);
+        options = _.extend(default_options , options);
         var rowsData = null;
         var rowAddedCallBack = options.rowAdded;
 
@@ -41,6 +43,9 @@
 
         var header = $("<div></div>").addClass("ultra-header");
         var body = $("<div/>").addClass("ultra-body");
+        var bodycontent = $("<div/>").addClass("ultra-body-content");
+        body.append(bodycontent);
+
         var pager = $("<div/>").addClass("ultra-footer");
 
         if(!options.headerTemplate) {
@@ -99,24 +104,30 @@
         }
 
         function showRows(rows, page) {
-            var ultraRows = body.find(".ultra-row");
+            var ultraRows = bodycontent.find(".ultra-row");
             if (ultraRows.length>0) {
                 /**remove last animation wrapper */
                 if (options.pageExistAnimation) {
                     $(".leaving").remove();
-                    body.addClass("leaving");
-                    body = $("<div/>").addClass("ultra-body");
-                    $(".leaving").after(body);
+                    console.log("body width", body.css("width"));
+                    bodycontent.addClass("leaving");
+                    //reset bodycontent
+                    bodycontent = $("<div/>").addClass("ultra-body-content");
+                    $(".leaving").after(bodycontent);
                     /**
                      * create new wrapper. the most important thing is to set position absolute.
                      * */
+                    $(".leaving").addClass(options.pageExistAnimation).on(ANIMATION_END_EVENT_NAMES, function() {
+                        $(this).remove();
+                    });
+                    /*
                     ultraRows.each(function(index) {
                         $(this).addClass(options.pageExistAnimation).on(ANIMATION_END_EVENT_NAMES, function() {
                             $(this).remove();
                         });
-                    });
+                    });*/
                 } else {
-                    body.find(".ultra-row").remove();
+                    bodycontent.find(".ultra-row").remove();
                 }
             }
 
@@ -154,7 +165,9 @@
             }
 
             row.data("row", rowData);
-            if (body.find(">.ultra-row").length===0) {
+
+            //if it is the first row to add, try to set width width configuration
+            if (bodycontent.find(">.ultra-row").length===0) {
                 var widths = options.cellWidth;
                 if (!widths) widths = options.headerWidth;
                 if (widths) {
@@ -169,8 +182,13 @@
                     }
                 }
             }
+
             if (index) {
-                $(row).css("animation-delay", options.pageEntranceCellDelay * index + "ms");
+                if (options.page && options.page.per) {
+                    $(row).css("animation-delay", options.pageEntranceCellDelay * (index % options.page.per) + "ms");
+                } else {
+                    $(row).css("animation-delay", options.pageEntranceCellDelay * index + "ms");
+                }
             }
 
             if (!animation) animation = options.pageEntranceAnimation;
@@ -206,7 +224,7 @@
 
         function appendRow(rowData, index) {
             var row = generateRow(rowData, index);
-            body.append(row);
+            bodycontent.append(row);
             return row;
         }
 
@@ -226,19 +244,21 @@
                 /**when page changes, detect if paging need refresh */
             } else {
                 var row = generateRow(rowData, index, "pt-page-moveFromLeft");
-                if (position) {
-                    body.find(">.ultra-row").eq(index-1).after(row);
 
-                    if (body.find(">.ultra-row").length>options.page.per) {
-                        body.find(">.ultra-row").last().remove();
+                /* when position is set, insert the row */
+                if (position) {
+                    bodycontent.find(">.ultra-row").eq(index-1).after(row);
+
+                    if (bodycontent.find(">.ultra-row").length>options.page.per) {
+                        bodycontent.find(">.ultra-row").last().remove();
                     }
 
-                    body.find(">.ultra-row").filter(":gt(" + (index) + ")").addClass("pt-page-moveFromTop").on(ANIMATION_END_EVENT_NAMES, function() {
+                    bodycontent.find(">.ultra-row").filter(":gt(" + (index) + ")").addClass("pt-page-moveFromTop").on(ANIMATION_END_EVENT_NAMES, function() {
                         $(this).off(ANIMATION_END_EVENT_NAMES);
                         $(this).removeClass("pt-page-moveFromTop");
                     });
                 } else {
-                    body.append(row);
+                    bodycontent.append(row);
                 }
             }
 
@@ -268,10 +288,11 @@
             } else {
                 showRows(rowsData, 1);
             }
+            return this;
         }
 
         function removeRow(row, div) {
-            _.each(body.find(">.ultra-row"), function() {
+            _.each(bodycontent.find(">.ultra-row"), function() {
                 $(this).data("row")
             });
         }
@@ -282,7 +303,7 @@
             if (options.page && (Math.floor(index/options.page.per)+1) == options.page.current ) {
                 index = index/options.page.per % options.page.per;
             }
-            var cell = $(body).find(".ultra-row").eq(index);
+            var cell = $(bodycontent).find(".ultra-row").eq(index);
 
             if (options.rowUpdateSelector) { //if we specified the selector, then the animation only fade at the selector
                 var newClone = cell.clone();
@@ -312,7 +333,7 @@
 
         function getDisplayedRowsData() {
             var list = [];
-            body.find(">.ultra-row").each(function() {
+            bodycontent.find(">.ultra-row").each(function() {
                 list.push($(this).data("row"));
             });
             return list;
@@ -328,6 +349,7 @@
 
         function rowAdded(cb) {
             rowAddedCallBack = cb;
+            return this;
         }
 
         function init() {
@@ -338,15 +360,31 @@
             if (options.rows) {
                 setData(options.rows);
             }
+            if (options.bodyHeight && options.bodyWidth) {
+                body.css("height", options.bodyHeight);
+                body.css("width", options.bodyWidth);
+            } else {
+
+                console.log($(bodycontent).height(), $(bodycontent).width());
+
+                body.css("height", $(bodycontent).height());
+                body.css("width", $(bodycontent).width());
+            }
             container.append(pager);
+        }
+
+        function clear() {
+            $(container).empty();
+            $(container).data("ultra", null);
         }
         init();
         return {
             insertRow: insertRow,
             data: setData,
             rowAdded: rowAdded,
+            clear: clear,
             updateRow: updateRow,
-            getDisplayedRowsDataL: getDisplayedRowsData
+            getDisplayedRowsData: getDisplayedRowsData
         }
     }
 
@@ -385,6 +423,7 @@
             if (options.total===total && options.current===current && options.neighbours===neighbors) {
                 return;
             }
+
             options.total = total;
             options.current = current;
             options.neighbours = neighbors;

@@ -1,0 +1,954 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+
+    <script>
+        var rowData =  [{
+            "singer": "Justin Bieber",
+            "name": "Sorry",
+            "image": "q38875uo1kh.jpg",
+            "history": "2"
+        }, {
+            "singer": "Adele",
+            "name": "Hello",
+            "image": "q42396myajr.jpg",
+            "history": "1"
+        }, {
+            "singer": "Justin Bieber",
+            "name": "Love Yourself",
+            "image": "q38875uo1kh.jpg",
+            "history": "3"
+        }, {
+            "singer": "Drake",
+            "name": "Hotoptionne Boptionng",
+            "image": "q28676n7nz0.jpg",
+            "history": "4"
+        }, {
+            "singer": "twenty one pilots",
+            "name": "Stressed Out",
+            "image": "q39056czrzc.jpg",
+            "history": "9"
+        }, {
+            "singer": "Selena Gomez",
+            "name": "Same Old Love",
+            "image": "q37601avc7s.jpg",
+            "history": "7"
+        }, {
+            "singer": "Shawn Mendes",
+            "name": "Stitches",
+            "image": "q43889ku28d.jpg",
+            "history": "6"
+        }, {
+            "singer": "Justin Bieber",
+            "name": "What Do You Mean?",
+            "image": "q38875uo1kh.jpg",
+            "history": "5"
+        }, {
+            "singer": "Alessia Cara",
+            "name": "Here",
+            "image": "q43464ipfsx.jpg",
+            "history": "8"
+        }, {
+            "singer": "Meghan Trainor Featuring John Legend",
+            "name": "optionke I'm Gonna Lose You",
+            "image": "q24213mn5do.jpg",
+            "history": "10"
+        }, {
+            "singer": "The Weeknd",
+            "name": "The Hills",
+            "image": "q25361d2jtk.jpg",
+            "history": "11"
+        }, {
+            "singer": "Drake &amp; Future",
+            "name": "Jumpman",
+            "image": "q28676n7nz0.jpg",
+            "history": "13"
+        }, {
+            "singer": "The Chainsmokers Featuring ROZES",
+            "name": "Roses",
+            "image": "q38972il843.jpg",
+            "history": "22"
+        }, {
+            "singer": "Post Malone",
+            "name": "White Iverson",
+            "image": "q40831pytm1.jpg",
+            "history": "15"
+        }, {
+            "singer": "Eloptione Goulding",
+            "name": "On My Mind",
+            "image": "q40706b2d2z.jpg",
+            "history": "16"
+        }, {
+            "singer": "The Weeknd",
+            "name": "In The Night",
+            "image": "q25361d2jtk.jpg",
+            "history": "20"
+        }, {
+            "singer": "Bryson Tiller",
+            "name": "Don't",
+            "image": "q36755i2h5c.jpg",
+            "history": "21"
+        }, {
+            "singer": "Fetty Wap Featuring Remy Boyz",
+            "name": "679",
+            "image": "q29276vcada.jpg",
+            "history": "12"
+        }, {
+            "singer": "Travi$ Scott",
+            "name": "Antidote",
+            "image": "q39869glvzs.jpg",
+            "history": "17"
+        }, {
+            "singer": "Elle King",
+            "name": "Ex's &amp; Oh's",
+            "image": "q36065wti8j.jpg",
+            "history": "14"
+        }, {
+            "singer": "Taylor Swift",
+            "name": "Wildest Dreams",
+            "image": "q42187wmolh.jpg",
+            "history": "18"
+        }, {
+            "singer": "Shawn Mendes &amp; Camila Cabello",
+            "name": "I Know What You Did Last Summer",
+            "image": "q43889ku28d.jpg",
+            "history": "28"
+        }, {
+            "singer": "Thomas Rhett",
+            "name": "Die A Happy Man",
+            "image": "q42190jcjid.jpg",
+            "history": "25"
+        }, {
+            "singer": "The Weeknd",
+            "name": "Can't Feel My Face",
+            "image": "q25361d2jtk.jpg",
+            "history": "24"
+        }, {
+            "singer": "Demi Lovato",
+            "name": "Confident",
+            "image": "q40857n84sz.jpg",
+            "history": "23"
+        }, {
+            "singer": "DNCE",
+            "name": "Cake By The Ocean",
+            "image": "q40830r48am.jpg",
+            "history": "41"
+        }, {
+            "singer": "Silento",
+            "name": "Watch Me",
+            "image": "q32049o727n.jpg",
+            "history": "19"
+        }, {
+            "singer": "One Direction",
+            "name": "Perfect",
+            "image": "q38348ucmmh.jpg",
+            "history": "26"
+        }, {
+            "singer": "G-Eazy x Bebe Rexha",
+            "name": "Me, Myself &amp; I",
+            "image": "q43239kyg4q.jpg",
+            "history": "35"
+        }, {
+            "singer": "Tory Lanez",
+            "name": "Say It",
+            "image": "q37597r3xap.jpg",
+            "history": "32"
+        }, {
+            "singer": "Major Lazer &amp; DJ Snake Featuring M0",
+            "name": "Lean On",
+            "image": "q37570nx70w.jpg",
+            "history": "33"
+        }, {
+            "singer": "Flo Rida",
+            "name": "My House",
+            "image": "q00120e8szk.jpg",
+            "history": "34"
+        }, {
+            "singer": "Daya",
+            "name": "Hide Away",
+            "image": "q41127rgsql.jpg",
+            "history": "31"
+        }, {
+            "singer": "Sam Hunt",
+            "name": "Break Up In A Small Town",
+            "image": "q25172gp1n7.jpg",
+            "history": "29"
+        }, {
+            "singer": "Fetty Wap",
+            "name": "Trap Queen",
+            "image": "q29276vcada.jpg",
+            "history": "27"
+        }, {
+            "singer": "Wiz Khaoptionfa Featuring Charoptione Puth",
+            "name": "See You Again",
+            "image": "q45095wx3qb.jpg",
+            "history": "30"
+        }, {
+            "singer": "Charoptione Puth",
+            "name": "One Call Away",
+            "image": "q36890d67ii.jpg",
+            "history": "36"
+        }, {
+            "singer": "Rachel Platten",
+            "name": "Stand By You",
+            "image": "q29708mc7pp.jpg",
+            "history": "50"
+        }, {
+            "singer": "Yo Gotti",
+            "name": "Down In The DM",
+            "image": "q39766boupw.jpg",
+            "history": "48"
+        }, {
+            "singer": "J. Cole",
+            "name": "No Role Modelz",
+            "image": "q26983xy0a2.jpg",
+            "history": "43"
+        }, {
+            "singer": "Adele",
+            "name": "When We Were Young",
+            "image": "q42396myajr.jpg",
+            "history": "47"
+        }, {
+            "singer": "Selena Gomez",
+            "name": "Hands To Myself",
+            "image": "q37601avc7s.jpg",
+            "history": "42"
+        }, {
+            "singer": "Fetty Wap",
+            "name": "Again",
+            "image": "q29276vcada.jpg",
+            "history": "38"
+        }, {
+            "singer": "Bryson Tiller",
+            "name": "Exchange",
+            "image": "q36755i2h5c.jpg",
+            "history": "46"
+        }, {
+            "singer": "R. City Featuring Adam Levine",
+            "name": "Locked Away",
+            "image": "q39426v7iwu.jpg",
+            "history": "40"
+        }, {
+            "singer": "Taylor Swift",
+            "name": "Out Of The Woods",
+            "image": "q42187wmolh.jpg",
+            "history": "--"
+        }, {
+            "singer": "Future Featuring Drake",
+            "name": "Where Ya At",
+            "image": "q32103j0752.jpg",
+            "history": "45"
+        }, {
+            "singer": "Fall Out Boy",
+            "name": "Irresistible",
+            "image": "q27394ewjzz.jpg",
+            "history": "55"
+        }, {
+            "singer": "Skrillex &amp; Diplo With Justin Bieber",
+            "name": "Where Are U Now",
+            "image": "q32726djczt.jpg",
+            "history": "49"
+        }, {
+            "singer": "Ariana Grande",
+            "name": "Focus",
+            "image": "q41689gx4fm.jpg",
+            "history": "39"
+        }, {
+            "singer": "Luke Bryan Featuring Karen Fairchild",
+            "name": "Home Alone Tonight",
+            "image": "q25214yj35v.jpg",
+            "history": "53"
+        }, {
+            "singer": "Coldplay",
+            "name": "Adventure Of A optionfetime",
+            "image": "q44977u7wlb.jpg",
+            "history": "54"
+        }, {
+            "singer": "Chris Brown",
+            "name": "Back To Sleep",
+            "image": "q12107b6dlh.jpg",
+            "history": "59"
+        }, {
+            "singer": "Jason Aldean",
+            "name": "Gonna Know We Were Here",
+            "image": "q42742cpwh8.jpg",
+            "history": "56"
+        }, {
+            "singer": "Brothers Osborne",
+            "name": "Stay A optionttle Longer",
+            "image": "q45396ctvxu.jpg",
+            "history": "61"
+        }, {
+            "singer": "DeJ Loaf Featuring Big Sean",
+            "name": "Back Up",
+            "image": "q44511x6nzj.jpg",
+            "history": "52"
+        }, {
+            "singer": "LoCash",
+            "name": "I Love This optionfe",
+            "image": "q36721jog3s.jpg",
+            "history": "65"
+        }, {
+            "singer": "Jana Kramer",
+            "name": "I Got The Boy",
+            "image": "q43004g8wk2.jpg",
+            "history": "64"
+        }, {
+            "singer": "Young Thug",
+            "name": "Best Friend",
+            "image": "q31415s2y27.jpg",
+            "history": "67"
+        }, {
+            "singer": "Gwen Stefani",
+            "name": "Used To Love You",
+            "image": "q42663luk7r.jpg",
+            "history": "68"
+        }, {
+            "singer": "Andy Grammer",
+            "name": "Good To Be Aoptionve (Hallelujah)",
+            "image": "q39659wlu6o.jpg",
+            "history": "62"
+        }, {
+            "singer": "Drake &amp; Future",
+            "name": "Big Rings",
+            "image": "q28676n7nz0.jpg",
+            "history": "57"
+        }, {
+            "singer": "Halsey",
+            "name": "New Americana",
+            "image": "q38025apkh7.jpg",
+            "history": "60"
+        }, {
+            "singer": "Missy Eloptionott Featuring Pharrell Wiloptionams",
+            "name": "WTF (Where They From)",
+            "image": "q43089p6cxr.jpg",
+            "history": "63"
+        }, {
+            "singer": "Jason Derulo",
+            "name": "Get Ugly",
+            "image": "q36675sdapj.jpg",
+            "history": "70"
+        }, {
+            "singer": "Justin Bieber",
+            "name": "I'll Show You",
+            "image": "q38875uo1kh.jpg",
+            "history": "58"
+        }, {
+            "singer": "Nelly Featuring Jeremih",
+            "name": "The Fix",
+            "image": "q09622kdgbh.jpg",
+            "history": "69"
+        }, {
+            "singer": "Granger Smith",
+            "name": "Backroad Song",
+            "image": "q30854oc2cj.jpg",
+            "history": "82"
+        }, {
+            "singer": "Macklemore &amp; Ryan Lewis Featuring Eric Nally, Melle Mel, Kool Moe Dee &amp; Grandmaster Caz",
+            "name": "Downtown",
+            "image": "q37557out5p.jpg",
+            "history": "72"
+        }, {
+            "singer": "Zac Brown Band",
+            "name": "Beautiful Drug",
+            "image": "q31402yu388.jpg",
+            "history": "81"
+        }, {
+            "singer": "Blake Shelton",
+            "name": "Gonna",
+            "image": "q40943fb3x2.jpg",
+            "history": "75"
+        }, {
+            "singer": "Dawin",
+            "name": "Dessert",
+            "image": "q41694xtjcl.jpg",
+            "history": "73"
+        }, {
+            "singer": "Keith Urban",
+            "name": "Break On Me.",
+            "image": "q21684e0670.jpg",
+            "history": "94"
+        }, {
+            "singer": "Kelsea Ballerini",
+            "name": "Dibs",
+            "image": "q28745ot4o8.jpg",
+            "history": "76"
+        }, {
+            "singer": "Carrie Underwood",
+            "name": "Heartbeat",
+            "image": "q42119xmr0u.jpg",
+            "history": "--"
+        }, {
+            "singer": "optionl Dicky Featuring Fetty Wap &amp; Rich Homie Quan",
+            "name": "$ave Dat Money",
+            "image": "q32885o770p.jpg",
+            "history": "78"
+        }, {
+            "singer": "Drake",
+            "name": "Right Hand",
+            "image": "q28676n7nz0.jpg",
+            "history": "66"
+        }, {
+            "singer": "Tim McGraw",
+            "name": "Top Of The World",
+            "image": "q42191iyn8w.jpg",
+            "history": "84"
+        }, {
+            "singer": "Bryson Tiller",
+            "name": "Sorry Not Sorry",
+            "image": "q36755i2h5c.jpg",
+            "history": "77"
+        }, {
+            "singer": "Jeremih",
+            "name": "oui",
+            "image": "q44430klawp.jpg",
+            "history": "--"
+        }, {
+            "singer": "Rudimental Featuring Ed Sheeran",
+            "name": "Lay It All On Me",
+            "image": "q33334uoss6.jpg",
+            "history": "88"
+        }, {
+            "singer": "Kevin Gates",
+            "name": "Really Really",
+            "image": "q42751h4ny3.jpg",
+            "history": "79"
+        }, {
+            "singer": "Eric Church",
+            "name": "Mr. Misunderstood",
+            "image": "q43372otnk7.jpg",
+            "history": "92"
+        }, {
+            "singer": "Rae Sremmurd",
+            "name": "Come Get Her",
+            "image": "q41760yb414.jpg",
+            "history": "71"
+        }, {
+            "singer": "2 Chainz",
+            "name": "Watch Out",
+            "image": "q42117huc2n.jpg",
+            "history": "85"
+        }, {
+            "singer": "Robin Schulz Featuring Francesco Yates",
+            "name": "Sugar",
+            "image": "q38369s7qyw.jpg",
+            "history": "--"
+        }, {
+            "singer": "Tori Kelly",
+            "name": "Hollow",
+            "image": "q28158dlfcq.jpg",
+            "history": "80"
+        }, {
+            "singer": "Big Sean Featuring Chris Brown &amp; Ty Dolla $ign",
+            "name": "Play No Games",
+            "image": "q29104v68kt.jpg",
+            "history": "100"
+        }, {
+            "singer": "James Bay",
+            "name": "Let It Go",
+            "image": "q26802sb1k0.jpg",
+            "history": "90"
+        }, {
+            "singer": "Florida Georgia optionne",
+            "name": "Confession",
+            "image": "q45719tdzgh.jpg",
+            "history": "99"
+        }, {
+            "singer": "Randy Houser",
+            "name": "We Went",
+            "image": "q33079k7fin.jpg",
+            "history": "98"
+        }, {
+            "singer": "Kevin Gates",
+            "name": "2 Phones",
+            "image": "q42751h4ny3.jpg",
+            "history": "--"
+        }, {
+            "singer": "Fetty Wap",
+            "name": "RGF Island",
+            "image": "q29276vcada.jpg",
+            "history": "74"
+        }, {
+            "singer": "Carrie Underwood",
+            "name": "Smoke Break",
+            "image": "q42119xmr0u.jpg",
+            "history": "87"
+        }, {
+            "singer": "J Balvin",
+            "name": "Ginza",
+            "image": "q44517vykoe.jpg",
+            "history": "--"
+        }, {
+            "singer": "Chris Stapleton",
+            "name": "Nobody To Blame",
+            "image": "q31192rguw8.jpg",
+            "history": "--"
+        }, {
+            "singer": "Cole Swindell",
+            "name": "You Should Be Here",
+            "image": "q44855sdezx.jpg",
+            "history": "97"
+        }, {
+            "singer": "Ty Dolla $ign Featuring Future &amp; Rae Sremmurd",
+            "name": "Blase",
+            "image": "q32217y1k4n.jpg",
+            "history": "83"
+        }, {"singer": "Chris Stapleton", "name": "Tennessee Whiskey", "image": "q31192rguw8.jpg", "history": "--"}];
+
+
+        $(function() {
+            $("#animation-select").change(function() {
+                var inClass,outClass, animation = $(this).find("option:selected").data("animation");
+                switch( animation ) {
+                    case 1:
+                        outClass = 'pt-page-moveToLeft';
+                        inClass = 'pt-page-moveFromRight';
+                        break;
+                    case 2:
+                        outClass = 'pt-page-moveToRight';
+                        inClass = 'pt-page-moveFromLeft';
+                        break;
+                    case 3:
+                        outClass = 'pt-page-moveToTop';
+                        inClass = 'pt-page-moveFromBottom';
+                        break;
+                    case 4:
+                        outClass = 'pt-page-moveToBottom';
+                        inClass = 'pt-page-moveFromTop';
+                        break;
+                    case 5:
+                        outClass = 'pt-page-fade';
+                        inClass = 'pt-page-moveFromRight pt-page-ontop';
+                        break;
+                    case 6:
+                        outClass = 'pt-page-fade';
+                        inClass = 'pt-page-moveFromLeft pt-page-ontop';
+                        break;
+                    case 7:
+                        outClass = 'pt-page-fade';
+                        inClass = 'pt-page-moveFromBottom pt-page-ontop';
+                        break;
+                    case 8:
+                        outClass = 'pt-page-fade';
+                        inClass = 'pt-page-moveFromTop pt-page-ontop';
+                        break;
+                    case 9:
+                        outClass = 'pt-page-moveToLeftFade';
+                        inClass = 'pt-page-moveFromRightFade';
+                        break;
+                    case 10:
+                        outClass = 'pt-page-moveToRightFade';
+                        inClass = 'pt-page-moveFromLeftFade';
+                        break;
+                    case 11:
+                        outClass = 'pt-page-moveToTopFade';
+                        inClass = 'pt-page-moveFromBottomFade';
+                        break;
+                    case 12:
+                        outClass = 'pt-page-moveToBottomFade';
+                        inClass = 'pt-page-moveFromTopFade';
+                        break;
+                    case 13:
+                        outClass = 'pt-page-moveToLeftEasing pt-page-ontop';
+                        inClass = 'pt-page-moveFromRight';
+                        break;
+                    case 14:
+                        outClass = 'pt-page-moveToRightEasing pt-page-ontop';
+                        inClass = 'pt-page-moveFromLeft';
+                        break;
+                    case 15:
+                        outClass = 'pt-page-moveToTopEasing pt-page-ontop';
+                        inClass = 'pt-page-moveFromBottom';
+                        break;
+                    case 16:
+                        outClass = 'pt-page-moveToBottomEasing pt-page-ontop';
+                        inClass = 'pt-page-moveFromTop';
+                        break;
+                    case 17:
+                        outClass = 'pt-page-scaleDown';
+                        inClass = 'pt-page-moveFromRight pt-page-ontop';
+                        break;
+                    case 18:
+                        outClass = 'pt-page-scaleDown';
+                        inClass = 'pt-page-moveFromLeft pt-page-ontop';
+                        break;
+                    case 19:
+                        outClass = 'pt-page-scaleDown';
+                        inClass = 'pt-page-moveFromBottom pt-page-ontop';
+                        break;
+                    case 20:
+                        outClass = 'pt-page-scaleDown';
+                        inClass = 'pt-page-moveFromTop pt-page-ontop';
+                        break;
+                    case 21:
+                        outClass = 'pt-page-scaleDown';
+                        inClass = 'pt-page-scaleUpDown pt-page-delay300';
+                        break;
+                    case 22:
+                        outClass = 'pt-page-scaleDownUp';
+                        inClass = 'pt-page-scaleUp pt-page-delay300';
+                        break;
+                    case 23:
+                        outClass = 'pt-page-moveToLeft pt-page-ontop';
+                        inClass = 'pt-page-scaleUp';
+                        break;
+                    case 24:
+                        outClass = 'pt-page-moveToRight pt-page-ontop';
+                        inClass = 'pt-page-scaleUp';
+                        break;
+                    case 25:
+                        outClass = 'pt-page-moveToTop pt-page-ontop';
+                        inClass = 'pt-page-scaleUp';
+                        break;
+                    case 26:
+                        outClass = 'pt-page-moveToBottom pt-page-ontop';
+                        inClass = 'pt-page-scaleUp';
+                        break;
+                    case 27:
+                        outClass = 'pt-page-scaleDownCenter';
+                        inClass = 'pt-page-scaleUpCenter pt-page-delay400';
+                        break;
+                    case 28:
+                        outClass = 'pt-page-rotateRightSideFirst';
+                        inClass = 'pt-page-moveFromRight pt-page-delay200 pt-page-ontop';
+                        break;
+                    case 29:
+                        outClass = 'pt-page-rotateLeftSideFirst';
+                        inClass = 'pt-page-moveFromLeft pt-page-delay200 pt-page-ontop';
+                        break;
+                    case 30:
+                        outClass = 'pt-page-rotateTopSideFirst';
+                        inClass = 'pt-page-moveFromTop pt-page-delay200 pt-page-ontop';
+                        break;
+                    case 31:
+                        outClass = 'pt-page-rotateBottomSideFirst';
+                        inClass = 'pt-page-moveFromBottom pt-page-delay200 pt-page-ontop';
+                        break;
+                    case 32:
+                        outClass = 'pt-page-flipOutRight';
+                        inClass = 'pt-page-flipInLeft pt-page-delay500';
+                        break;
+                    case 33:
+                        outClass = 'pt-page-flipOutLeft';
+                        inClass = 'pt-page-flipInRight pt-page-delay500';
+                        break;
+                    case 34:
+                        outClass = 'pt-page-flipOutTop';
+                        inClass = 'pt-page-flipInBottom pt-page-delay500';
+                        break;
+                    case 35:
+                        outClass = 'pt-page-flipOutBottom';
+                        inClass = 'pt-page-flipInTop pt-page-delay500';
+                        break;
+                    case 36:
+                        outClass = 'pt-page-rotateFall pt-page-ontop';
+                        inClass = 'pt-page-scaleUp';
+                        break;
+                    case 37:
+                        outClass = 'pt-page-rotateOutNewspaper';
+                        inClass = 'pt-page-rotateInNewspaper pt-page-delay500';
+                        break;
+                    case 38:
+                        outClass = 'pt-page-rotatePushLeft';
+                        inClass = 'pt-page-moveFromRight';
+                        break;
+                    case 39:
+                        outClass = 'pt-page-rotatePushRight';
+                        inClass = 'pt-page-moveFromLeft';
+                        break;
+                    case 40:
+                        outClass = 'pt-page-rotatePushTop';
+                        inClass = 'pt-page-moveFromBottom';
+                        break;
+                    case 41:
+                        outClass = 'pt-page-rotatePushBottom';
+                        inClass = 'pt-page-moveFromTop';
+                        break;
+                    case 42:
+                        outClass = 'pt-page-rotatePushLeft';
+                        inClass = 'pt-page-rotatePullRight pt-page-delay180';
+                        break;
+                    case 43:
+                        outClass = 'pt-page-rotatePushRight';
+                        inClass = 'pt-page-rotatePullLeft pt-page-delay180';
+                        break;
+                    case 44:
+                        outClass = 'pt-page-rotatePushTop';
+                        inClass = 'pt-page-rotatePullBottom pt-page-delay180';
+                        break;
+                    case 45:
+                        outClass = 'pt-page-rotatePushBottom';
+                        inClass = 'pt-page-rotatePullTop pt-page-delay180';
+                        break;
+                    case 46:
+                        outClass = 'pt-page-rotateFoldLeft';
+                        inClass = 'pt-page-moveFromRightFade';
+                        break;
+                    case 47:
+                        outClass = 'pt-page-rotateFoldRight';
+                        inClass = 'pt-page-moveFromLeftFade';
+                        break;
+                    case 48:
+                        outClass = 'pt-page-rotateFoldTop';
+                        inClass = 'pt-page-moveFromBottomFade';
+                        break;
+                    case 49:
+                        outClass = 'pt-page-rotateFoldBottom';
+                        inClass = 'pt-page-moveFromTopFade';
+                        break;
+                    case 50:
+                        outClass = 'pt-page-moveToRightFade';
+                        inClass = 'pt-page-rotateUnfoldLeft';
+                        break;
+                    case 51:
+                        outClass = 'pt-page-moveToLeftFade';
+                        inClass = 'pt-page-rotateUnfoldRight';
+                        break;
+                    case 52:
+                        outClass = 'pt-page-moveToBottomFade';
+                        inClass = 'pt-page-rotateUnfoldTop';
+                        break;
+                    case 53:
+                        outClass = 'pt-page-moveToTopFade';
+                        inClass = 'pt-page-rotateUnfoldBottom';
+                        break;
+                    case 54:
+                        outClass = 'pt-page-rotateRoomLeftOut pt-page-ontop';
+                        inClass = 'pt-page-rotateRoomLeftIn';
+                        break;
+                    case 55:
+                        outClass = 'pt-page-rotateRoomRightOut pt-page-ontop';
+                        inClass = 'pt-page-rotateRoomRightIn';
+                        break;
+                    case 56:
+                        outClass = 'pt-page-rotateRoomTopOut pt-page-ontop';
+                        inClass = 'pt-page-rotateRoomTopIn';
+                        break;
+                    case 57:
+                        outClass = 'pt-page-rotateRoomBottomOut pt-page-ontop';
+                        inClass = 'pt-page-rotateRoomBottomIn';
+                        break;
+                    case 58:
+                        outClass = 'pt-page-rotateCubeLeftOut pt-page-ontop';
+                        inClass = 'pt-page-rotateCubeLeftIn';
+                        break;
+                    case 59:
+                        outClass = 'pt-page-rotateCubeRightOut pt-page-ontop';
+                        inClass = 'pt-page-rotateCubeRightIn';
+                        break;
+                    case 60:
+                        outClass = 'pt-page-rotateCubeTopOut pt-page-ontop';
+                        inClass = 'pt-page-rotateCubeTopIn';
+                        break;
+                    case 61:
+                        outClass = 'pt-page-rotateCubeBottomOut pt-page-ontop';
+                        inClass = 'pt-page-rotateCubeBottomIn';
+                        break;
+                    case 62:
+                        outClass = 'pt-page-rotateCarouselLeftOut pt-page-ontop';
+                        inClass = 'pt-page-rotateCarouselLeftIn';
+                        break;
+                    case 63:
+                        outClass = 'pt-page-rotateCarouselRightOut pt-page-ontop';
+                        inClass = 'pt-page-rotateCarouselRightIn';
+                        break;
+                    case 64:
+                        outClass = 'pt-page-rotateCarouselTopOut pt-page-ontop';
+                        inClass = 'pt-page-rotateCarouselTopIn';
+                        break;
+                    case 65:
+                        outClass = 'pt-page-rotateCarouselBottomOut pt-page-ontop';
+                        inClass = 'pt-page-rotateCarouselBottomIn';
+                        break;
+                    case 66:
+                        outClass = 'pt-page-rotateSidesOut';
+                        inClass = 'pt-page-rotateSidesIn pt-page-delay200';
+                        break;
+                    case 67:
+                        outClass = 'pt-page-rotateSlideOut';
+                        inClass = 'pt-page-rotateSlideIn';
+                        break;
+                }
+                console.log(inClass, outClass);
+                $("#configs").html(" { \n   pageEntranceAnimation:" + inClass + " \n    pageExistAnimation:" + outClass + "\n }");
+
+
+                options.pageEntranceAnimation = inClass;
+                options.pageExistAnimation = outClass;
+
+                $("#mytable").animatedTable().clear();
+                $("#mytable").animatedTable(options).data(rowData);
+
+            });
+        })
+    </script>
+
+    <style>
+        .ultratable .ultra-body .ultra-cell h2.order {
+            text-aoptiongn: center;
+            font-size: 28px;
+            margin: 5px 0;
+        }
+
+        .ultratable .ultra-body .ultra-cell .last-week {
+            text-aoptiongn: center;
+        }
+
+        .ultratable .ultra-body .ultra-cell .song {
+            optionne-height: 20px;
+            font-weight: 800;
+            font-size: 16px;
+        }
+        .ultratable .ultra-body .ultra-cell .singer {
+            font-weight: normal;
+            font-size: 26px;
+            color: darkgreen;
+        }
+
+        .ultratable .ultra-body div.image  {
+            background-repeat: no-repeat;
+            background-attachment: scroll;
+            background-position: center center;
+            background-size: cover;
+            width: 60px;
+            height: 60px;
+            display: inherit;
+        }
+
+    </style>
+
+    <script type="text/javascript">
+        var options = {
+            headers: [" RANK ", "Singer", "Song"],
+            headerWidth: ["100px", "80px", "400px"],
+            page: {
+                current: 1,
+                per: 6
+            },
+            styles: "monster",
+            rowTemplates: [
+                " <h2 class='order'>{{_index}}</h2>" +
+                " <div class='last-week'>Last Week {{history}}</div>", '<div class="image"  style="background-image: url(sub/img/{{image}})"></div>',
+                " <div class='song'>{{singer}}</div><div class='singer'>{{name}}</div>"
+            ],
+            pageEntranceAnimation: "pt-page-moveFromRight",
+            pageExistAnimation: "pt-page-moveToLeft"
+        };
+    </script>
+
+</head>
+<body>
+
+<div id="dl-menu" class="dl-menuwrapper">
+    <select id="animation-select">
+        <optgroup label="Move">
+            <option data-animation="1"><a href="#">Move to left/ from right</a></option>
+            <option data-animation="2"><a href="#">Move to right/ from left</a></option>
+            <option data-animation="3"><a href="#">Move to top/ from bottom</a></option>
+            <option data-animation="4"><a href="#">Move to bottom/ from top</a></option>
+        </optgroup>
+        <optgroup label="Fade">
+            <option data-animation="5"><a href="#">Fade / from right</a></option>
+            <option data-animation="6"><a href="#">Fade / from left</a></option>
+            <option data-animation="9"><a href="#">Fade left / Fade right</a></option>
+            <option data-animation="10"><a href="#">Fade right / Fade left</a></option>
+            <option data-animation="11"><a href="#">Fade top / Fade bottom</a></option>
+            <option data-animation="12"><a href="#">Fade bottom / Fade top</a></option>
+        </optgroup>
+        <optgroup label="Different easing">
+            <ul class="dl-submenu">
+                <option data-animation="13"><a href="#">Different easing / from right</a></option>
+                <option data-animation="14"><a href="#">Different easing / from left</a></option>
+            </ul>
+        </optgroup>
+        <optgroup label="Scale">
+            <option data-animation="17"><a href="#">Scale down / from right</a></option>
+            <option data-animation="18"><a href="#">Scale down / from left</a></option>
+            <option data-animation="21"><a href="#">Scale down / scale down</a></option>
+            <option data-animation="22"><a href="#">Scale up / scale up</a></option>
+            <option data-animation="23"><a href="#">Move to left / scale up</a></option>
+            <option data-animation="24"><a href="#">Move to right / scale up</a></option>
+            <option data-animation="25"><a href="#">Move to top / scale up</a></option>
+            <option data-animation="26"><a href="#">Move to bottom / scale up</a></option>
+            <option data-animation="27"><a href="#">Scale down / scale up</a></option>
+        </optgroup>
+        <optgroup label="Glue">
+            <option data-animation="28"><a href="#">Glue left / from right</a></option>
+            <option data-animation="29"><a href="#">Glue right / from left</a></option>
+            <option data-animation="30"><a href="#">Glue bottom / from top</a></option>
+            <option data-animation="31"><a href="#">Glue top / from bottom</a></option>
+        </optgroup>
+        <optgroup label="Foptionp">
+            <option data-animation="32"><a href="#">Foptionp right</a></option>
+            <option data-animation="33"><a href="#">Foptionp left</a></option>
+            <option data-animation="34"><a href="#">Foptionp top</a></option>
+            <option data-animation="35"><a href="#">Foptionp bottom</a></option>
+        </optgroup>
+        <optgroup label="Push / Pull">
+            <option data-animation="38"><a href="#">Push left / from right</a></option>
+            <option data-animation="39"><a href="#">Push right / from left</a></option>
+            <option data-animation="40"><a href="#">Push top / from bottom</a></option>
+            <option data-animation="41"><a href="#">Push bottom / from top</a></option>
+
+            <option data-animation="42"><a href="#">Push left / pull right</a></option>
+            <option data-animation="43"><a href="#">Push right / pull left</a></option>
+            <option data-animation="44"><a href="#">Push top / pull bottom</a></option>
+            <option data-animation="45"><a href="#">Push bottom / pull top</a></option>
+        </optgroup>
+        <optgroup label="Fold / Unfold">
+            <option data-animation="46"><a href="#">Fold left / from right</a></option>
+            <option data-animation="47"><a href="#">Fold right / from left</a></option>
+            <option data-animation="48"><a href="#">Fold top / from bottom</a></option>
+            <option data-animation="49"><a href="#">Fold bottom / from top</a></option>
+            <option data-animation="50"><a href="#">Move to right / unfold left</a></option>
+            <option data-animation="51"><a href="#">Move to left / unfold right</a></option>
+            <option data-animation="52"><a href="#">Move to bottom / unfold top</a></option>
+            <option data-animation="53"><a href="#">Move to top / unfold bottom</a></option>
+        </optgroup>
+        <optgroup label="Room">
+            <option data-animation="54"><a href="#">Room to left</a></option>
+            <option data-animation="55"><a href="#">Room to right</a></option>
+            <option data-animation="56"><a href="#">Room to top</a></option>
+            <option data-animation="57"><a href="#">Room to bottom</a></option>
+        </optgroup>
+        <optgroup label="Cube">
+            <option data-animation="58"><a href="#">Cube to left</a></option>
+            <option data-animation="59"><a href="#">Cube to right</a></option>
+            <option data-animation="60"><a href="#">Cube to top</a></option>
+            <option data-animation="61"><a href="#">Cube to bottom</a></option>
+        </optgroup>
+        <optgroup label="Carousel">
+            <option data-animation="62"><a href="#">Carousel to left</a></option>
+            <option data-animation="63"><a href="#">Carousel to right</a></option>
+            <option data-animation="64"><a href="#">Carousel to top</a></option>
+            <option data-animation="65"><a href="#">Carousel to bottom</a></option>
+        </optgroup>
+        <option data-animation="66"><a href="#">Sides</a></option>
+        <option data-animation="67"><a href="#">Soptionde</a></option>
+    </select>
+
+
+<pre>
+<code class="json" id="configs">
+    {
+        pageEntranceAnimation: "pt-page-scaleUp",
+        pageExistAnimation: "pt-page-rotatePushLeft"
+    }
+</code>
+</pre>
+<div id="mytable" style="overflow: hidden;">
+
+
+</div>
+
+
+<script>
+
+    var ultraTable = $("#mytable").animatedTable(options).data(rowData);
+
+</script>
+
+</body>
+</html>
