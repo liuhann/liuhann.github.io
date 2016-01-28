@@ -4,17 +4,41 @@
     <meta charset="UTF-8">
     <title></title>
 
-    <script type="text/javascript" src="../node_modules/jquery/dist/jquery.min.js"></script>
-    <script type="text/javascript" src="../node_modules/underscore/underscore.js"></script>
-    <script type="text/javascript" src="../js/roma.js"></script>
-
-    <link rel="stylesheet" type="text/css" href="../style/animations.css">
-
-    <link rel="stylesheet" type="text/css" href="../style/ultra.css">
-    <link rel="stylesheet" type="text/css" href="../style/theme/red.css">
-
+    <link rel="stylesheet" type="text/css" href="style/theme/burlywood.css">
     <script>
-        var rowData = [{
+        var rowData = [
+            {
+                "figure": "5693b26b0ae6a.jpeg",
+                "name": "Onirim",
+                "vote": 42,
+                "by": "Immersive Garden",
+                "from": "France",
+                "date": "January 22, 2016"
+            }, {
+                "figure": "5692e0a36d132.jpeg",
+                "name": "Jumeirah Inside",
+                "vote": 47,
+                "by": "MediaMonks",
+                "from": "Netherlands",
+                "date": "January 21, 2016"
+            }, {
+                "figure": "568eae5d0eced.jpeg",
+                "name": "Atieva",
+                "vote": 67,
+                "by": "Atieva",
+                "from": "U.S.A.",
+                "date": "January 20, 2016"
+            }, {
+                "figure": "568c839702fb6.jpeg",
+                "name": "Highline: America's Most Admired Lawbreaker",
+                "vote": 51,
+                "by": "Gladeye",
+                "from": "New Zealand",
+                "date": "January 19, 2016"
+            }
+        ];
+
+        var rowData4 = [{
             "figure": "5693b26b0ae6a.jpeg",
             "name": "Onirim",
             "vote": "42",
@@ -102,30 +126,100 @@
     </script>
     <script type="text/javascript">
         var options = {
-            headers: [" Name ", " By ", "From", "Date", " Votes ", "sw"],
-            rowUpdateEffect: "pulse"
+            rowUpdateEffect: "pulse",
+            cellWidth:[300, 300, 100],
+            styles: "burlywood",
+            rowTemplates: [
+                    "<img style='width: 280px;height: 200px' src='sub/img/{{figure}}'> ",
+                    "<div><p style='font-size: 28px;color: #1e6bb8;'>{{name}}</p>" +
+                             "<p>By: {{by}} From: {{from}}</p>" +
+                             "<p>Date: {{date}}</p>" +
+                    "</div>",
+                    "<div style='text-align: center'>Votes: <p style='font-size: 30px; color: brown;'>{{vote}}</p></div>"
+            ]
         };
 
-        setTimeout(function() {
-            var ultraTable = $("#mytable").ultraTable();
-            ultraTable.updateRow({
-                "figure": "568aed9824d6a.jpeg",
-                "name": "Fleximize Squad",
-                "vote": "88",
-                "by": "inTacto",
-                "from": "Argentina",
-                "date": "January 11, 2016"
-            }, 3);
+        window.setInterval(function() {
+            var r = Math.floor(Math.random()*4);
+            rowData[r].vote += Math.floor(Math.random()*5);
+            ultraTable.updateRow(rowData[r], r);
         }, 2000);
     </script>
-
+    <style>
+        p {
+            margin: 10px;
+        }
+    </style>
 </head>
 <body>
 
+<h2>Update row with a <i>pulse</i> effect</h2>
+
+<p>We increase vote by time intervals </p>
+
 <div id="mytable"/>
 
+<pre>
+    <code>
+
+var rowData = [
+    {
+        "figure": "5693b26b0ae6a.jpeg",
+        "name": "Onirim",
+        "vote": 42,
+        "by": "Immersive Garden",
+        "from": "France",
+        "date": "January 22, 2016"
+    }, {
+        "figure": "5692e0a36d132.jpeg",
+        "name": "Jumeirah Inside",
+        "vote": 47,
+        "by": "MediaMonks",
+        "from": "Netherlands",
+        "date": "January 21, 2016"
+    }, {
+        "figure": "568eae5d0eced.jpeg",
+        "name": "Atieva",
+        "vote": 67,
+        "by": "Atieva",
+        "from": "U.S.A.",
+        "date": "January 20, 2016"
+    }, {
+        "figure": "568c839702fb6.jpeg",
+        "name": "Highline: America's Most Admired Lawbreaker",
+        "vote": 51,
+        "by": "Gladeye",
+        "from": "New Zealand",
+        "date": "January 19, 2016"
+    }
+];
+
+
+        var options = {
+            rowUpdateEffect: &quot;pulse&quot;,
+            cellWidth:[300, 300, 100],
+            styles: &quot;burlywood&quot;,
+            rowTemplates: [
+                &quot;&lt;img style=&#39;width: 280px;height: 200px&#39; src=&#39;sub/img/{{figure}}&#39;&gt; &quot;,
+                &quot;&lt;div&gt;&lt;p style=&#39;font-size: 28px;color: #1e6bb8;&#39;&gt;{{name}}&lt;/p&gt;&quot; +
+                &quot;&lt;p&gt;By: {{by}} From: {{from}}&lt;/p&gt;&quot; +
+                &quot;&lt;p&gt;Date: {{date}}&lt;/p&gt;&quot; +
+                &quot;&lt;/div&gt;&quot;,
+                &quot;&lt;div style=&#39;text-align: center&#39;&gt;Votes: &lt;p style=&#39;font-size: 30px; color: brown;&#39;&gt;{{vote}}&lt;/p&gt;&lt;/div&gt;&quot;
+            ]
+        };
+        var ultraTable = $("#mytable").animatedTable(options);
+        ultraTable.data(rowData);
+
+        window.setInterval(function() {
+            var r = Math.floor(Math.random()*4);
+            rowData[r].vote += Math.floor(Math.random()*5);
+            ultraTable.updateRow(rowData[r], r);
+        }, 2000);
+    </code>
+</pre>
 <script>
-    var ultraTable = $("#mytable").ultraTable(options);
+    var ultraTable = $("#mytable").animatedTable(options);
     ultraTable.data(rowData);
 </script>
 

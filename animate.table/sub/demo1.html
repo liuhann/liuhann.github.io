@@ -4,18 +4,13 @@
     <meta charset="UTF-8">
     <title></title>
 
-    <script type="text/javascript" src="../js/jquery.min.js"></script>
-    <script type="text/javascript" src="../js/underscore-min.js"></script>
-    <script type="text/javascript" src="../js/animate.table.js"></script>
-
-    <link rel="stylesheet" type="text/css" href="../style/animations.css">
-    <link rel="stylesheet" type="text/css" href="../style/ultra.css">
-    <link rel="stylesheet" type="text/css" href="../style/theme/red.css">
+    <link rel="stylesheet" type="text/css" href="style/theme/red.css">
 
     <script type="text/javascript">
         var options = {
             headers: ["Exercises","Committed/Uncommitted","Accuracy"],
             headerWidth:["400px", "300px", "80px"],
+            styles:"redhot",
             rows: [
                 ["English exam 5.1 - test","10/10","90%"],
                 ["English exam 5.1 - multiple choice","12/14","66%"],
@@ -36,23 +31,71 @@
                 current: 1,
                 per: 5
             }
-
         };
-
     </script>
 
 </head>
 <body>
 
-<div id="mytable">
+<h2>simplePaging</h2>
 
+
+<div id="mytable">
 
 </div>
 
 
+
+<pre>
+<code>
+
+    &lt;script type=&quot;text/javascript&quot; src=&quot;../js/jquery.min.js&quot;&gt;&lt;/script&gt;
+    &lt;script type=&quot;text/javascript&quot; src=&quot;../js/underscore-min.js&quot;&gt;&lt;/script&gt;
+    &lt;script type=&quot;text/javascript&quot; src=&quot;../js/animate.table.js&quot;&gt;&lt;/script&gt;
+
+    &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;../style/animations.css&quot;&gt;
+    &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;../style/ultra.css&quot;&gt;
+    &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;../style/theme/red.css&quot;&gt;
+
+</code>
+</pre>
+
+<p>Init with the options </p>
+<pre>
+    <code>
+        var options = {
+            headers: ["Exercises","Committed/Uncommitted","Accuracy"],
+            headerWidth:["400px", "300px", "80px"],
+            styles:"redhot",
+            rows: [
+                ["English exam 5.1 - test","10/10","90%"],
+                ["English exam 5.1 - multiple choice","12/14","66%"],
+                ["English exam 5.3 - multiple choice","8/10","15%"],
+                ["English exam 6.1 - multiple choice","9/10","21%"],
+                ["Grammar - assorted questions 1","10/10","80%"],
+                ["Test - choose the best answer","2/5","80%"],
+                ["Beginners esl exercises","5/10","100%"],
+                ["Beginners esl exercises 8","10/10","100%"],
+                ["Beginners esl exercises 9","10/10","50%"],
+                ["Grammar - assorted questions 1","10/10","80%"],
+                ["Test - choose the best answer","2/5","80%"],
+                ["Beginners esl exercises","5/10","100%"],
+                ["Beginners esl exercises 8","10/10","100%"],
+                ["Beginners esl exercises 9","10/10","50%"]
+            ],
+            page: {
+                current: 1,
+                per: 5
+            }
+        };
+        $("#mytable").animatedTable(options);
+    </code>
+
+</pre>
+
 <script>
 
-    $("#mytable").ultraTable(options);
+    $("#mytable").animatedTable(options);
 
 </script>
 

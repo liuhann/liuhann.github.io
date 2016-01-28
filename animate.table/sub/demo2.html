@@ -4,21 +4,13 @@
     <meta charset="UTF-8">
     <title></title>
 
-    <script type="text/javascript" src="../js/jquery.min.js"></script>
-    <script type="text/javascript" src="../js/underscore-min.js"></script>
-    <script type="text/javascript" src="../js/roma.js"></script>
-
-    <link rel="stylesheet" type="text/css" href="../style/animations.css">
-
-
-    <link rel="stylesheet" type="text/css" href="../style/ultra.css">
-    <link rel="stylesheet" type="text/css" href="../style/theme/red.css">
-
+    <link rel="stylesheet" type="text/css" href="style/theme/red.css">
 
     <script type="text/javascript">
         var options = {
             headers: ["Exercises","Committed/Uncommitted","Accuracy"],
             headerWidth:["300px", "200px", "80px"],
+            styles:"redhot",
             rows: [
                 {
                     id: "1",
@@ -62,7 +54,7 @@
 
 
         function appendRow(index) {
-            var ultraTable = $("#mytable").ultraTable();
+            var ultraTable = $("#mytable").animatedTable();
             ultraTable.insertRow( {
                 id: "4",
                 name: "Grammar - assorted questions 1",
@@ -76,19 +68,107 @@
 </head>
 <body>
 
+
+<h2>Append and insert row</h2>
+
 <div id="mytable">
 
-
 </div>
 
+<style>
+    a.btn {
+        margin: 10px;
+        padding: 10px;
+        font-size: 18px;
+        cursor: pointer;
+        color: #1e6bb8;
+    }
+
+</style>
 <div  class="test">
     <a class="btn" onclick="appendRow();">Append Row</a>
-    <a class="btn" onclick="appendRow(3);">Insert Row</a>
+    <a class="btn" onclick="appendRow(3);">Insert Row At 3rd lines</a>
 </div>
+
+<pre>
+<code>
+
+    &lt;script type=&quot;text/javascript&quot; src=&quot;../js/jquery.min.js&quot;&gt;&lt;/script&gt;
+    &lt;script type=&quot;text/javascript&quot; src=&quot;../js/underscore-min.js&quot;&gt;&lt;/script&gt;
+    &lt;script type=&quot;text/javascript&quot; src=&quot;../js/animate.table.js&quot;&gt;&lt;/script&gt;
+
+    &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;../style/animations.css&quot;&gt;
+    &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;../style/ultra.css&quot;&gt;
+    &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;../style/theme/red.css&quot;&gt;
+
+</code>
+</pre>
+
+<p>Init with the options </p>
+<pre>
+    <code>
+        var options = {
+            headers: ["Exercises","Committed/Uncommitted","Accuracy"],
+            headerWidth:["300px", "200px", "80px"],
+            rows: [
+                {
+                    id: "1",
+                    name: "English exam 5.1 - test",
+                    commited: 10,
+                    total: 12,
+                    right: 8
+                },
+                {
+                    id: "2",
+                    name: "English exam 5.1 - multiple choice",
+                    commited: 7,
+                    total: 12,
+                    right: 5
+                },
+                {
+                    id: "3",
+                    name: "English exam 5.3 - multiple choice",
+                    commited: 5,
+                    total: 5,
+                    right: 4
+                },
+                {
+                    id: "4",
+                    name: "Grammar - assorted questions 1",
+                    commited: 7,
+                    total: 12,
+                    right: 7
+                }
+            ],
+            page: {
+                current: 1,
+                per: 8
+            },
+            rowTemplates: [
+                "{{name}}","<span>{{commited}}</span>/<span>{{total}}</span>","{{Math.floor(100*right/commited)}}%"
+            ],
+            pageEntranceAnimation: "pt-page-scaleUp",
+            pageExistAnimation: "pt-page-rotatePushLeft"
+        };
+
+
+        function appendRow(index) {
+            var ultraTable = $("#mytable").animatedTable();
+            ultraTable.insertRow( {
+                id: "4",
+                name: "Grammar - assorted questions 1",
+                commited: 7,
+                total: Math.floor(Math.random()*100),
+                right: 7
+            }, index);
+            }
+    </code>
+
+</pre>
 
 <script>
 
-    var ultraTable = $("#mytable").ultraTable(options);
+    var ultraTable = $("#mytable").animatedTable(options);
 
 </script>
 

@@ -316,13 +316,19 @@
                         $(oldAnims).addClass("cell-banned").addClass(options.pageExistAnimation).on(ANIMATION_END_EVENT_NAMES, function(){
                         $(this).remove();
                     }));
-                    $(newAnims[i]).addClass(options.pageEntranceAnimation);
+                    $(newAnims[i]).addClass(options.pageEntranceAnimation).on(ANIMATION_END_EVENT_NAMES, function(){
+                        $(this).off(ANIMATION_END_EVENT_NAMES);
+                        $(this).removeClass(options.pageEntranceAnimation);
+                    });
                 }
 
                 cell.replaceWith(newClone);
             } else {
                 resetRowContent(cell, rowData);
-                cell.addClass(options.rowUpdateEffect);
+                cell.addClass(options.rowUpdateEffect).on(ANIMATION_END_EVENT_NAMES, function(){
+                    $(this).off(ANIMATION_END_EVENT_NAMES);
+                    $(this).removeClass(options.rowUpdateEffect);
+                });
             }
         }
 

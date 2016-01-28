@@ -1,0 +1,39 @@
+body {
+  font-size: 12px;
+}
+
+.burlywood {
+  .ultra-header {
+    .ultra-cell {
+      padding: 8px 10px;
+    }
+  }
+  .ultra-body {
+    .ultra-row {
+      .ultra-cell {
+        border-bottom: 1px solid burlywood;
+        padding: 5px;
+      }
+      &:first-child {
+        .ultra-cell {
+          border-top: 1px solid burlywood;
+        }
+      }
+    }
+  }
+
+  .pagination {
+    height: 50px;
+    ul.numbers {
+      li {
+        border: 1px solid burlywood;
+        &.current {
+          background-color: #de8714;
+          color: #fff;
+        }
+      }
+    }
+  }
+
+
+}

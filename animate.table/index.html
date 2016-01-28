@@ -12,34 +12,56 @@
 
     <link rel="stylesheet" type="text/css" href="style/animations.css">
     <link rel="stylesheet" type="text/css" href="style/ultra.css">
-    <link rel="stylesheet" type="text/css" href="style/theme/monster.css">
 
     <script type="text/javascript">
         var menu = [
+            {
+                title: "Download&Install",
+                style: ""
+            },
             {
                 title: "Get started",
                 style: "",
                 url: "sub/getstarted.html"
             },
             {
-                title: "Download",
+                title: "Options & API",
+                style: "",
                 style: ""
             },
             {
                 title: "Animation Selector",
+                style: "",
                 url: "sub/animation-selector.html"
             },
             {
-                title: "Options & API",
+                title: "Html structure and styling",
+                style: "",
                 style: ""
             },
             {
                 title: "Demos",
+                style: "",
                 style: ""
             },
             {
-                title: "simple table",
-                style: "sub"
+                title: "Basic table",
+                style: "sub",
+                url: "sub/demo1.html"
+            }, {
+                title: "Append and insert row",
+                style: "sub",
+                url: "sub/demo2.html"
+            },
+            {
+                title: "Using row template",
+                style: "sub",
+                url: "sub/demo3.html"
+            },
+            {
+                title: "Row update with animation",
+                style: "sub",
+                url: "sub/row-animation.html"
             }
         ];
     </script>
@@ -66,7 +88,7 @@
                 </div>
                 <ul>
                     <li>Download</li>
-                    <li>Github</li>
+                    <li><a href="https://github.com/liuhann/animate.table">Github</a></li>
                 </ul>
             </div>
         </div>
@@ -82,10 +104,9 @@
     </div>
 <script language="javascript">
     $("#nav-table").animatedTable({
-        rowTemplates: ["<a >{{title}}</a>"]
+        rowTemplates: ["<a class='{{style}}'>{{title}}</a>"]
     }).rowAdded(function(row, rowData, index, rowsData) {
         $(row).click(function() {
-            $("body").addClass("min");
             $("#content").load(rowData.url);
         })
     }).data(menu);
