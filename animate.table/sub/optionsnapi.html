@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="style/theme/burlywood.css">
+
+    <script type="text/javascript">
+        var optionsData = [
+            {
+                key: "styles",
+                desc: "the class name added to your container"
+            }, {
+                key: "headers",
+                desc: "An array of string/html for header of table"
+            }, {
+                key: "headerWidth",
+                desc: "An array of number for header widths"
+            }, {
+                key: "rowTemplates",
+                desc: "An array of template for the row cells. You can use <a href='http://underscorejs.org/#template' target='_blank'> underscore  template</a>,and the default template interpolate setting is {{field}}"
+            }, {
+                key: "pageEntranceWithHeader",
+                desc: "Add the same effect for header. the default value is true"
+            }, {
+                key: "pageEntranceCellDelay",
+                desc: "Set each row effects delay million seconds.The default value is 40. ex. the second row play animation with a delay of 40ms,and the third is 80ms,and so on.."
+            }, {
+                key: "pageEntranceAnimation",
+                desc: "Row begin drawing effects。Default is 'pt-page-moveFromLeft'， You can use <a href='index.html?sub=sub/animation-selector.html'>animation selector page</a>  "
+            }, {
+                key: "pageExistAnimation",
+                desc: "Row destory(when paging) effects。Default is 'pt-page-rotatePushLeft'"
+            }, {
+                key: "rowUpdateEffect",
+                desc: "Row date update effects. Default is 'pulse'. "
+            }, {
+                key: "rowUpdateSelector",
+                desc: "When row updated, specify the inner element to have a update effect by css selector "
+            }, {
+                key: "bodyHeight",
+                desc: "The table content body height. most of the animation require this to be set"
+            }, {
+                key: "bodyWidth",
+                desc: "The table content body width. most of the animation require this to be set"
+            }, {
+                key: "rows",
+                desc: "The rows data array."
+            }
+        ];
+
+        var apiData = [
+            {
+                method: "data(rowsData[Array])",
+                desc: "reset the table data, if rowData is undefined, then return the table data."
+            },
+            {
+                method: "insertRow(rowData[Object], index[int])",
+                desc: "insert a row to the table. if index is null, then row is appended to the table"
+            }, {
+                method: "rowAdded(callback[function])",
+                desc: "Callback when row is added. the callback param is  (row[HTMLElement], rowData[Object], index[int], rowsData[Array])"
+            }, {
+                method: "clear()",
+                desc: "Clear the table data"
+            }, {
+                method: "updateRow(rowData[Object], index[int])",
+                desc: "update a row with row index"
+            }, {
+                method: "getDisplayedRowsData()",
+                desc: "Get current displayed rows data, return a Array of data"
+            }
+        ]
+    </script>
+
+</head>
+<body>
+
+<h2>Options and API</h2>
+
+<h3>Options</h3>
+<div id="options">
+
+</div>
+
+<h3>API</h3>
+
+<p>To get the animate table object use </p>
+<pre>
+    <code>
+        var animatedTable = $("#yourtable").animatedTable();
+        animatedTable.data();
+    </code>
+
+</pre>
+<div id="apis">
+
+</div>
+
+<script>
+    $("#options").animatedTable({
+        headers: ["Option","Description"],
+        headerWidth:["200px", "600px"],
+        styles:"burlywood",
+        pageEntranceAnimation: "pt-page-scaleUp",
+        rows: optionsData
+    });
+    $("#apis").animatedTable({
+        headers: ["method","Description"],
+        headerWidth:["300px", "500px"],
+        styles:"burlywood",
+        pageEntranceAnimation: "pt-page-scaleUp",
+        rows: apiData
+    });
+</script>
+
+
+
+</body>
+</html>

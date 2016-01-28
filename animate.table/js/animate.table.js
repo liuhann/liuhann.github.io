@@ -13,7 +13,6 @@
             headerTemplate: "<div>{{data}}</div>",
             page: null,
             headerWidth: [],
-            dataWidth:null,
             rowTemplates: null,
             pageEntranceWithHeader: true,
             pageEntranceCellDelay: 40,
@@ -273,6 +272,7 @@
 
 
         function setData(rows) {
+            if (!rows) return rowsData;
             rowsData = rows;
             if (options.page) {
                 if(!options.page.current)  options.page.current = 1;

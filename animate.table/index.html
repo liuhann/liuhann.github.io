@@ -14,10 +14,16 @@
     <link rel="stylesheet" type="text/css" href="style/ultra.css">
 
     <script type="text/javascript">
+
+        $.urlParam = function(name){
+            var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
+            return results[1] || 0;
+        }
+
         var menu = [
             {
                 title: "Download&Install",
-                style: ""
+                style: "download.html"
             },
             {
                 title: "Get started",
@@ -27,7 +33,7 @@
             {
                 title: "Options & API",
                 style: "",
-                style: ""
+                url: "sub/optionsnapi.html"
             },
             {
                 title: "Animation Selector",
@@ -37,12 +43,12 @@
             {
                 title: "Html structure and styling",
                 style: "",
-                style: ""
+                url: "sub/htmlstructure.html"
             },
             {
                 title: "Demos",
                 style: "",
-                style: ""
+                url: ""
             },
             {
                 title: "Basic table",
@@ -79,7 +85,7 @@
             <div class="btngroup">
                 <button>GET STARTED</button>
                 <button class="smaller">HOW WE ANIMATED</button>
-                <button>DOWNLOAD</button>
+                <button ><a href="https://codeload.github.com/liuhann/animate.table/zip/master">DOWNLOAD</a></button>
             </div>
 
             <div class="min-header">
@@ -87,7 +93,7 @@
                     <span class="extra">animate</span>.<span class="title">table</span>
                 </div>
                 <ul>
-                    <li>Download</li>
+                    <li><a href="https://codeload.github.com/liuhann/animate.table/zip/master">Download</a></li>
                     <li><a href="https://github.com/liuhann/animate.table">Github</a></li>
                 </ul>
             </div>
@@ -108,11 +114,34 @@
     }).rowAdded(function(row, rowData, index, rowsData) {
         $(row).click(function() {
             $("#content").load(rowData.url);
+            if(window.intevals) {
+                window.clearInterval(window.intevals);
+                window.intevals = null;
+            }
         })
     }).data(menu);
 
     $(function() {
-        $("#content").load("sub/getstarted.html");
+        var getUrlParameter = function getUrlParameter(sParam) {
+            var sPageURL = decodeURIComponent(window.location.search.substring(1)),
+                    sURLVariables = sPageURL.split('&'),
+                    sParameterName,
+                    i;
+
+            for (i = 0; i < sURLVariables.length; i++) {
+                sParameterName = sURLVariables[i].split('=');
+
+                if (sParameterName[0] === sParam) {
+                    return sParameterName[1] === undefined ? true : sParameterName[1];
+                }
+            }
+        };
+
+        if (getUrlParameter("sub")) {
+            $("#content").load(getUrlParameter("sub"));
+        } else {
+            $("#content").load("sub/getstarted.html");
+        }
     });
 </script>
 </body>
