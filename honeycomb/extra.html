@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+
+<meta name="format-detection" content="telephone=no" />
+<meta name="msapplication-tap-highlight" content="no" />
+<!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+
+<title>蜂巢知识图</title>
+<script type="text/javascript" src="js/jquery-2.1.0.min.js"></script>
+<script type="text/javascript" src="js/jquery.transit.min.js"></script>
+
+<style type="text/css">
+
+.honeycomb {
+  position: absolute;
+  left: 100px;
+  top: 50px;
+}
+.honeycomb.yellow .bktop {
+  background-color: #FFE318;
+}
+.honeycomb.yellow .bkleft {
+  background-color: #FFCE18;
+}
+.honeycomb.yellow .bkright {
+background-color: #FFCE18;
+}
+
+.honeycomb .bktop {
+/*
+  ---ms-transform: rotate(-30deg) skew(30deg);
+  ---moz-transform: rotate(-30deg) skew(30deg);
+  -webkit-transform:  rotate(-30deg) skew(30deg);
+  */
+  width: 88px;
+  height: 79px;
+}
+
+
+.honeycomb .bkleft {
+	width: 88px;
+	height: 79px;
+	/*
+	---ms-transform: rotate(90deg) skew(-30deg) translate(10px,39px);
+	---moz-transform: rotate(90deg) skew(-30deg) translate(10px,39px);
+	-webkit-transform: rotate(90deg) skew(-30deg) translate(10px,39px);
+	*/
+}
+
+.honeycomb .bkright{
+  width: 88px;
+  height: 79px;
+  /*
+  -ms-transform: rotate(90deg) skew(30deg) translate(-67px,-41px);
+  -moz-transform: rotate(90deg) skew(30deg) translate(-67px,-41px);
+  -webkit-transform: rotate(90deg) skew(30deg) translate(-67px,-41px);
+  */
+}
+
+
+</style>
+
+
+<script type="text/javascript">
+
+var sea1 = [
+    		{
+    			"left": 462,
+    			"top": 164,
+    			"type": "yellow",
+    			"contnet": "听"
+    		},
+    		{
+    			left: 622,
+    			"top": 164,
+    			"type": "orange",
+    			"content": "说"
+    		},
+    		{
+    			left: 382,
+    			"top": 297,
+    			"type": "red",
+    			"content": "语"
+    		},
+    		{
+    			left: 702,
+    			"top": 300,
+    			"type": "red",
+    			"content": "读"
+    		},
+    		{
+    			left: 463,
+    			"top": 433,
+    			"type": "yellow",
+    			"content": "词"
+    		},
+    		{
+    			left: 623,
+    			"top": 434,
+    			"type": "orange",
+    			"content": "写"
+    		}
+    	];
+    	
+
+$(document).ready(function() {
+	resetData();
+	bindData(sea1, fallDown);
+});
+
+function resetData() {
+	for (var i = 0; i < sea1.length; i++) {
+		sea1[i].left = sea1[i].left-380 + $(window).width()/2 - 200;
+	}
+	/*
+	for (var i = 0; i < sea2.length; i++) {
+		sea2[i].left = sea2[i].left-300 + $(window).width()/2 - 280;
+	}
+	*/
+}
+
+function bindData(data, cb) {
+	$(".honeycomb").remove();
+	for(var i=0; i<data.length; i++) {
+		var n = $('<div class="honeycomb"><div class="bktop"></div><div class="bkleft"></div><div class="bkright"></div><div class="content">听</div></div>')
+		n.find(".content").html(data[i].content);
+		n.addClass(data[i].type);
+		n.css("left", data[i].left);
+		n.css("top", data[i].top);
+		$("body").append(n);
+	}
+	cb();
+}
+
+function fallDown() {
+		
+	$(".honeycomb .bktop").each(function() {
+		$(this).transition({
+			rotate : "-30deg",
+			skewX : "30deg",
+			duration: 3000
+		});
+	});
+	
+	$(".honeycomb .bkright").each(function() {
+		$(this).transition({
+			rotate : "90deg",
+			skewX : "30deg",
+			x: "-67px",
+			y	: "-41px",
+			duration: 3000
+		});
+	});
+
+	$(".honeycomb .bkleft").each(function() {
+		$(this).transition({
+			rotate : "90deg",
+			skewX : "-30deg",
+			x: "10px",
+			y	: "39px",
+			duration: 3000
+		});
+	});
+	$(".honeycomb").css("transform", " translate(0, -400px)");
+	$(".honeycomb").transition({ y: 40 , duration: 3000})
+	.transition({scale: 1.5}, 1000, 'easeOutCubic')
+	.transition({scale: 1}, 300, 'easeOutCubic')
+};
+
+</script>
+</head>
+<body>
+
+  <div class="honeycomb yellow">
+    <div class="bktop">bktop</div>
+    <div class="bkleft">bkleft</div>
+    <div class="bkright">bkright</div>
+  </div>
+  
+  
+
+</body>
+</html>
