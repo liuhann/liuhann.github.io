@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HoneyComb Player</title>
+    <script type="text/javascript" src="js/jquery-2.1.0.min.js"></script>
+    <script type="text/javascript" src="js/jquery.ddslick.js"></script>
+    <script type="text/javascript" src="js/d3.min.js"></script>
+    <script type="text/javascript" src="js/honeycomb.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/maker.css">
+    <link rel="stylesheet" type="text/css" href="css/animate.css">
+    <style>
+        body {
+            overflow: hidden;
+        }
+    </style>
+    <script>
+        $(function () {
+            var data  = JSON.parse(sessionStorage.getItem("me"));
+            //var data = [{"key":"4-1","left":"15.088171035109752%","top":"20.331890331890328%","width":"11.190847750201511%","height":"22.97258297258297%","title":"ssdfsd","desc":"sfdsdf","img":"img/h8.png","titlefont":0.1,"descfont":0.06,"enterdelay":"0","entrance":"pulse"},{"key":4,"left":"20.95145205306765%","top":"38.513708513708515%","width":"11.190847750201511%","height":"22.97258297258297%","title":"","desc":"","img":"img/h1.png","titlefont":0.1,"descfont":0.06,"enterdelay":0}];
+            var hc = new HoneyComber('body');
+            hc.setData(data);
+            hc.play();
+        })
+    </script>
+</head>
+<body>
+
+
+</body>
+</html>

@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HoneyComb Maker</title>
+    <script type="text/javascript" src="js/jquery-2.1.0.min.js"></script>
+    <script type="text/javascript" src="js/underscore.js"></script>
+    <script type="text/javascript" src="js/jquery.ddslick.js"></script>
+    <script type="text/javascript" src="js/honeycomb.js"></script>
+    <script type="text/javascript" src="js/d3.min.js"></script>
+    <script type="text/javascript" src="js/maker.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/maker.css">
+    <link rel="stylesheet" type="text/css" href="css/animate.css">
+</head>
+<body>
+
+<div class="content">
+    <div class="ratios" >
+        <span>SCREEN RATIOS : <select id="ratios">
+            <option value="r169">16:9(1920x1080)</option>
+            <option value="r1610">16:10(1280x720)</option>
+            <option value="r43">4:3(1024x768)</option>
+        </select>
+        </span>
+        <span>
+            Lines
+            <select id="lines">
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+            </select>
+        </span>
+        <span><input id="odd" type="checkbox" checked>Center</span>
+
+        <span class="play"> <a onclick="honeycomber.preview();">PLAY!</a></span>
+    </div>
+
+    <div class="screen r169">
+    </div>
+
+    <div class="hexconfig">
+        <div>
+            <span>Title</span>
+            <input type="text" class="title blur">
+            <p>Font <input type="number" class="font titlefont blur"> % </p>
+        </div>
+        <div>
+            <span>Description</span>
+            <input type="text" class="desc blur">
+            <p>Font <input type="number"  class="font descfont blur"> % </p>
+        </div>
+
+        <div>
+            <span>Background</span>
+            <div id="hexselect"></div>
+        </div>
+        <div>
+            <span>Entrance</span>
+            <select class="input input--dropdown js--animations">
+            <optgroup label="Attention Seekers">
+                <option value="bounce">bounce</option>
+                <option value="flash">flash</option>
+                <option value="pulse">pulse</option>
+                <option value="rubberBand">rubberBand</option>
+                <option value="shake">shake</option>
+                <option value="swing">swing</option>
+                <option value="tada">tada</option>
+                <option value="wobble">wobble</option>
+                <option value="jello">jello</option>
+            </optgroup>
+
+            <optgroup label="Bouncing Entrances">
+                <option value="bounceIn">bounceIn</option>
+                <option value="bounceInDown">bounceInDown</option>
+                <option value="bounceInLeft">bounceInLeft</option>
+                <option value="bounceInRight">bounceInRight</option>
+                <option value="bounceInUp">bounceInUp</option>
+            </optgroup>
+
+            <optgroup label="Bouncing Exits">
+                <option value="bounceOut">bounceOut</option>
+                <option value="bounceOutDown">bounceOutDown</option>
+                <option value="bounceOutLeft">bounceOutLeft</option>
+                <option value="bounceOutRight">bounceOutRight</option>
+                <option value="bounceOutUp">bounceOutUp</option>
+            </optgroup>
+
+            <optgroup label="Fading Entrances">
+                <option value="fadeIn">fadeIn</option>
+                <option value="fadeInDown">fadeInDown</option>
+                <option value="fadeInDownBig">fadeInDownBig</option>
+                <option value="fadeInLeft">fadeInLeft</option>
+                <option value="fadeInLeftBig">fadeInLeftBig</option>
+                <option value="fadeInRight">fadeInRight</option>
+                <option value="fadeInRightBig">fadeInRightBig</option>
+                <option value="fadeInUp">fadeInUp</option>
+                <option value="fadeInUpBig">fadeInUpBig</option>
+            </optgroup>
+
+            <optgroup label="Fading Exits">
+                <option value="fadeOut">fadeOut</option>
+                <option value="fadeOutDown">fadeOutDown</option>
+                <option value="fadeOutDownBig">fadeOutDownBig</option>
+                <option value="fadeOutLeft">fadeOutLeft</option>
+                <option value="fadeOutLeftBig">fadeOutLeftBig</option>
+                <option value="fadeOutRight">fadeOutRight</option>
+                <option value="fadeOutRightBig">fadeOutRightBig</option>
+                <option value="fadeOutUp">fadeOutUp</option>
+                <option value="fadeOutUpBig">fadeOutUpBig</option>
+            </optgroup>
+
+            <optgroup label="Flippers">
+                <option value="flip">flip</option>
+                <option value="flipInX">flipInX</option>
+                <option value="flipInY">flipInY</option>
+                <option value="flipOutX">flipOutX</option>
+                <option value="flipOutY">flipOutY</option>
+            </optgroup>
+
+            <optgroup label="Lightspeed">
+                <option value="lightSpeedIn">lightSpeedIn</option>
+                <option value="lightSpeedOut">lightSpeedOut</option>
+            </optgroup>
+
+            <optgroup label="Rotating Entrances">
+                <option value="rotateIn">rotateIn</option>
+                <option value="rotateInDownLeft">rotateInDownLeft</option>
+                <option value="rotateInDownRight">rotateInDownRight</option>
+                <option value="rotateInUpLeft">rotateInUpLeft</option>
+                <option value="rotateInUpRight">rotateInUpRight</option>
+            </optgroup>
+
+            <optgroup label="Rotating Exits">
+                <option value="rotateOut">rotateOut</option>
+                <option value="rotateOutDownLeft">rotateOutDownLeft</option>
+                <option value="rotateOutDownRight">rotateOutDownRight</option>
+                <option value="rotateOutUpLeft">rotateOutUpLeft</option>
+                <option value="rotateOutUpRight">rotateOutUpRight</option>
+            </optgroup>
+
+            <optgroup label="Sliding Entrances">
+                <option value="slideInUp">slideInUp</option>
+                <option value="slideInDown">slideInDown</option>
+                <option value="slideInLeft">slideInLeft</option>
+                <option value="slideInRight">slideInRight</option>
+
+            </optgroup>
+            <optgroup label="Sliding Exits">
+                <option value="slideOutUp">slideOutUp</option>
+                <option value="slideOutDown">slideOutDown</option>
+                <option value="slideOutLeft">slideOutLeft</option>
+                <option value="slideOutRight">slideOutRight</option>
+
+            </optgroup>
+
+            <optgroup label="Zoom Entrances">
+                <option value="zoomIn">zoomIn</option>
+                <option value="zoomInDown">zoomInDown</option>
+                <option value="zoomInLeft">zoomInLeft</option>
+                <option value="zoomInRight">zoomInRight</option>
+                <option value="zoomInUp">zoomInUp</option>
+            </optgroup>
+
+            <optgroup label="Zoom Exits">
+                <option value="zoomOut">zoomOut</option>
+                <option value="zoomOutDown">zoomOutDown</option>
+                <option value="zoomOutLeft">zoomOutLeft</option>
+                <option value="zoomOutRight">zoomOutRight</option>
+                <option value="zoomOutUp">zoomOutUp</option>
+            </optgroup>
+
+            <optgroup label="Specials">
+                <option value="hinge">hinge</option>
+                <option value="rollIn">rollIn</option>
+                <option value="rollOut">rollOut</option>
+            </optgroup>
+        </select>
+            <p>Delay <input type="text" class="font enter_delay blur"> s</p>
+        </div>
+        <div>
+            <a class="oper" onclick="honeycomber.saveEdit()">UPDATE</a>
+            <a class="oper" onclick="honeycomber.deleteEdit()">DELETE</a>
+        </div>
+    </div>
+
+    <!--
+    <div class="slogan" style="font-size: 12px; margin: 0 auto; display: flex;flex-direction: row;-webkit-flex-align: center;">
+        <style>
+            .slogan polygon, rect {
+                pointer-events: visiblePainted;
+                fill: hsl(60, 10%, 95%);
+                stroke: hsl(0, 0%, 70%);
+                stroke-width: 0.5;
+            }
+            .slogan path {
+                fill: none;
+                stroke-dasharray: 4, 3;
+                stroke-width: 1px;
+                stroke: hsl(0, 0%, 75%);
+            }
+            .slogan svg {
+                pointer-events: visiblePainted;
+                -webkit-user-select: none;
+                -moz-user-select: none;
+                user-select: none;
+                overflow: hidden;
+            }
+            .slogan line {
+                color: hsl(200, 100%, 35%);
+                stroke: hsl(200, 100%, 45%);
+                stroke-width: 2px;
+            }
+            #grid-comparison path {
+                stroke-dasharray: initial;
+                fill: hsl(200, 50%, 45%);
+                fill-opacity: 0.5;
+                stroke-opacity: 0.5;
+                color: hsl(200, 100%, 35%);
+                stroke: hsl(200, 100%, 45%);
+                stroke-width: 2px;
+            }
+        </style>
+        <svg id="hexagon-angles" width="260" height="260"><g class="tile"><polygon points="107.500,0.000 53.750,93.098 -53.750,93.098 -107.500,0.000 -53.750,-93.098 53.750,-93.098" transform="translate(130,130), rotate(-30)"></polygon></g><path fill="none" stroke-dasharray="4,3" stroke-width="1" stroke="hsl(0, 0%, 50%)" d="M 223.09773090682717,76.25 L 130,130 L 223.09773090682717,183.75"></path><text transform="translate(171.89397890807226,95.0625) translate(0, 4)">size</text><text transform="translate(171.89397890807226,164.9375) translate(0, 4)">size</text><text transform="translate(232.4075039975099,130) translate(0, 4)">size</text><text transform="translate(213.78795781614446,92.375) translate(0, 4)">60°</text><text transform="translate(213.78795781614446,167.625) translate(0, 4)">60°</text><text transform="translate(148.61954618136542,130) translate(0, 4)">60°</text><text transform="translate(130,221.375) translate(0, 4)">120°</text><text class="exterior-angle" transform="translate(232.40750399750988,70.875) translate(0, 4)">330°</text><text class="exterior-angle" transform="translate(232.40750399750988,189.125) translate(0, 4)">30°</text><text class="exterior-angle" transform="translate(130,248.25) translate(0, 4)">90°</text><text class="exterior-angle" transform="translate(27.59249600249011,189.125) translate(0, 4)">150°</text><text class="exterior-angle" transform="translate(27.59249600249011,70.87500000000003) translate(0, 4)">210°</text><text class="exterior-angle" transform="translate(129.99999999999997,11.749999999999986) translate(0, 4)">270°</text></svg>
+        <svg style="float: left;" id="hexagon-spacing" width="500" height="330"><g class="tile" transform="translate(139.28203230275508,240)"><polygon points="80.000,0.000 40.000,69.282 -40.000,69.282 -80.000,0.000 -40.000,-69.282 40.000,-69.282" transform="rotate(-30)"></polygon><circle class="marker" r="4"></circle></g><g class="tile" transform="translate(208.56406460551017,120)"><polygon points="80.000,0.000 40.000,69.282 -40.000,69.282 -80.000,0.000 -40.000,-69.282 40.000,-69.282" transform="rotate(-30)"></polygon><circle class="marker" r="4"></circle></g><g class="tile" transform="translate(277.8460969082653,240)"><polygon points="80.000,0.000 40.000,69.282 -40.000,69.282 -80.000,0.000 -40.000,-69.282 40.000,-69.282" transform="rotate(-30)"></polygon><circle class="marker" r="4"></circle></g><g class="tile" transform="translate(347.12812921102034,120)"><polygon points="80.000,0.000 40.000,69.282 -40.000,69.282 -80.000,0.000 -40.000,-69.282 40.000,-69.282" transform="rotate(-30)"></polygon><circle class="marker" r="4"></circle></g><g class="grid-horizontal" transform="translate(70,40)"><path d="M -20 0 L 346.4101615137754 0"></path><text transform="translate(-30, 4)">0h</text></g><g class="grid-horizontal" transform="translate(70,80)"><path d="M -20 0 L 346.4101615137754 0"></path><text transform="translate(-30, 4)">¼h</text></g><g class="grid-horizontal" transform="translate(70,120)"><path d="M -20 0 L 346.4101615137754 0"></path><text transform="translate(-30, 4)">½h</text></g><g class="grid-horizontal" transform="translate(70,160)"><path d="M -20 0 L 346.4101615137754 0"></path><text transform="translate(-30, 4)">¾h</text></g><g class="grid-horizontal" transform="translate(70,200)"><path d="M -20 0 L 346.4101615137754 0"></path><text transform="translate(-30, 4)">1h</text></g><g class="grid-horizontal" transform="translate(70,240)"><path d="M -20 0 L 346.4101615137754 0"></path><text transform="translate(-30, 4)">1¼h</text></g><g class="grid-horizontal" transform="translate(70,280)"><path d="M -20 0 L 346.4101615137754 0"></path><text transform="translate(-30, 4)">1½h</text></g><g class="grid-horizontal" transform="translate(70,320)"><path d="M -20 0 L 346.4101615137754 0"></path><text transform="translate(-30, 4)">1¾h</text></g><g class="grid-vertical" transform="translate(70,40)"><path d="M 0 -20 L 0 280"></path><text transform="translate(0, -30)">0w</text></g><g class="grid-vertical" transform="translate(139.28203230275508,40)"><path d="M 0 -20 L 0 280"></path><text transform="translate(0, -30)">½w</text></g><g class="grid-vertical" transform="translate(208.56406460551017,40)"><path d="M 0 -20 L 0 280"></path><text transform="translate(0, -30)">1w</text></g><g class="grid-vertical" transform="translate(277.8460969082653,40)"><path d="M 0 -20 L 0 280"></path><text transform="translate(0, -30)">1½w</text></g><g class="grid-vertical" transform="translate(347.12812921102034,40)"><path d="M 0 -20 L 0 280"></path><text transform="translate(0, -30)">2w</text></g><g class="grid-vertical" transform="translate(416.4101615137754,40)"><path d="M 0 -20 L 0 280"></path><text transform="translate(0, -30)">2½w</text></g></svg>
+        <svg id="cube-to-hex" width="375" height="375" data-limit="4"><g transform="translate(184.5, 184.5) rotate(0)"><line class="z-axis" x1="0" y1="200" x2="0" y2="-200"></line><text transform="translate(0,-168) translate(10, 0)">-z</text><text transform="translate(0,180) translate(-10, 0)">+z</text><line class="y-axis" x1="-173.20508075688772" y1="-100" x2="173.20508075688772" y2="100"></line><text transform="translate(155.88457268119896,90) translate(-7, 7)">-y</text><text transform="translate(-155.88457268119896,-90) translate(7, -7)">+y</text><line class="x-axis" x1="173.20508075688772" y1="-100" x2="-173.20508075688772" y2="100"></line><text transform="translate(-155.88457268119896,90) translate(-7, -7)">-x</text><text transform="translate(155.88457268119896,-90) translate(7, 7)">+x</text><g class="cube onscreen"><polygon class="full" points="0,-160 34.64101615137754,-140 34.64101615137754,-100 0,-80 -34.64101615137754,-100 -34.64101615137754,-140"></polygon><polygon class="shade" points="0,-120 34.64101615137754,-140 34.64101615137754,-100 0,-80"></polygon><path d="M 0,-120 L 0,-80 M 0,-120 L -34.64101615137754,-140 M 0,-120 L 34.64101615137754,-140"></path></g><g class="cube onscreen"><polygon class="full" points="34.64101615137754,-100 69.28203230275508,-80 69.28203230275508,-40 34.64101615137754,-20 0,-40 0,-80"></polygon><polygon class="shade" points="34.64101615137754,-60 69.28203230275508,-80 69.28203230275508,-40 34.64101615137754,-20"></polygon><path d="M 34.64101615137754,-60 L 34.64101615137754,-20 M 34.64101615137754,-60 L 0,-80 M 34.64101615137754,-60 L 69.28203230275508,-80"></path></g><g class="cube onscreen"><polygon class="full" points="34.64101615137754,-140 69.28203230275508,-120 69.28203230275508,-80 34.64101615137754,-60 0,-80 0,-120"></polygon><polygon class="shade" points="34.64101615137754,-100 69.28203230275508,-120 69.28203230275508,-80 34.64101615137754,-60"></polygon><path d="M 34.64101615137754,-100 L 34.64101615137754,-60 M 34.64101615137754,-100 L 0,-120 M 34.64101615137754,-100 L 69.28203230275508,-120"></path></g><g class="cube onscreen"><polygon class="full" points="69.28203230275508,-40 103.92304845413263,-20 103.92304845413263,20 69.28203230275508,40 34.64101615137754,20 34.64101615137754,-20"></polygon><polygon class="shade" points="69.28203230275508,0 103.92304845413263,-20 103.92304845413263,20 69.28203230275508,40"></polygon><path d="M 69.28203230275508,0 L 69.28203230275508,40 M 69.28203230275508,0 L 34.64101615137754,-20 M 69.28203230275508,0 L 103.92304845413263,-20"></path></g><g class="cube onscreen"><polygon class="full" points="69.28203230275508,-80 103.92304845413263,-60 103.92304845413263,-20 69.28203230275508,0 34.64101615137754,-20 34.64101615137754,-60"></polygon><polygon class="shade" points="69.28203230275508,-40 103.92304845413263,-60 103.92304845413263,-20 69.28203230275508,0"></polygon><path d="M 69.28203230275508,-40 L 69.28203230275508,0 M 69.28203230275508,-40 L 34.64101615137754,-60 M 69.28203230275508,-40 L 103.92304845413263,-60"></path></g><g class="cube onscreen"><polygon class="full" points="69.28203230275508,-120 103.92304845413263,-100 103.92304845413263,-60 69.28203230275508,-40 34.64101615137754,-60 34.64101615137754,-100"></polygon><polygon class="shade" points="69.28203230275508,-80 103.92304845413263,-100 103.92304845413263,-60 69.28203230275508,-40"></polygon><path d="M 69.28203230275508,-80 L 69.28203230275508,-40 M 69.28203230275508,-80 L 34.64101615137754,-100 M 69.28203230275508,-80 L 103.92304845413263,-100"></path></g><g class="cube onscreen"><polygon class="full" points="103.92304845413263,20 138.56406460551017,40 138.56406460551017,80 103.92304845413263,100 69.28203230275508,80 69.28203230275508,40"></polygon><polygon class="shade" points="103.92304845413263,60 138.56406460551017,40 138.56406460551017,80 103.92304845413263,100"></polygon><path d="M 103.92304845413263,60 L 103.92304845413263,100 M 103.92304845413263,60 L 69.28203230275508,40 M 103.92304845413263,60 L 138.56406460551017,40"></path></g><g class="cube onscreen"><polygon class="full" points="103.92304845413263,-20 138.56406460551017,0 138.56406460551017,40 103.92304845413263,60 69.28203230275508,40 69.28203230275508,0"></polygon><polygon class="shade" points="103.92304845413263,20 138.56406460551017,0 138.56406460551017,40 103.92304845413263,60"></polygon><path d="M 103.92304845413263,20 L 103.92304845413263,60 M 103.92304845413263,20 L 69.28203230275508,0 M 103.92304845413263,20 L 138.56406460551017,0"></path></g><g class="cube onscreen"><polygon class="full" points="103.92304845413263,-60 138.56406460551017,-40 138.56406460551017,0 103.92304845413263,20 69.28203230275508,0 69.28203230275508,-40"></polygon><polygon class="shade" points="103.92304845413263,-20 138.56406460551017,-40 138.56406460551017,0 103.92304845413263,20"></polygon><path d="M 103.92304845413263,-20 L 103.92304845413263,20 M 103.92304845413263,-20 L 69.28203230275508,-40 M 103.92304845413263,-20 L 138.56406460551017,-40"></path></g><g class="cube onscreen"><polygon class="full" points="103.92304845413263,-100 138.56406460551017,-80 138.56406460551017,-40 103.92304845413263,-20 69.28203230275508,-40 69.28203230275508,-80"></polygon><polygon class="shade" points="103.92304845413263,-60 138.56406460551017,-80 138.56406460551017,-40 103.92304845413263,-20"></polygon><path d="M 103.92304845413263,-60 L 103.92304845413263,-20 M 103.92304845413263,-60 L 69.28203230275508,-80 M 103.92304845413263,-60 L 138.56406460551017,-80"></path></g><g class="cube onscreen"><polygon class="full" points="-34.64101615137754,-100 0,-80 0,-40 -34.64101615137754,-20 -69.28203230275508,-40 -69.28203230275508,-80"></polygon><polygon class="shade" points="-34.64101615137754,-60 0,-80 0,-40 -34.64101615137754,-20"></polygon><path d="M -34.64101615137754,-60 L -34.64101615137754,-20 M -34.64101615137754,-60 L -69.28203230275508,-80 M -34.64101615137754,-60 L 0,-80"></path></g><g class="cube onscreen"><polygon class="full" points="-34.64101615137754,-140 0,-120 0,-80 -34.64101615137754,-60 -69.28203230275508,-80 -69.28203230275508,-120"></polygon><polygon class="shade" points="-34.64101615137754,-100 0,-120 0,-80 -34.64101615137754,-60"></polygon><path d="M -34.64101615137754,-100 L -34.64101615137754,-60 M -34.64101615137754,-100 L -69.28203230275508,-120 M -34.64101615137754,-100 L 0,-120"></path></g><g class="cube onscreen"><polygon class="full" points="0,-40 34.64101615137754,-20 34.64101615137754,20 0,40 -34.64101615137754,20 -34.64101615137754,-20"></polygon><polygon class="shade" points="0,0 34.64101615137754,-20 34.64101615137754,20 0,40"></polygon><path d="M 0,0 L 0,40 M 0,0 L -34.64101615137754,-20 M 0,0 L 34.64101615137754,-20"></path></g><g class="cube onscreen"><polygon class="full" points="0,-80 34.64101615137754,-60 34.64101615137754,-20 0,0 -34.64101615137754,-20 -34.64101615137754,-60"></polygon><polygon class="shade" points="0,-40 34.64101615137754,-60 34.64101615137754,-20 0,0"></polygon><path d="M 0,-40 L 0,0 M 0,-40 L -34.64101615137754,-60 M 0,-40 L 34.64101615137754,-60"></path></g><g class="cube onscreen"><polygon class="full" points="0,-120 34.64101615137754,-100 34.64101615137754,-60 0,-40 -34.64101615137754,-60 -34.64101615137754,-100"></polygon><polygon class="shade" points="0,-80 34.64101615137754,-100 34.64101615137754,-60 0,-40"></polygon><path d="M 0,-80 L 0,-40 M 0,-80 L -34.64101615137754,-100 M 0,-80 L 34.64101615137754,-100"></path></g><g class="cube onscreen"><polygon class="full" points="34.64101615137754,20 69.28203230275508,40 69.28203230275508,80 34.64101615137754,100 0,80 0,40"></polygon><polygon class="shade" points="34.64101615137754,60 69.28203230275508,40 69.28203230275508,80 34.64101615137754,100"></polygon><path d="M 34.64101615137754,60 L 34.64101615137754,100 M 34.64101615137754,60 L 0,40 M 34.64101615137754,60 L 69.28203230275508,40"></path></g><g class="cube onscreen"><polygon class="full" points="34.64101615137754,-20 69.28203230275508,0 69.28203230275508,40 34.64101615137754,60 0,40 0,0"></polygon><polygon class="shade" points="34.64101615137754,20 69.28203230275508,0 69.28203230275508,40 34.64101615137754,60"></polygon><path d="M 34.64101615137754,20 L 34.64101615137754,60 M 34.64101615137754,20 L 0,0 M 34.64101615137754,20 L 69.28203230275508,0"></path></g><g class="cube onscreen"><polygon class="full" points="34.64101615137754,-60 69.28203230275508,-40 69.28203230275508,0 34.64101615137754,20 0,0 0,-40"></polygon><polygon class="shade" points="34.64101615137754,-20 69.28203230275508,-40 69.28203230275508,0 34.64101615137754,20"></polygon><path d="M 34.64101615137754,-20 L 34.64101615137754,20 M 34.64101615137754,-20 L 0,-40 M 34.64101615137754,-20 L 69.28203230275508,-40"></path></g><g class="cube onscreen"><polygon class="full" points="34.64101615137754,-100 69.28203230275508,-80 69.28203230275508,-40 34.64101615137754,-20 0,-40 0,-80"></polygon><polygon class="shade" points="34.64101615137754,-60 69.28203230275508,-80 69.28203230275508,-40 34.64101615137754,-20"></polygon><path d="M 34.64101615137754,-60 L 34.64101615137754,-20 M 34.64101615137754,-60 L 0,-80 M 34.64101615137754,-60 L 69.28203230275508,-80"></path></g><g class="cube onscreen"><polygon class="full" points="69.28203230275508,40 103.92304845413263,60 103.92304845413263,100 69.28203230275508,120 34.64101615137754,100 34.64101615137754,60"></polygon><polygon class="shade" points="69.28203230275508,80 103.92304845413263,60 103.92304845413263,100 69.28203230275508,120"></polygon><path d="M 69.28203230275508,80 L 69.28203230275508,120 M 69.28203230275508,80 L 34.64101615137754,60 M 69.28203230275508,80 L 103.92304845413263,60"></path></g><g class="cube onscreen"><polygon class="full" points="69.28203230275508,0 103.92304845413263,20 103.92304845413263,60 69.28203230275508,80 34.64101615137754,60 34.64101615137754,20"></polygon><polygon class="shade" points="69.28203230275508,40 103.92304845413263,20 103.92304845413263,60 69.28203230275508,80"></polygon><path d="M 69.28203230275508,40 L 69.28203230275508,80 M 69.28203230275508,40 L 34.64101615137754,20 M 69.28203230275508,40 L 103.92304845413263,20"></path></g><g class="cube onscreen"><polygon class="full" points="69.28203230275508,-40 103.92304845413263,-20 103.92304845413263,20 69.28203230275508,40 34.64101615137754,20 34.64101615137754,-20"></polygon><polygon class="shade" points="69.28203230275508,0 103.92304845413263,-20 103.92304845413263,20 69.28203230275508,40"></polygon><path d="M 69.28203230275508,0 L 69.28203230275508,40 M 69.28203230275508,0 L 34.64101615137754,-20 M 69.28203230275508,0 L 103.92304845413263,-20"></path></g><g class="cube onscreen"><polygon class="full" points="69.28203230275508,-80 103.92304845413263,-60 103.92304845413263,-20 69.28203230275508,0 34.64101615137754,-20 34.64101615137754,-60"></polygon><polygon class="shade" points="69.28203230275508,-40 103.92304845413263,-60 103.92304845413263,-20 69.28203230275508,0"></polygon><path d="M 69.28203230275508,-40 L 69.28203230275508,0 M 69.28203230275508,-40 L 34.64101615137754,-60 M 69.28203230275508,-40 L 103.92304845413263,-60"></path></g><g class="cube onscreen"><polygon class="full" points="-69.28203230275508,-40 -34.64101615137754,-20 -34.64101615137754,20 -69.28203230275508,40 -103.92304845413263,20 -103.92304845413263,-20"></polygon><polygon class="shade" points="-69.28203230275508,0 -34.64101615137754,-20 -34.64101615137754,20 -69.28203230275508,40"></polygon><path d="M -69.28203230275508,0 L -69.28203230275508,40 M -69.28203230275508,0 L -103.92304845413263,-20 M -69.28203230275508,0 L -34.64101615137754,-20"></path></g><g class="cube onscreen"><polygon class="full" points="-69.28203230275508,-80 -34.64101615137754,-60 -34.64101615137754,-20 -69.28203230275508,0 -103.92304845413263,-20 -103.92304845413263,-60"></polygon><polygon class="shade" points="-69.28203230275508,-40 -34.64101615137754,-60 -34.64101615137754,-20 -69.28203230275508,0"></polygon><path d="M -69.28203230275508,-40 L -69.28203230275508,0 M -69.28203230275508,-40 L -103.92304845413263,-60 M -69.28203230275508,-40 L -34.64101615137754,-60"></path></g><g class="cube onscreen"><polygon class="full" points="-69.28203230275508,-120 -34.64101615137754,-100 -34.64101615137754,-60 -69.28203230275508,-40 -103.92304845413263,-60 -103.92304845413263,-100"></polygon><polygon class="shade" points="-69.28203230275508,-80 -34.64101615137754,-100 -34.64101615137754,-60 -69.28203230275508,-40"></polygon><path d="M -69.28203230275508,-80 L -69.28203230275508,-40 M -69.28203230275508,-80 L -103.92304845413263,-100 M -69.28203230275508,-80 L -34.64101615137754,-100"></path></g><g class="cube onscreen"><polygon class="full" points="-34.64101615137754,20 0,40 0,80 -34.64101615137754,100 -69.28203230275508,80 -69.28203230275508,40"></polygon><polygon class="shade" points="-34.64101615137754,60 0,40 0,80 -34.64101615137754,100"></polygon><path d="M -34.64101615137754,60 L -34.64101615137754,100 M -34.64101615137754,60 L -69.28203230275508,40 M -34.64101615137754,60 L 0,40"></path></g><g class="cube onscreen"><polygon class="full" points="-34.64101615137754,-20 0,0 0,40 -34.64101615137754,60 -69.28203230275508,40 -69.28203230275508,0"></polygon><polygon class="shade" points="-34.64101615137754,20 0,0 0,40 -34.64101615137754,60"></polygon><path d="M -34.64101615137754,20 L -34.64101615137754,60 M -34.64101615137754,20 L -69.28203230275508,0 M -34.64101615137754,20 L 0,0"></path></g><g class="cube onscreen"><polygon class="full" points="-34.64101615137754,-60 0,-40 0,0 -34.64101615137754,20 -69.28203230275508,0 -69.28203230275508,-40"></polygon><polygon class="shade" points="-34.64101615137754,-20 0,-40 0,0 -34.64101615137754,20"></polygon><path d="M -34.64101615137754,-20 L -34.64101615137754,20 M -34.64101615137754,-20 L -69.28203230275508,-40 M -34.64101615137754,-20 L 0,-40"></path></g><g class="cube onscreen"><polygon class="full" points="-34.64101615137754,-100 0,-80 0,-40 -34.64101615137754,-20 -69.28203230275508,-40 -69.28203230275508,-80"></polygon><polygon class="shade" points="-34.64101615137754,-60 0,-80 0,-40 -34.64101615137754,-20"></polygon><path d="M -34.64101615137754,-60 L -34.64101615137754,-20 M -34.64101615137754,-60 L -69.28203230275508,-80 M -34.64101615137754,-60 L 0,-80"></path></g><g class="cube onscreen"><polygon class="full" points="0,40 34.64101615137754,60 34.64101615137754,100 0,120 -34.64101615137754,100 -34.64101615137754,60"></polygon><polygon class="shade" points="0,80 34.64101615137754,60 34.64101615137754,100 0,120"></polygon><path d="M 0,80 L 0,120 M 0,80 L -34.64101615137754,60 M 0,80 L 34.64101615137754,60"></path></g><g class="cube onscreen"><polygon class="full" points="0,0 34.64101615137754,20 34.64101615137754,60 0,80 -34.64101615137754,60 -34.64101615137754,20"></polygon><polygon class="shade" points="0,40 34.64101615137754,20 34.64101615137754,60 0,80"></polygon><path d="M 0,40 L 0,80 M 0,40 L -34.64101615137754,20 M 0,40 L 34.64101615137754,20"></path></g><g class="cube onscreen"><polygon class="full" points="0,-40 34.64101615137754,-20 34.64101615137754,20 0,40 -34.64101615137754,20 -34.64101615137754,-20"></polygon><polygon class="shade" points="0,0 34.64101615137754,-20 34.64101615137754,20 0,40"></polygon><path d="M 0,0 L 0,40 M 0,0 L -34.64101615137754,-20 M 0,0 L 34.64101615137754,-20"></path></g><g class="cube onscreen"><polygon class="full" points="0,-80 34.64101615137754,-60 34.64101615137754,-20 0,0 -34.64101615137754,-20 -34.64101615137754,-60"></polygon><polygon class="shade" points="0,-40 34.64101615137754,-60 34.64101615137754,-20 0,0"></polygon><path d="M 0,-40 L 0,0 M 0,-40 L -34.64101615137754,-60 M 0,-40 L 34.64101615137754,-60"></path></g><g class="cube onscreen"><polygon class="full" points="34.64101615137754,60 69.28203230275508,80 69.28203230275508,120 34.64101615137754,140 0,120 0,80"></polygon><polygon class="shade" points="34.64101615137754,100 69.28203230275508,80 69.28203230275508,120 34.64101615137754,140"></polygon><path d="M 34.64101615137754,100 L 34.64101615137754,140 M 34.64101615137754,100 L 0,80 M 34.64101615137754,100 L 69.28203230275508,80"></path></g><g class="cube onscreen"><polygon class="full" points="34.64101615137754,20 69.28203230275508,40 69.28203230275508,80 34.64101615137754,100 0,80 0,40"></polygon><polygon class="shade" points="34.64101615137754,60 69.28203230275508,40 69.28203230275508,80 34.64101615137754,100"></polygon><path d="M 34.64101615137754,60 L 34.64101615137754,100 M 34.64101615137754,60 L 0,40 M 34.64101615137754,60 L 69.28203230275508,40"></path></g><g class="cube onscreen"><polygon class="full" points="34.64101615137754,-20 69.28203230275508,0 69.28203230275508,40 34.64101615137754,60 0,40 0,0"></polygon><polygon class="shade" points="34.64101615137754,20 69.28203230275508,0 69.28203230275508,40 34.64101615137754,60"></polygon><path d="M 34.64101615137754,20 L 34.64101615137754,60 M 34.64101615137754,20 L 0,0 M 34.64101615137754,20 L 69.28203230275508,0"></path></g><g class="cube onscreen"><polygon class="full" points="34.64101615137754,-60 69.28203230275508,-40 69.28203230275508,0 34.64101615137754,20 0,0 0,-40"></polygon><polygon class="shade" points="34.64101615137754,-20 69.28203230275508,-40 69.28203230275508,0 34.64101615137754,20"></polygon><path d="M 34.64101615137754,-20 L 34.64101615137754,20 M 34.64101615137754,-20 L 0,-40 M 34.64101615137754,-20 L 69.28203230275508,-40"></path></g><g class="cube onscreen"><polygon class="full" points="-103.92304845413263,20 -69.28203230275508,40 -69.28203230275508,80 -103.92304845413263,100 -138.56406460551017,80 -138.56406460551017,40"></polygon><polygon class="shade" points="-103.92304845413263,60 -69.28203230275508,40 -69.28203230275508,80 -103.92304845413263,100"></polygon><path d="M -103.92304845413263,60 L -103.92304845413263,100 M -103.92304845413263,60 L -138.56406460551017,40 M -103.92304845413263,60 L -69.28203230275508,40"></path></g><g class="cube onscreen"><polygon class="full" points="-103.92304845413263,-20 -69.28203230275508,0 -69.28203230275508,40 -103.92304845413263,60 -138.56406460551017,40 -138.56406460551017,0"></polygon><polygon class="shade" points="-103.92304845413263,20 -69.28203230275508,0 -69.28203230275508,40 -103.92304845413263,60"></polygon><path d="M -103.92304845413263,20 L -103.92304845413263,60 M -103.92304845413263,20 L -138.56406460551017,0 M -103.92304845413263,20 L -69.28203230275508,0"></path></g><g class="cube onscreen"><polygon class="full" points="-103.92304845413263,-60 -69.28203230275508,-40 -69.28203230275508,0 -103.92304845413263,20 -138.56406460551017,0 -138.56406460551017,-40"></polygon><polygon class="shade" points="-103.92304845413263,-20 -69.28203230275508,-40 -69.28203230275508,0 -103.92304845413263,20"></polygon><path d="M -103.92304845413263,-20 L -103.92304845413263,20 M -103.92304845413263,-20 L -138.56406460551017,-40 M -103.92304845413263,-20 L -69.28203230275508,-40"></path></g><g class="cube onscreen"><polygon class="full" points="-103.92304845413263,-100 -69.28203230275508,-80 -69.28203230275508,-40 -103.92304845413263,-20 -138.56406460551017,-40 -138.56406460551017,-80"></polygon><polygon class="shade" points="-103.92304845413263,-60 -69.28203230275508,-80 -69.28203230275508,-40 -103.92304845413263,-20"></polygon><path d="M -103.92304845413263,-60 L -103.92304845413263,-20 M -103.92304845413263,-60 L -138.56406460551017,-80 M -103.92304845413263,-60 L -69.28203230275508,-80"></path></g><g class="cube onscreen"><polygon class="full" points="-69.28203230275508,40 -34.64101615137754,60 -34.64101615137754,100 -69.28203230275508,120 -103.92304845413263,100 -103.92304845413263,60"></polygon><polygon class="shade" points="-69.28203230275508,80 -34.64101615137754,60 -34.64101615137754,100 -69.28203230275508,120"></polygon><path d="M -69.28203230275508,80 L -69.28203230275508,120 M -69.28203230275508,80 L -103.92304845413263,60 M -69.28203230275508,80 L -34.64101615137754,60"></path></g><g class="cube onscreen"><polygon class="full" points="-69.28203230275508,0 -34.64101615137754,20 -34.64101615137754,60 -69.28203230275508,80 -103.92304845413263,60 -103.92304845413263,20"></polygon><polygon class="shade" points="-69.28203230275508,40 -34.64101615137754,20 -34.64101615137754,60 -69.28203230275508,80"></polygon><path d="M -69.28203230275508,40 L -69.28203230275508,80 M -69.28203230275508,40 L -103.92304845413263,20 M -69.28203230275508,40 L -34.64101615137754,20"></path></g><g class="cube onscreen"><polygon class="full" points="-69.28203230275508,-40 -34.64101615137754,-20 -34.64101615137754,20 -69.28203230275508,40 -103.92304845413263,20 -103.92304845413263,-20"></polygon><polygon class="shade" points="-69.28203230275508,0 -34.64101615137754,-20 -34.64101615137754,20 -69.28203230275508,40"></polygon><path d="M -69.28203230275508,0 L -69.28203230275508,40 M -69.28203230275508,0 L -103.92304845413263,-20 M -69.28203230275508,0 L -34.64101615137754,-20"></path></g><g class="cube onscreen"><polygon class="full" points="-69.28203230275508,-80 -34.64101615137754,-60 -34.64101615137754,-20 -69.28203230275508,0 -103.92304845413263,-20 -103.92304845413263,-60"></polygon><polygon class="shade" points="-69.28203230275508,-40 -34.64101615137754,-60 -34.64101615137754,-20 -69.28203230275508,0"></polygon><path d="M -69.28203230275508,-40 L -69.28203230275508,0 M -69.28203230275508,-40 L -103.92304845413263,-60 M -69.28203230275508,-40 L -34.64101615137754,-60"></path></g><g class="cube onscreen"><polygon class="full" points="-34.64101615137754,60 0,80 0,120 -34.64101615137754,140 -69.28203230275508,120 -69.28203230275508,80"></polygon><polygon class="shade" points="-34.64101615137754,100 0,80 0,120 -34.64101615137754,140"></polygon><path d="M -34.64101615137754,100 L -34.64101615137754,140 M -34.64101615137754,100 L -69.28203230275508,80 M -34.64101615137754,100 L 0,80"></path></g><g class="cube onscreen"><polygon class="full" points="-34.64101615137754,20 0,40 0,80 -34.64101615137754,100 -69.28203230275508,80 -69.28203230275508,40"></polygon><polygon class="shade" points="-34.64101615137754,60 0,40 0,80 -34.64101615137754,100"></polygon><path d="M -34.64101615137754,60 L -34.64101615137754,100 M -34.64101615137754,60 L -69.28203230275508,40 M -34.64101615137754,60 L 0,40"></path></g><g class="cube onscreen"><polygon class="full" points="-34.64101615137754,-20 0,0 0,40 -34.64101615137754,60 -69.28203230275508,40 -69.28203230275508,0"></polygon><polygon class="shade" points="-34.64101615137754,20 0,0 0,40 -34.64101615137754,60"></polygon><path d="M -34.64101615137754,20 L -34.64101615137754,60 M -34.64101615137754,20 L -69.28203230275508,0 M -34.64101615137754,20 L 0,0"></path></g><g class="cube onscreen"><polygon class="full" points="-34.64101615137754,-60 0,-40 0,0 -34.64101615137754,20 -69.28203230275508,0 -69.28203230275508,-40"></polygon><polygon class="shade" points="-34.64101615137754,-20 0,-40 0,0 -34.64101615137754,20"></polygon><path d="M -34.64101615137754,-20 L -34.64101615137754,20 M -34.64101615137754,-20 L -69.28203230275508,-40 M -34.64101615137754,-20 L 0,-40"></path></g><g class="cube onscreen"><polygon class="full" points="0,80 34.64101615137754,100 34.64101615137754,140 0,160 -34.64101615137754,140 -34.64101615137754,100"></polygon><polygon class="shade" points="0,120 34.64101615137754,100 34.64101615137754,140 0,160"></polygon><path d="M 0,120 L 0,160 M 0,120 L -34.64101615137754,100 M 0,120 L 34.64101615137754,100"></path></g><g class="cube onscreen"><polygon class="full" points="0,40 34.64101615137754,60 34.64101615137754,100 0,120 -34.64101615137754,100 -34.64101615137754,60"></polygon><polygon class="shade" points="0,80 34.64101615137754,60 34.64101615137754,100 0,120"></polygon><path d="M 0,80 L 0,120 M 0,80 L -34.64101615137754,60 M 0,80 L 34.64101615137754,60"></path></g><g class="cube onscreen"><polygon class="full" points="0,0 34.64101615137754,20 34.64101615137754,60 0,80 -34.64101615137754,60 -34.64101615137754,20"></polygon><polygon class="shade" points="0,40 34.64101615137754,20 34.64101615137754,60 0,80"></polygon><path d="M 0,40 L 0,80 M 0,40 L -34.64101615137754,20 M 0,40 L 34.64101615137754,20"></path></g><g class="cube onscreen"><polygon class="full" points="0,-40 34.64101615137754,-20 34.64101615137754,20 0,40 -34.64101615137754,20 -34.64101615137754,-20"></polygon><polygon class="shade" points="0,0 34.64101615137754,-20 34.64101615137754,20 0,40"></polygon><path d="M 0,0 L 0,40 M 0,0 L -34.64101615137754,-20 M 0,0 L 34.64101615137754,-20"></path></g></g></svg>
+
+    </div>
+
+    -->
+</div>
+</body>
+</html>
