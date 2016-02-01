@@ -8,9 +8,6 @@
 html, body {
     background: #ebebeb;
     font-family:Tahoma,Arial,Roboto,Helvetica,sans-serif;
-    font-size: 10px;
-    overflow: hidden;
-    min-height: 100%;
 }
 
 .background {
@@ -20,7 +17,7 @@ html, body {
     top:0;
     background-size: cover;
     overflow: hidden;
-    z-index: -1;
+    z-index: 2;
 }
 
 .sprite {

@@ -15,14 +15,27 @@
     <title>e利友，只为你更幸福</title>
 
     <script type="text/javascript" src="js/jquery-2.1.0.min.js"></script>
-    <script type="text/javascript" src="js/rp.js?14"></script>
+
     <link type="text/css" rel="stylesheet" href="css/animate.css"><!--通用CSS样式 -->
     <link type="text/css" rel="stylesheet" href="css/style.css?14"><!--通用CSS样式 -->
+    <script type="text/javascript" src="js/deviceshell.js"></script>
 
 </head>
+
 <body>
 
+    <div id="iphone">
+        <audio src="spring.mp3" onloadeddata="RedPackageDirector.mediaLoaded()" autoplay="true" controls="none" id="myaudio"  loop="loop" style="display: none;" />
+    </div>
 
-<audio src="spring.mp3" onloadeddata="RedPackageDirector.mediaLoaded()" autoplay="true" controls="none" id="myaudio"  loop="loop" style="display: none;" />
+    <script>
+        $("#iphone").deviceshell({
+            width: 400
+        });
+        $("#iphone").css("left", $(window).width()/2-200);
+        $("#iphone").css("top", 50);
+    </script>
+    <script type="text/javascript" src="js/rp.js?14"></script>
+
 </body>
 </html>

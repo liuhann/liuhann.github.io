@@ -1,8 +1,9 @@
 $(function() {
+    /*
     var size = $(window).width() / 19;
     $("html").css("font-size", size + "px");
-    $("body").css("font-size", size + "px");
-
+    $(container).css("font-size", size + "px");
+*/
     var mr = Math.random();
     var money = (mr<0.33)?"5":((mr<0.66?"10": "20"));
     RedPackageDirector.setMoney(money);
@@ -11,12 +12,15 @@ $(function() {
     });
 });
 
-var RedPackageDirector = (function(window, body) {
-    var WIDTH = $(window).width();
-    var HEIGHT = (1008) * (WIDTH/640);
+var RedPackageDirector = (function(container) {
+
+    var WIDTH = $(container).width();
+    var HEIGHT = $(container).height();
+
+    console.log(WIDTH, HEIGHT);
+
     var musicLoaded = false;
     var loadingPics = true;
-
     var loadedCb = null;
 
     var res = {
@@ -52,21 +56,25 @@ var RedPackageDirector = (function(window, body) {
 
     var money = "20";
 
-
-    $("body").on("touchstart", function(event){
+    $(container).on("touchstart", function(event){
         event.preventDefault();
     });
 
     function setMoney(m) {
         money = m;
     }
+
+    var played = false;
     function play() {
-        showClickNext(scene2);
+        if (!played) {
+            played = true;
+            showClickNext(scene2);
+        }
     }
 
     function scene2() {
         console.log("scene 2");
-        $("body").unbind();
+        $(container).unbind();
         var bg = setBg(res.MAP2_BG, "circleout");
         clear();
         setTimeout(function() {
@@ -90,7 +98,7 @@ var RedPackageDirector = (function(window, body) {
         });
 
         setTimeout(function() {
-            moveTo(wg, -0.3, 0.55, "6s");
+            moveTo(wg, -0.3, 0.7, "6s");
         }, 400);
 
         setTimeout(function() {
@@ -195,7 +203,7 @@ var RedPackageDirector = (function(window, body) {
         var heart = $("<div id='heart' style='position: absolute;z-index: 191;'></div>");
         heart.css("left", 0.1*WIDTH);
         heart.css("top", 0.325*HEIGHT);
-        $("body").append(heart);
+        $(container).append(heart);
         LuckyCard.case({id: "heart", coverImg:'images/009_heart.png',ratio:.4, width: 0.77*WIDTH, height:0.35*HEIGHT,callback:function(){
             $("#heart").remove();
             var ckx = addLabel("",0.2,0.73, {
@@ -266,10 +274,10 @@ var RedPackageDirector = (function(window, body) {
         div.css("bottom", "20px");
         div.find("img").css("width", 40);
 
-        $("body").append(div);
-        $("body").unbind();
+        $(container).append(div);
+        $(container).unbind();
 
-        $("body").bind("click", function(e) {
+        $(container).bind("click", function(e) {
             e.preventDefault();
             cb();
         });
@@ -280,7 +288,7 @@ var RedPackageDirector = (function(window, body) {
 
 
     function clear() {
-        $("body").unbind();
+        $(container).unbind();
         $(".progress").remove();
         $(".next").remove();
         $(".sprite").remove();
@@ -297,12 +305,12 @@ var RedPackageDirector = (function(window, body) {
             for(var img in res) {
                 f.push(res[img]);
             }
-            var yy = Math.floor(WIDTH/640 * 535);
+            var yy = Math.floor(WIDTH/640 * 600);
             var progress = addSprite("images/001_people.png", 0.3, yy-81);
             progress.append("<div class='percent' style='position: absolute;left: 14px;top: 14px; font-size:12px;'></div>");
 
             var pasted = $("<div class='progress' style='position:absolute; height: 4px;background-color: #ffec00; width: 20px;'></div>");
-            $("body").append(pasted);
+            $(container).append(pasted);
             pasted.css("left", WIDTH*0.3);
             pasted.css("top", yy);
             pasted.css("-webkit-transition", "width .6s linear");
@@ -313,6 +321,7 @@ var RedPackageDirector = (function(window, body) {
                 moveTo(progress, 0.3 + (loaded/f.length)*0.4, yy-81, "1000ms");
             }, function() {
                 if (musicLoaded) {
+                    console.log("call back");
                     cb();
                 } else {
                     loadingPics = false;
@@ -354,7 +363,7 @@ var RedPackageDirector = (function(window, body) {
         }
 
         apply(sprite, styles, clazzs);
-        $("body").append(sprite);
+        $(container).append(sprite);
         return sprite;
     }
 
@@ -372,7 +381,7 @@ var RedPackageDirector = (function(window, body) {
             sprite.find("img").attr("width", width*WIDTH);
         }
         apply(sprite, styles, clazzs);
-        $("body").append(sprite);
+        $(container).append(sprite);
         return sprite;
     }
 
@@ -386,7 +395,7 @@ var RedPackageDirector = (function(window, body) {
         label.css("left", rx);
         label.css("top", ry);
         apply(label, styles, clazzs);
-        $("body").append(label);
+        $(container).append(label);
         return label;
     }
 
@@ -423,13 +432,13 @@ var RedPackageDirector = (function(window, body) {
         animatedStyle += "}" ;
         animatedStyle += "." + name + " { -webkit-animation-name: " + name + ";}";
 
-        $("body").append("<style>" + animatedStyle + "</style>");
+        $(container).append("<style>" + animatedStyle + "</style>");
 
         sprite.addClass(name);
         sprite.addClass("animated infinite");
         sprite.css("-webkit-animation-duration" , intevals);
 
-        $("body").append(sprite);
+        $(container).append(sprite);
         return sprite;
     }
 
@@ -455,18 +464,19 @@ var RedPackageDirector = (function(window, body) {
         div.css("height", HEIGHT);
         var img = $("<img>");
         img.attr("src", url);
-        img.attr("width", $(window).width());
+        img.attr("width", $(container).width());
+        img.attr("height", HEIGHT);
         //img.css("-webkit-transform", "translateY(-80px)");
         div.append(img);
 
         if (effect==="circleout") {
             placeAbove();
             var old = $(".background");
-            //div.css("-webkit-clip-path","circle(10% at 60% 50%)");
+            div.css("-webkit-clip-path","circle(10% at 60% 50%)");
             div.css("-webkit-transition", "-webkit-clip-path .6s linear");
-            $("body").append(div);
+            $(container).append(div);
             setTimeout(function() {
-                //div.css("-webkit-clip-path","circle(80% at 60% 50%)");
+                div.css("-webkit-clip-path","circle(80% at 60% 50%)");
             }, 100);
             setTimeout(function() {
                 old.remove();
@@ -477,7 +487,7 @@ var RedPackageDirector = (function(window, body) {
             div.css("opacity", "0");
             div.css("-webkit-transform", "scale(1.1)");
             setTransitionTime(div, "1s");
-            $("body").append(div);
+            $(container).append(div);
             setTimeout(function() {
                 setTransitionTime(old, "3s");
                 old.css("-webkit-transform", "scale(4)");
@@ -493,7 +503,7 @@ var RedPackageDirector = (function(window, body) {
             var old = $(".background");
             div.css("-webkit-transform", "translateX("+ WIDTH + "px)");
 
-            $("body").append(div);
+            $(container).append(div);
             setTransitionTime(old, ".5s");
             setTransitionTime(div, ".5s");
             setTimeout(function() {
@@ -505,7 +515,7 @@ var RedPackageDirector = (function(window, body) {
             }, 1000);
         } else {
             var old = $(".background");
-            $("body").append(div);
+            $(container).append(div);
             old.remove();
         }
 
@@ -551,6 +561,8 @@ var RedPackageDirector = (function(window, body) {
     function addMediaMuter() {
         var muter = $("<div> <IMG></div>");
 
+        if($(container).find(".rotate360").length>0) return;
+
         muter.find("img").attr("src", res.MUTER);
 
         muter.css("z-index", 9999).css("position", "absolute").css("right",  WIDTH/40).css("top",  WIDTH/40);
@@ -558,7 +570,7 @@ var RedPackageDirector = (function(window, body) {
         muter.addClass("rotate360");
         muter.find("img").css("width", WIDTH/12);
 
-        $("body").append(muter);
+        $(container).append(muter);
 
         muter.click(function() {
 
@@ -588,7 +600,7 @@ var RedPackageDirector = (function(window, body) {
         mediaLoaded: mediaLoaded,
         play: play
     }
-}(window));
+}("#iphone .screen"));
 
 ;
 (function(window, document, undefined) {
