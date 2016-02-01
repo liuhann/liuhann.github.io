@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="js/common.js"></script>
+
+<style type="text/css">
+
+.accordion  {
+	width: 440px;
+	height: 640px;
+	padding: 100px;
+}
+.accordion .question {
+  padding: .5rem;
+  border: 1px solid #eee;
+  margin-top: -1px;
+  cursor: pointer;
+  background-color:#fff;
+  -webkit-transition: transform .3s;
+}
+.accordion .question .selected {
+  height: .8rem;
+  line-height: .8rem;
+}
+.accordion .selection {
+	-webkit-transition: transform .3s;
+}
+
+.accordion .question.pressed {
+	background: #f0f0f0;
+}
+
+</style>
+</head>
+<body>
+
+
+<div class="accordion">
+	<div class="selection">
+		<ul>
+			<li>a school</li>
+			<li>theme park</li>
+			<li>Moon Crescent</li>
+			<li>sea life centre</li>
+			<li>Neptune Avenue</li>
+			<li>sea life centre</li>
+			<li>fish market</li>
+		</ul>
+	</div>
+	<div class="question">
+		<div class="title">in the northwest corner of the map.</div>
+		<div class="selected"></div>
+	</div>
+
+	<div class="question">
+		<div class="title">in the northeast corner of the map.</div>
+		<div class="selected"></div>
+	</div>
+	<div class="question">
+		<div class="title">on the east side of the map.</div>
+		<div class="selected"></div>
+	</div>
+	<div class="question">
+		<div class="title">south of Beach Road.</div>
+		<div class="selected"></div>
+	</div>
+	
+	
+</div>
+
+</body>
+</html>

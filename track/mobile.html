@@ -1,0 +1,948 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>手机蜂巢图</title>
+
+  <script type="text/javascript" src="js/jquery-2.1.0.min.js"></script>
+  <style type="text/css">
+    * {
+      margin: 0;
+      padding: 0;
+      -webkit-tap-highlight-color: rgba(0,0,0,0);
+    }
+
+    body {
+      background-color: #DFEEF5;
+    }
+    .animated {
+      /*-webkit-animation-duration: 1s;
+      animation-duration: 1s;*/
+      -webkit-animation-fill-mode: both;
+      animation-fill-mode: both;
+    }
+
+    @-webkit-keyframes fadeInDown {
+      0% {
+        opacity: 0;
+        -webkit-transform: translate3d(0, -800%, 0);
+        transform: translate3d(0, -800%, 0);
+      }
+
+      100% {
+        opacity: 1;
+        -webkit-transform: none;
+        transform: none;
+      }
+    }
+
+    @keyframes fadeInDown {
+      0% {
+        opacity: 0;
+        -webkit-transform: translate3d(0, -100%, 0);
+        transform: translate3d(0, -100%, 0);
+      }
+
+      100% {
+        opacity: 1;
+        -webkit-transform: none;
+        transform: none;
+      }
+    }
+
+    .fadeInDown {
+      -webkit-animation-name: fadeInDown;
+      animation-name: fadeInDown;
+    }
+
+
+
+    @-webkit-keyframes bounceInDown {
+      0%, 60%, 75%, 90%, 100% {
+        -webkit-animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+        animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+      }
+
+      0% {
+        opacity: 0;
+        -webkit-transform: translate3d(0, -3000px, 0);
+        transform: translate3d(0, -3000px, 0);
+      }
+
+      60% {
+        opacity: 1;
+        -webkit-transform: translate3d(0, 25px, 0);
+        transform: translate3d(0, 25px, 0);
+      }
+
+      75% {
+        -webkit-transform: translate3d(0, -10px, 0);
+        transform: translate3d(0, -10px, 0);
+      }
+
+      90% {
+        -webkit-transform: translate3d(0, 5px, 0);
+        transform: translate3d(0, 5px, 0);
+      }
+
+      100% {
+        -webkit-transform: none;
+        transform: none;
+      }
+    }
+
+    @keyframes bounceInDown {
+      0%, 60%, 75%, 90%, 100% {
+        -webkit-animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+        animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+      }
+
+      0% {
+        opacity: 0;
+        -webkit-transform: translate3d(0, -3000px, 0);
+        transform: translate3d(0, -3000px, 0);
+      }
+
+      60% {
+        opacity: 1;
+        -webkit-transform: translate3d(0, 25px, 0);
+        transform: translate3d(0, 25px, 0);
+      }
+
+      75% {
+        -webkit-transform: translate3d(0, -10px, 0);
+        transform: translate3d(0, -10px, 0);
+      }
+
+      90% {
+        -webkit-transform: translate3d(0, 5px, 0);
+        transform: translate3d(0, 5px, 0);
+      }
+
+      100% {
+        -webkit-transform: none;
+        transform: none;
+      }
+    }
+
+    .bounceInDown {
+      -webkit-animation-name: bounceInDown;
+      animation-name: bounceInDown;
+    }
+
+
+
+    @-webkit-keyframes zoomInDown {
+      0% {
+        opacity: 0;
+        -webkit-transform: scale3d(.1, .1, .1) translate3d(0, -1000px, 0);
+        transform: scale3d(.1, .1, .1) translate3d(0, -1000px, 0);
+        -webkit-animation-timing-function: cubic-bezier(0.550, 0.055, 0.675, 0.190);
+        animation-timing-function: cubic-bezier(0.550, 0.055, 0.675, 0.190);
+      }
+
+      60% {
+        opacity: 1;
+        -webkit-transform: scale3d(.475, .475, .475) translate3d(0, 60px, 0);
+        transform: scale3d(.475, .475, .475) translate3d(0, 60px, 0);
+        -webkit-animation-timing-function: cubic-bezier(0.175, 0.885, 0.320, 1);
+        animation-timing-function: cubic-bezier(0.175, 0.885, 0.320, 1);
+      }
+    }
+
+    @keyframes zoomInDown {
+      0% {
+        opacity: 0;
+        -webkit-transform: scale3d(.1, .1, .1) translate3d(0, -1000px, 0);
+        transform: scale3d(.1, .1, .1) translate3d(0, -1000px, 0);
+        -webkit-animation-timing-function: cubic-bezier(0.550, 0.055, 0.675, 0.190);
+        animation-timing-function: cubic-bezier(0.550, 0.055, 0.675, 0.190);
+      }
+
+      60% {
+        opacity: 1;
+        -webkit-transform: scale3d(.475, .475, .475) translate3d(0, 60px, 0);
+        transform: scale3d(.475, .475, .475) translate3d(0, 60px, 0);
+        -webkit-animation-timing-function: cubic-bezier(0.175, 0.885, 0.320, 1);
+        animation-timing-function: cubic-bezier(0.175, 0.885, 0.320, 1);
+      }
+    }
+
+    .zoomInDown {
+      -webkit-animation-name: zoomInDown;
+      animation-name: zoomInDown;
+    }
+
+
+
+
+
+    @-webkit-keyframes flipInX {
+      0% {
+        -webkit-transform: perspective(400px) rotate3d(1, 0, 0, 90deg);
+        transform: perspective(400px) rotate3d(1, 0, 0, 90deg);
+        -webkit-animation-timing-function: ease-in;
+        animation-timing-function: ease-in;
+        opacity: 0;
+      }
+
+      40% {
+        -webkit-transform: perspective(400px) rotate3d(1, 0, 0, -20deg);
+        transform: perspective(400px) rotate3d(1, 0, 0, -20deg);
+        -webkit-animation-timing-function: ease-in;
+        animation-timing-function: ease-in;
+      }
+
+      60% {
+        -webkit-transform: perspective(400px) rotate3d(1, 0, 0, 10deg);
+        transform: perspective(400px) rotate3d(1, 0, 0, 10deg);
+        opacity: 1;
+      }
+
+      80% {
+        -webkit-transform: perspective(400px) rotate3d(1, 0, 0, -5deg);
+        transform: perspective(400px) rotate3d(1, 0, 0, -5deg);
+      }
+
+      100% {
+        -webkit-transform: perspective(400px);
+        transform: perspective(400px);
+      }
+    }
+
+    @keyframes flipInX {
+      0% {
+        -webkit-transform: perspective(400px) rotate3d(1, 0, 0, 90deg);
+        transform: perspective(400px) rotate3d(1, 0, 0, 90deg);
+        -webkit-animation-timing-function: ease-in;
+        animation-timing-function: ease-in;
+        opacity: 0;
+      }
+
+      40% {
+        -webkit-transform: perspective(400px) rotate3d(1, 0, 0, -20deg);
+        transform: perspective(400px) rotate3d(1, 0, 0, -20deg);
+        -webkit-animation-timing-function: ease-in;
+        animation-timing-function: ease-in;
+      }
+
+      60% {
+        -webkit-transform: perspective(400px) rotate3d(1, 0, 0, 10deg);
+        transform: perspective(400px) rotate3d(1, 0, 0, 10deg);
+        opacity: 1;
+      }
+
+      80% {
+        -webkit-transform: perspective(400px) rotate3d(1, 0, 0, -5deg);
+        transform: perspective(400px) rotate3d(1, 0, 0, -5deg);
+      }
+
+      100% {
+        -webkit-transform: perspective(400px);
+        transform: perspective(400px);
+      }
+    }
+
+    .flipInX {
+      -webkit-backface-visibility: visible !important;
+      backface-visibility: visible !important;
+      -webkit-animation-name: flipInX;
+      animation-name: flipInX;
+    }
+
+    @-webkit-keyframes flipInY {
+      0% {
+        -webkit-transform: perspective(400px) rotate3d(0, 1, 0, 90deg);
+        transform: perspective(400px) rotate3d(0, 1, 0, 90deg);
+        -webkit-animation-timing-function: ease-in;
+        animation-timing-function: ease-in;
+        opacity: 0;
+      }
+
+      40% {
+        -webkit-transform: perspective(400px) rotate3d(0, 1, 0, -20deg);
+        transform: perspective(400px) rotate3d(0, 1, 0, -20deg);
+        -webkit-animation-timing-function: ease-in;
+        animation-timing-function: ease-in;
+      }
+
+      60% {
+        -webkit-transform: perspective(400px) rotate3d(0, 1, 0, 10deg);
+        transform: perspective(400px) rotate3d(0, 1, 0, 10deg);
+        opacity: 1;
+      }
+
+      80% {
+        -webkit-transform: perspective(400px) rotate3d(0, 1, 0, -5deg);
+        transform: perspective(400px) rotate3d(0, 1, 0, -5deg);
+      }
+
+      100% {
+        -webkit-transform: perspective(400px);
+        transform: perspective(400px);
+      }
+    }
+
+    @keyframes flipInY {
+      0% {
+        -webkit-transform: perspective(400px) rotate3d(0, 1, 0, 90deg);
+        transform: perspective(400px) rotate3d(0, 1, 0, 90deg);
+        -webkit-animation-timing-function: ease-in;
+        animation-timing-function: ease-in;
+        opacity: 0;
+      }
+
+      40% {
+        -webkit-transform: perspective(400px) rotate3d(0, 1, 0, -20deg);
+        transform: perspective(400px) rotate3d(0, 1, 0, -20deg);
+        -webkit-animation-timing-function: ease-in;
+        animation-timing-function: ease-in;
+      }
+
+      60% {
+        -webkit-transform: perspective(400px) rotate3d(0, 1, 0, 10deg);
+        transform: perspective(400px) rotate3d(0, 1, 0, 10deg);
+        opacity: 1;
+      }
+
+      80% {
+        -webkit-transform: perspective(400px) rotate3d(0, 1, 0, -5deg);
+        transform: perspective(400px) rotate3d(0, 1, 0, -5deg);
+      }
+
+      100% {
+        -webkit-transform: perspective(400px);
+        transform: perspective(400px);
+      }
+    }
+
+    .flipInY {
+      -webkit-backface-visibility: visible !important;
+      backface-visibility: visible !important;
+      -webkit-animation-name: flipInY;
+      animation-name: flipInY;
+    }
+
+
+
+    @-webkit-keyframes rotateIn {
+      0% {
+        -webkit-transform-origin: center;
+        transform-origin: center;
+        -webkit-transform: rotate3d(0, 0, 1, -200deg) scale(0.1);
+        transform: rotate3d(0, 0, 1, -200deg) scale(0.1);
+        opacity: 0;
+      }
+
+      100% {
+        -webkit-transform-origin: center;
+        transform-origin: center;
+        -webkit-transform: none;
+        transform: none;
+        opacity: 1;
+      }
+    }
+
+    @keyframes rotateIn {
+      0% {
+        -webkit-transform-origin: center;
+        transform-origin: center;
+        -webkit-transform: rotate3d(0, 0, 1, -200deg);
+        transform: rotate3d(0, 0, 1, -200deg);
+        opacity: 0;
+      }
+
+      100% {
+        -webkit-transform-origin: center;
+        transform-origin: center;
+        -webkit-transform: none;
+        transform: none;
+        opacity: 1;
+      }
+    }
+
+    .rotateIn {
+      -webkit-animation-name: rotateIn;
+      animation-name: rotateIn;
+    }
+
+
+    @-webkit-keyframes zoomOutIn3 {
+      0% {
+        -webkit-transform-origin: center;
+        transform-origin: center;
+        -webkit-transform: scale(4);
+        transform: scale(4);
+        opacity: 0;
+      }
+
+      100% {
+        -webkit-transform-origin: center;
+        transform-origin: center;
+        -webkit-transform: none;
+        transform: none;
+        opacity: 1;
+      }
+    }
+
+    .zoomOutIn3 {
+      -webkit-animation-name: zoomOutIn3;
+      animation-name: zoomOutIn3;
+    }
+
+    @-webkit-keyframes zoomOutIn15 {
+      0% {
+        -webkit-transform-origin: center;
+        transform-origin: center;
+        -webkit-transform: scale(1.5);
+        transform: scale(1.5);
+        opacity: 0;
+      }
+
+      100% {
+        -webkit-transform-origin: center;
+        transform-origin: center;
+        -webkit-transform: none;
+        transform: none;
+        opacity: 1;
+      }
+    }
+
+    .zoomOutIn15 {
+      -webkit-animation-name: zoomOutIn15;
+      animation-name: zoomOutIn15;
+    }
+
+    @-webkit-keyframes zoomOutIn05 {
+      0% {
+        -webkit-transform-origin: center;
+        transform-origin: center;
+        -webkit-transform: scale(.5);
+        transform: scale(.5);
+        opacity: 0;
+      }
+
+      100% {
+        -webkit-transform-origin: center;
+        transform-origin: center;
+        -webkit-transform: none;
+        transform: none;
+        opacity: 1;
+      }
+    }
+
+    .zoomOutIn05 {
+      -webkit-animation-name: zoomOutIn05;
+      animation-name: zoomOutIn05;
+    }
+
+
+    @-webkit-keyframes zoomOutIn01 {
+      0% {
+        -webkit-transform-origin: center;
+        transform-origin: center;
+        -webkit-transform: scale(.1);
+        transform: scale(.1);
+        opacity: 0;
+      }
+
+      100% {
+        -webkit-transform-origin: center;
+        transform-origin: center;
+        -webkit-transform: none;
+        transform: none;
+        opacity: 1;
+      }
+    }
+
+    .zoomOutIn01 {
+      -webkit-animation-name: zoomOutIn01;
+      animation-name: zoomOutIn01;
+    }
+
+
+
+
+    @-webkit-keyframes fadeOutDown {
+      0% {
+        opacity: 1;
+      }
+
+      100% {
+        opacity: 0;
+        -webkit-transform: translate3d(0, 100%, 0);
+        transform: translate3d(0, 100%, 0);
+      }
+    }
+
+    @keyframes fadeOutDown {
+      0% {
+        opacity: 1;
+      }
+
+      100% {
+        opacity: 0;
+        -webkit-transform: translate3d(0, 100%, 0);
+        transform: translate3d(0, 100%, 0);
+      }
+    }
+
+    .fadeOutDown {
+      -webkit-animation-name: fadeOutDown;
+      animation-name: fadeOutDown;
+    }
+
+
+
+
+    @-webkit-keyframes fadeInUp {
+      0% {
+        opacity: 0;
+        -webkit-transform: translate3d(0, 100%, 0);
+        transform: translate3d(0, 100%, 0);
+      }
+
+      100% {
+        opacity: 1;
+        -webkit-transform: none;
+        transform: none;
+      }
+    }
+
+    @keyframes fadeInUp {
+      0% {
+        opacity: 0;
+        -webkit-transform: translate3d(0, 100%, 0);
+        transform: translate3d(0, 100%, 0);
+      }
+
+      100% {
+        opacity: 1;
+        -webkit-transform: none;
+        transform: none;
+      }
+    }
+
+    .fadeInUp {
+      -webkit-animation-name: fadeInUp;
+      animation-name: fadeInUp;
+    }
+
+
+
+    @-webkit-keyframes lightFlash {
+      0% {
+        -webkit-transform: skewx(-25deg) rotate(-30deg) translateY(20rem);
+      }
+
+      100% {
+        -webkit-transform: skewx(-25deg) rotate(-30deg) translateY(-60rem);
+        opacity: 0;
+      }
+    }
+
+    @keyframes lightFlash {
+      0% {
+        transform: skewx(-25deg) rotate(-30deg) translateY(20rem);
+      }
+
+      100% {
+        transform: skewx(-25deg) rotate(-30deg) translateY(-100rem);
+      }
+    }
+
+    .lightFlash {
+      -webkit-animation-name: lightFlash;
+      animation-name: lightFlash;
+    }
+    html,body {
+      overflow: hidden;
+    }
+    *, *:before, *:after {
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+    }
+    .hline.first {
+      margin-top: 3.2rem;
+    }
+    .hline {
+      height: 9rem;
+      float: left;
+    }
+    .odd {
+      margin-left:5.074rem;
+    }
+
+    .hexagon {
+      text-align: center;
+      font-size: 2rem;
+      color: white;
+      line-height: 10rem;
+      background-image: url('img/unlearned.png');
+      background-size: cover;
+      float: left;
+      position: relative;
+      width: 9rem;
+      height: 10.5rem;
+      margin: .7rem;
+    }
+    .hexagon.learned {
+      background-image: url('img/learned.png');
+    }
+
+    /*
+    .hexagon {
+      text-align: center;
+      font-size: 3rem;
+      color: white;
+      line-height: 5.7rem;
+      float:left;
+      position: relative;
+      width: 10rem;
+      height: 5.774rem;
+      background-color: #64C7CC;
+      margin-right:.2rem;
+      border-left: solid .4rem  #ddd;
+      border-right: solid .4rem #333;
+      display: none;
+    }
+
+    .hexagon>div{
+      position: absolute;
+      z-index: 10;
+      width: 9rem;
+    }
+
+    .hexagon:before,
+    .hexagon:after {
+      content: "";
+      position: absolute;
+      z-index: 1;
+      width: 7.071rem;
+      height: 7.071rem;
+      -webkit-transform: scaleY(0.5774) rotate(-45deg);
+      -ms-transform: scaleY(0.5774) rotate(-45deg);
+      transform: scaleY(0.5774) rotate(-45deg);
+      background-color: inherit;
+      left: 1.0644rem;
+    }
+
+    .hexagon:before {
+      top: -3.535rem;
+      border-top: solid .5656rem #333333;
+      border-right: solid .5656rem #333333;
+    }
+
+    .hexagon:after {
+      bottom: -3.535rem;
+      border-bottom: solid .5656rem #333333;
+      border-left: solid .5656rem #333333;
+    }
+    */
+
+    .info-list {
+      position: absolute;
+      top: 15rem;
+      width: 52rem;
+      display: none;
+      border-top: .6rem solid #96D8F2;
+      padding: 0 1rem;
+      background-color: #fff;
+    }
+    .info-list li {
+      background-color: #fff;
+      position: relative;
+      list-style: none;
+      height: 7rem;
+      font-size: 2.4rem;
+      line-height: 6rem;
+      padding-left: 2rem;
+      font-weight: bold;
+      border-bottom: 1px solid #C7C7C7;
+      color: #3F3F3F;
+    }
+
+    .info-list li i.icon {
+      background-image: url("img/icon.png");
+      width: 2.4rem;
+      height: 3.2rem;
+      background-size: cover;
+      position: absolute;
+      top: 1.8rem;
+    }
+    .info-list li span.title {
+      position: absolute;
+      left: 5.5rem;
+      top: .6rem;
+    }
+    .info-list li i.fold {
+      background-image: url("img/fold.png");
+      position: absolute;
+      width: 3rem;
+      right: 1rem;
+      height: 1.8rem;
+      background-size: cover;
+      position: absolute;
+      top: 3rem;
+    }
+
+    .clearfix:after {
+      content: ".";
+      display: block;
+      height: 0;
+      clear: both;
+      visibility: hidden;
+    }
+
+    .clearfix {
+      display: inline-block;
+    } /* for IE/Mac */
+    .clearfix {
+      zoom: 1; /* triggers hasLayout */
+      display: block; /* resets display for IE/Win */
+    }
+
+    .light {
+      display:none;
+      cursor: pointer;
+      position: absolute;
+      left: 0;
+      top: 0;
+      right: 4rem;
+      bottom: 5rem;
+      background-image: -moz-linear-gradient(0deg,rgba(255,255,255,0),rgba(255,255,255,0.5),rgba(255,255,255,0));
+      background-image: -webkit-linear-gradient(0deg,rgba(255,255,255,0),rgba(255,255,255,0.5),rgba(255,255,255,0));
+    }
+
+  </style>
+
+  <script type="text/javascript">
+    function effect1() {
+      var startsec = 0.5;
+      var i = 0;
+      $(".hexagon").each(function() {
+        i ++;
+        $(this).addClass("animated");
+        $(this).css("-webkit-animation-duration", startsec + i*0.02 + "s");
+      });
+      $(".hexagon").show().addClass("fadeInDown");
+    }
+
+    function effect2() {
+      var startsec = 1.5;
+      var i = 0;
+      $(".hexagon").each(function() {
+        i ++;
+        $(this).addClass("animated");
+        $(this).css("-webkit-animation-duration", startsec - i*0.02 + "s");
+      });
+      $(".hexagon").show().addClass("fadeInDown");
+    }
+
+    function effect3() {
+      var startsec = 1.5;
+      var i = 0;
+      $(".hexagon").each(function() {
+        i ++;
+        $(this).addClass("animated");
+        $(this).css("-webkit-animation-duration", startsec - i*0.02 + "s");
+      });
+      $(".hexagon").show().addClass("bounceInDown");
+    }
+
+
+    function effect4() {
+      var startsec = 1.8;
+      var i = 0;
+      $(".hexagon").each(function() {
+        i ++;
+        if (i==1) {
+          $(this).bind("webkitAnimationEnd", function() {
+            flash();
+          });
+        }
+
+        $(this).addClass("animated");
+        $(this).css("-webkit-animation-duration", startsec - i*0.02 + "s");
+      });
+      $(".hexagon").show().addClass("zoomInDown");
+    }
+
+    function effect5() {
+      var startsec = 1.5;
+      var i = 0;
+      $(".hexagon").each(function() {
+        i ++;
+        $(this).addClass("animated");
+        $(this).css("-webkit-animation-duration", startsec - i*0.01 + "s");
+
+        var mr = Math.random();
+        if (mr<0.2) {
+          $(this).show().addClass("zoomOutIn3");
+        } else if (mr<0.3) {
+          $(this).show().addClass("zoomOutIn15");
+        } else if (mr<0.4) {
+          $(this).show().addClass("zoomOutIn05");
+        } else {
+          $(this).show().addClass("zoomOutIn01");
+        }
+      });
+    }
+
+    function effect6() {
+      var startsec = 1.5;
+      var i = 0;
+      $(".hexagon").each(function() {
+        i ++;
+        $(this).addClass("animated");
+        $(this).css("-webkit-animation-duration", (startsec - i*0.02) + "s");
+      });
+      $(".hexagon").show().addClass("rotateIn");
+    }
+
+    function flash() {
+      $(".light").show().addClass("animated lightFlash").css("-webkit-animation-duration", ".5s")
+              .bind("webkitAnimationEnd", function() {
+                $(this).remove();
+              });
+    }
+
+    var effects = [effect1,effect2,effect3,effect4,effect5,effect6];
+
+    var ce = Math.floor(Math.random()*6);
+
+    function reset() {
+      $(".learned").hide().removeClass().addClass("learned hexagon");
+      $(".hexagon:not(.learned)").hide().removeClass().addClass("hexagon");
+      ce++;
+      if (ce==effects.length) ce=0;
+      effects[ce]();
+      //effect1();
+    }
+
+    $(function(){
+      var width = $(window).width();
+      $('html').css("font-size", width/52);
+
+      $(function() {
+        reset();
+      });
+
+      $(".hexagon").click(function() {
+        var order = $(this).parent().prevAll(".hline").length;
+
+        $(this).parent().css("-webkit-transform", "translateY(-"+ order*9 　+"rem)");
+        $(this).parent().css("-webkit-transition", "-webkit-transform .5s");
+
+        $(this).parent().siblings(".hline").css("-webkit-animation-duration", ".8s").addClass("animated fadeOutDown");
+
+        $(".info-list").css("-webkit-animation-duration", ".5s").addClass("animated fadeInUp").show();
+
+        /*
+        var $currentHex = $(this);
+        setTimeout(function() {
+          $currentHex.parent().siblings(".hline").filter(function(index) {
+            return index<order;
+          }).find(".hexagon").insertBefore($currentHex);
+
+        }, 1000);
+        */
+      });
+
+      $(".hexagon").eq(0).unbind().click(function() {
+        reset();
+      });
+
+      $(window).resize(function() {
+        var width = $(window).width();
+        $('html').css("font-size", width/52);
+      })
+    });
+
+  </script>
+
+</head>
+<body>
+
+<div class="hline clearfix first">
+  <div class="hexagon learned first"><div>换效果</div></div>
+  <div class="hexagon learned"><div>week2</div></div>
+  <div class="hexagon learned"><div>week3</div></div>
+  <div class="hexagon learned"><div>week4</div></div>
+  <div class="hexagon learned"><div>week5</div></div>
+</div>
+
+<div class="hline odd clearfix">
+  <div class="hexagon learned"><div>week6</div></div>
+  <div class="hexagon"><div>week7</div></div>
+  <div class="hexagon"><div>week8</div></div>
+  <div class="hexagon"><div>week9</div></div>
+</div>
+
+<div class="hline clearfix">
+  <div class="hexagon"><div>week10</div></div>
+  <div class="hexagon"><div>week11</div></div>
+  <div class="hexagon"><div>week12</div></div>
+  <div class="hexagon"><div>week13</div></div>
+  <div class="hexagon"><div>week14</div></div>
+</div>
+<div class="hline odd clearfix">
+  <div class="hexagon"><div>week15</div></div>
+  <div class="hexagon"><div>week16</div></div>
+  <div class="hexagon"><div>week17</div></div>
+  <div class="hexagon"><div>week18</div></div>
+</div>
+
+<div class="hline clearfix">
+  <div class="hexagon"><div>week19</div></div>
+  <div class="hexagon"><div>week20</div></div>
+  <div class="hexagon"><div>week21</div></div>
+  <div class="hexagon"><div>week22</div></div>
+  <div class="hexagon"><div>week23</div></div>
+</div>
+<div class="hline odd clearfix">
+  <div class="hexagon"><div>week15</div></div>
+  <div class="hexagon"><div>week16</div></div>
+  <div class="hexagon"><div>week17</div></div>
+  <div class="hexagon"><div>week18</div></div>
+</div>
+
+<div class="hline clearfix">
+  <div class="hexagon"><div>week19</div></div>
+  <div class="hexagon"><div>week20</div></div>
+  <div class="hexagon"><div>week21</div></div>
+  <div class="hexagon"><div>week22</div></div>
+  <div class="hexagon"><div>week23</div></div>
+</div>
+<div class="hline odd clearfix">
+  <div class="hexagon"><div>week15</div></div>
+  <div class="hexagon"><div>week16</div></div>
+  <div class="hexagon"><div>week17</div></div>
+  <div class="hexagon"><div>week18</div></div>
+</div>
+
+<div class="hline clearfix">
+  <div class="hexagon"><div>week19</div></div>
+  <div class="hexagon"><div>week20</div></div>
+  <div class="hexagon"><div>week21</div></div>
+  <div class="hexagon"><div>week22</div></div>
+  <div class="hexagon"><div>week23</div></div>
+</div>
+
+
+<div class="light">
+
+</div>
+
+<div class="info-list">
+  <ul>
+    <li><i class="icon"></i><span class="title">词汇</span> <i class="fold"></i></li>
+    <li><i class="icon"></i><span class="title">阅读</span> <i class="fold"></i></li>
+    <li><i class="icon"></i><span class="title">句型</span> <i class="fold"></i></li>
+    <li><i class="icon"></i><span class="title">朗诵</span> <i class="fold"></i></li>
+    <li><i class="icon"></i><span class="title">手工与写作</span> <i class="fold"></i></li>
+    <li><i class="icon"></i><span class="title">家庭作业</span> <i class="fold"></i></li>
+  </ul>
+</div>
+</body>
+</html>

@@ -8,14 +8,13 @@
 <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
 <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
 
-<title>Knowledge Honeycombs</title>
+<title>蜂巢知识图</title>
 <link rel="stylesheet" type="text/css" href="css/common.css">
 
-<script type="text/javascript" src="js/jquery-2.1.0.min.js"></script>
-
 <link rel="stylesheet" type="text/css" href="css/animate-animo.css">
+
+<script type="text/javascript" src="js/jquery-2.1.0.min.js"></script>
 <script type="text/javascript" src="js/animo.js"></script>
-<script type="text/javascript" src="js/deviceshell.js"></script>
 
 <script type="text/javascript">
 
@@ -94,13 +93,13 @@
     			"top": 436,
     			"type": "orange",
     			"content": "Conj."
-    		},
+    		} ,
     		{
     			left: 462,
     			"top": 300,
     			"type": "orange",
     			"content": "Art."
-    		},
+    		}   ,
     		{
     			left: 702,
     			"top": 168,
@@ -225,13 +224,18 @@
 		}      
 	];
 	*/
-
+	
+	$(document).ready(function() {
+		resetData();
+		bindData(sea1, fallDown);
+	});
+	
 	function resetData() {
 		for (var i = 0; i < sea1.length; i++) {
-			sea1[i].left = sea1[i].left-380 + 1066/2 - 200;
+			sea1[i].left = sea1[i].left-380 + $(window).width()/2 - 200;
 		}
 		for (var i = 0; i < sea2.length; i++) {
-			sea2[i].left = sea2[i].left-300 + 1066/2 - 280;
+			sea2[i].left = sea2[i].left-300 + $(window).width()/2 - 280;
 		}
 	}
 	
@@ -243,7 +247,8 @@
 			n.addClass(data[i].type);
 			n.css("left", data[i].left);
 			n.css("top", data[i].top);
-			$("#ipad .screen").append(n);
+			
+			$("body").append(n);
 		}
 		cb();
 	}
@@ -272,50 +277,21 @@
 		$(".honeycomb .blockl").each(function() {
 			var r1 = -Math.random() * 60;
 			var r2 = -Math.random() * 15;
-
-			var x = Math.random()* 1280;
-			var y =  Math.random()* 800;
-			var transform = "skew(-" + (30 + r2) +"deg) rotate(" +　(80+r1) +　"deg) translate(-" + x + "px," + y + "px)";
-			$(this).css("-webkit-transform",  transform);
-			$(this).css("-moz-transform",  transform);
-			$(this).css("-ms-transform",  transform);
-			/* old
-			$(this).css("-webkit-transform",  "skew(-" + (30 + r2) +"deg) rotate(" +　(80+r1) +　"deg) translate(-155px,45px)");
-			$(this).css("-moz-transform",  "rotate(" +　(80+r1) +　"deg) skew(-" + (30 + r2) +"deg) translate(-155px,45px)");
-			$(this).css("-ms-transform",  "rotate(" +　(80+r1) +　"deg) skew(-" + (30 + r2) +"deg) translate(-155px,45px)");
-			*/
+			$(this).css("-webkit-transform",  "rotate(" +　(80+r1) +　"deg) skew(-" + (30 + r2) +"deg) translate(-55px,45px)");
+			$(this).css("-moz-transform",  "rotate(" +　(80+r1) +　"deg) skew(-" + (30 + r2) +"deg) translate(-55px,45px)");
+			$(this).css("-ms-transform",  "rotate(" +　(80+r1) +　"deg) skew(-" + (30 + r2) +"deg) translate(-55px,45px)");
 		});
 	
 		$(".honeycomb .blockr").each(function() {
 			var r1 = Math.random() * 60;
 			var r2 = -Math.random() * 15;
-
-			var x = Math.random()* 1280;
-			var y =  Math.random()* 800;
-			var transform = "skew(" + (30 + r2) +"deg) rotate(" +　(80+r1) +　"deg) translate(" + x + "px," + y + "px)";
-
-			$(this).css("-webkit-transform",  transform);
-			$(this).css("-moz-transform",  transform);
-			$(this).css("-ms-transform",  transform);
+			$(this).css("-webkit-transform",  "rotate(" +　(80+r1) +　"deg) skew(-" + (30 + r2) +"deg) translate(-160px,-46px)");
+			$(this).css("-moz-transform",  "rotate(" +　(80+r1) +　"deg) skew(-" + (30 + r2) +"deg) translate(-55px,45px)");
+			$(this).css("-ms-transform",  "rotate(" +　(80+r1) +　"deg) skew(-" + (30 + r2) +"deg) translate(-55px,45px)");
 		});
-
-
-		$(".honeycomb .blocku").each(function() {
-			var r1 = Math.random() * 60;
-			var r2 = -Math.random() * 15;
-
-			var x = -Math.random()* 1280;
-			var y =  -Math.random()* 800;
-			var transform = "skew(" + (30 + r2) +"deg) rotate(" +　(80+r1) +　"deg) translate(" + x + "px," + y + "px)";
-
-			$(this).css("-webkit-transform",  transform);
-			$(this).css("-moz-transform",  transform);
-			$(this).css("-ms-transform",  transform);
-		});
-
 		$(".honeycomb").each(function() {
-			//$(this).data("ot", parseInt($(this).css("top")));
-			//$(this).css("transform", "translateY(-" + (parseInt($(this).css("top")) + 200 - Math.random()*100) + "px) translateZ(0)");
+			$(this).data("ot", parseInt($(this).css("top")));
+			$(this).css("transform", "translateY(-" + (parseInt($(this).css("top")) + 200 - Math.random()*100) + "px) translateZ(0)");
 			//$(this).css("top", 50-Math.random()*400);
 		});
 		//okay();
@@ -323,7 +299,7 @@
 	}
 	
 	function okay() {
-		$(".honeycomb, .honeycomb .blockl, .honeycomb .blockr,.honeycomb .blocku, .honeycomb .content").addClass("transted");
+		$(".honeycomb, .honeycomb .blockl, .honeycomb .blockr").addClass("transted");
 		$(".honeycomb .blockl").css("-webkit-transform", "rotate(90deg) skew(-30deg) translate(10px,39px);");
 		$(".honeycomb .blockl").css("-moz-transform", "rotate(90deg) skew(-30deg) translate(10px,39px);");
 		$(".honeycomb .blockl").css("-ms-transform", "rotate(90deg) skew(-30deg) translate(10px,39px);");
@@ -331,17 +307,15 @@
 		$(".honeycomb .blockr").css("-webkit-transform", "rotate(90deg) skew(30deg) translate(-67px,-41px);");
 		$(".honeycomb .blockr").css("-moz-transform", "rotate(90deg) skew(30deg) translate(-67px,-41px);");
 		$(".honeycomb .blockr").css("-ms-transform", "rotate(90deg) skew(30deg) translate(-67px,-41px);");
-
-
-		$(".honeycomb .blocku").css("-webkit-transform", "rotate(-30deg) skew(30deg) translate(0,0,0);");
-		$(".honeycomb .blocku").css("-moz-transform", "rotate(-30deg) skew(30deg)");
-		$(".honeycomb .blocku").css("-ms-transform", "rotate(-30deg) skew(30deg)");
-
-		$(".honeycomb .content").css("opacity", 1);
-		$(".honeycomb .content").css("transform", 'scale(1)');
-
+		
 		$(".honeycomb").css("transform", "translateY(0px) translateZ(0)");
-
+		
+		/*
+		$(".honeycomb").each(function() {
+			$(this).css("transform", "translateY(0px) translateZ(0)");
+		});
+		*/
+		
 		$(".honeycomb").one("transitionend webkitTransitionEnd MSTransitionEnd", function(){
 			$(".honeycomb").unbind();
 			$(".honeycomb").removeClass("transted");
@@ -350,42 +324,49 @@
 				//$(this).animo("blur");
 				$(this).animo({animation: "scaleOut",duration: 1, keep: true}, function() {
 					bindData(sea2, zoomOut);
-					$(".content").css("transform", "scale(1)");
 				});
+				
 				$(".honeycomb").not(this).animo({animation: "flipOutY", duration: 0.5, keep: true}, function() {
 					
 				});
 			});
+			
+			/*
+			
+			$(".honeycomb").animo({ animation: 'tada', duration: 1, iterate: 2}, function() {
+				//$(".honeycomb").animo( { animation: 'tada'});
+				
+				$(".honeycomb").hover(function() {
+					$(".honeycomb").css("z-index", 10);
+					$(this).css("z-index", 999);
+					$(this).animo({animation: "tada",duration: 2, iterate: "infinite", keep: true});
+				}, function() {
+					$(this).animo("cleanse");
+				});
+				$(".honeycomb").click(function() {
+					//$(this).animo("blur");
+					$(this).animo({animation: "tada",duration: 1, keep: true}, function() {
+					});
+					
+					$(".honeycomb").not(this).animo({animation: "flipOutY", duration: 0.5, keep: true}, function() {
+						bindData(sea2, zoomOut);
+					});
+				});
+			});
+			*/
 		});
 	}
 </script>
 </head>
 <body>
 
-<div id="ipad">
+<div class="title"><img src="title.png"></div>
 
-	<div class="title"><img src="title.png"></div>
-	<div class="explain">
-		<img src="explain.png">
-	</div>
+
+<div class="explain">
+	<img src="explain.png">
 </div>
 
 
-<script>
-	$("#ipad").deviceshell({
-		width: 1228,
-		type: 'ipad'
-	});
-
-	$("#ipad").css("left", $(window).width()/2-1228/2);
-	$("#ipad").css("top", $(window).height()/2-822/2);
-
-
-	$(document).ready(function() {
-		resetData();
-		bindData(sea1, fallDown);
-	});
-
-</script>
 </body>
 </html>

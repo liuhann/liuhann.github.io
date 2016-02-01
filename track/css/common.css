@@ -1,0 +1,195 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
+html {
+
+}
+
+#iphone .screen {
+  /*background-color: #DFEEF5;*/
+  background-image: url("../img/bg.png");
+  background-size: 26em auto;
+  background-position-y: -1em;
+  overflow: hidden;
+  width: 26em;
+}
+.wrapper {
+  overflow: hidden;
+}
+*, *:before, *:after {
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.hline.first {
+  margin-top: 1.6em;
+}
+.hline {
+  height: 4.35em;
+  float: left;
+  margin-left: 0.55em;
+}
+
+
+@-webkit-keyframes lightFlash {
+  0% {
+    -webkit-transform: skewx(-25deg) rotate(-30deg) translateY(20em);
+  }
+
+  100% {
+    -webkit-transform: skewx(-25deg) rotate(-30deg) translateY(-60em);
+    opacity: 0;
+  }
+}
+
+@keyframes lightFlash {
+  0% {
+    transform: skewx(-25deg) rotate(-30deg) translateY(20em);
+  }
+
+  100% {
+    transform: skewx(-25deg) rotate(-30deg) translateY(-100em);
+  }
+}
+.lightFlash {
+  -webkit-animation-name: lightFlash;
+  animation-name: lightFlash;
+}
+
+.odd {
+  margin-left:3.05em;
+}
+
+.hexagon {
+  text-align: center;
+  display: none;
+  font-size: 1em;
+  color: white;
+  line-height: 5em;
+  background-image: url('../img/unlearned.png');
+  background-size: cover;
+  float: left;
+  position: relative;
+  width: 5em;
+  height: 5.15em;
+  /* margin-right: 1.3em; */
+  margin-top: .15em;
+  background-position: center;
+  background-size: 4.4em 5.15em;
+  background-repeat: no-repeat;
+}
+.hexagon.learned {
+  background-image: url('../img/learned.png');
+}
+.hexagon.selected {
+  background-image: url('../img/unlearned-cur.png');
+}
+.learned.hexagon.selected {
+  background-image: url('../img/learned-cur.png');
+}
+
+.info-list {
+  position: absolute;
+  top: 7.5em;
+  width: 100%;
+  display: none;
+  border-top: .3em solid #96D8F2;
+  padding: 0 .5em;
+  background-color: #fff;
+}
+
+.info-list li.title-item {
+  background-color: #fff;
+  position: absolute;
+  list-style: none;
+  height: 3.5em;
+  width: 22em;
+  left:0;
+  font-size: 1.2em;
+  line-height: 3em;
+  padding-left: 1em;
+  font-weight: bold;
+  border-bottom: 1px solid #C7C7C7;
+  color: #3F3F3F;
+  z-index: 100;
+  -webkit-transition: -webkit-transform .3s ease-in-out;
+}
+
+.info-list li i.icon {
+  background-image: url("../img/icon.png");
+  width: 1.2em;
+  height: 1.6em;
+  background-size: cover;
+  position: absolute;
+  top: .9em;
+}
+.info-list li span.title {
+  position: absolute;
+  left: 2.75em;
+  top: .3em;
+}
+.info-list li i.fold {
+  background-image: url("../img/fold.png");
+  position: absolute;
+  width: 1.5em;
+  right: .5em;
+  height: .9em;
+  background-size: cover;
+  position: absolute;
+  top: 1.3em;
+  -webkit-transition: -webkit-transform .3s ease-out;
+}
+
+.info-list li.opened i.fold {
+  -webkit-transform: rotate(180deg);
+}
+
+.detail-list {
+  position: absolute;
+  left: 0;
+  z-index: 10;
+  -webkit-transition: -webkit-transform .3s ease-in-out;
+}
+.detail-list li.subitem {
+  background-color: #fff;
+  list-style: none;
+  height: 3.5em;
+  width: 26em;
+  line-height: 3em;
+  padding-left: 1em;
+  font-weight: bold;
+  border-bottom: 1px solid #C7C7C7;
+  font-size: 1em;
+  color: #8A8A8A;
+
+}
+
+.clearfix:after {
+  content: ".";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+
+.clearfix {
+  display: inline-block;
+} /* for IE/Mac */
+.clearfix {
+  zoom: 1; /* triggers hasLayout */
+  display: block; /* resets display for IE/Win */
+}
+
+.light {
+  display:none;
+  cursor: pointer;
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 2em;
+  bottom: 2.5em;
+  background-image: -moz-linear-gradient(0deg,rgba(255,255,255,0),rgba(255,255,255,0.5),rgba(255,255,255,0));
+  background-image: -webkit-linear-gradient(0deg,rgba(255,255,255,0),rgba(255,255,255,0.5),rgba(255,255,255,0));
+}

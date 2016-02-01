@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>蜂巢知识图</title>
+<link rel="stylesheet" type="text/css" href="css/common.css">
+<script type="text/javascript" src="js/jquery-2.1.0.min.js"></script>
+
+<script type="text/javascript">
+	
+	$(document).ready(function() {
+		//$(".honeycomb").css("transform", "scale(.5)");
+		$(".honeycomb .blockl").each(function() {
+			var r1 = Math.random() * 15;
+			var r2 = -Math.random() * 25;
+			$(this).css("-webkit-transform",  "rotate(" +　(80+r1) +　"deg) skew(-" + (30 + r2) +"deg) translate(-55px,45px)");
+		});
+
+		$(".honeycomb .blockr").each(function() {
+			var r1 = Math.random() * 25;
+			var r2 = -Math.random() * 25;
+			$(this).css("-webkit-transform",  "rotate(" +　(80+r1) +　"deg) skew(-" + (30 + r2) +"deg) translate(-160px,-46px)");
+		});
+		$(".honeycomb").each(function() {
+			$(this).data("ot", parseInt($(this).css("top")));
+			$(this).css("top", 50-Math.random()*400);
+		});
+		
+		setTimeout(okay, 200);
+		  //-webkit-transform: rotate(90deg) skew(30deg) translate(-120px,-46px);
+	});
+	
+	function okay() {
+		$(".honeycomb, .honeycomb .blockl, .honeycomb .blockr").addClass("transted");
+		$(".honeycomb .blockl").css("-webkit-transform", "rotate(90deg) skew(-30deg) translate(12px,45px)");
+		$(".honeycomb .blockr").css("-webkit-transform", "rotate(90deg) skew(30deg) translate(-76px,-46px)");
+		$(".honeycomb").each(function() {
+			$(this).css("top", $(this).data("ot"));
+		});
+	}
+	
+	function showc() {
+		$(".honeycomb").show();
+		setTimeout(function() {
+			$(".honeycomb").addClass("transted");
+			$(".honeycomb").css("transform", "scale(.88)");
+		}, 100);
+	}
+	
+	function transited() {
+	}
+</script>
+</head>
+<body>
+
+<div class="honeycomb a1">
+	<div class="blocku"></div>
+	<div class="blockl"></div>
+	<div class="blockr"></div>
+	<div class="content">听</div>
+</div>
+<div class="honeycomb a2">
+	<div class="blocku"></div>
+	<div class="blockl"></div>
+	<div class="blockr"></div>
+	<div class="content">听</div>
+</div>
+<div class="honeycomb a3">
+	<div class="blocku"></div>
+	<div class="blockl"></div>
+	<div class="blockr"></div>
+	<div class="content">听</div>
+</div>
+<div class="honeycomb a4">
+	<div class="blocku"></div>
+	<div class="blockl"></div>
+	<div class="blockr"></div>
+	<div class="content">听</div>
+</div>
+<div class="honeycomb a5">
+	<div class="blocku"></div>
+	<div class="blockl"></div>
+	<div class="blockr"></div>
+	<div class="content">听</div>
+</div>
+<div class="honeycomb a6">
+	<div class="blocku"></div>
+	<div class="blockl"></div>
+	<div class="blockr"></div>
+	<div class="content">听</div>
+</div>
+<div class="honeycomb a7">
+	<div class="blocku"></div>
+	<div class="blockl"></div>
+	<div class="blockr"></div>
+	<div class="content">听</div>
+</div>
+
+<div class="honeycomb a8">
+	<div class="blocku"></div>
+	<div class="blockl"></div>
+	<div class="blockr"></div>
+	<div class="content">听</div>
+</div>
+<div class="honeycomb a9">
+	<div class="blocku"></div>
+	<div class="blockl"></div>
+	<div class="blockr"></div>
+	<div class="content">听</div>
+</div>
+
+<div class="honeycomb a10">
+	<div class="blocku"></div>
+	<div class="blockl"></div>
+	<div class="blockr"></div>
+	<div class="content">听</div>
+</div>
+
+</body>
+</html>

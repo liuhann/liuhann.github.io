@@ -1,0 +1,226 @@
+* {
+    padding: 0;
+    margin: 0;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    -webkit-text-size-adjust:none;
+}
+
+html, body {
+    background: #ebebeb;
+    font-family:Tahoma,Arial,Roboto,Helvetica,sans-serif;
+    font-size: 10px;
+    overflow: hidden;
+    min-height: 100%;
+}
+
+.background {
+    position: absolute;
+    left:0;
+    right:0;
+    top:0;
+    background-size: cover;
+    overflow: hidden;
+    z-index: -1;
+}
+
+.sprite {
+    position: absolute;
+    z-index: 10;
+    -webkit-transition-property: -webkit-transform, opacity;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input.mobilex {
+    padding: 15px;
+    font-size: 20px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    -webkit-appearance: none;
+    text-align: center;
+}
+
+.animatedSprite {
+    position: absolute;
+    background-size: cover;
+}
+
+.label  {
+    position: absolute;
+}
+
+.next {
+    position: absolute;
+    z-index: 1001;
+}
+
+.next span {
+    vertical-align: middle;
+}
+.next img {
+    vertical-align: middle;
+    margin-right: 10px;
+}
+
+.next .circle {
+    position: absolute;
+    left : -10px;
+    top: -10px;
+    width: 20px;
+    height: 20px;
+    border: 1px solid #ccc;
+    border-radius: 50%;
+}
+
+@-webkit-keyframes  fadeOutScale{
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+        -webkit-transform: scale(5);
+    }
+}
+
+.fadeOutScale {
+    -webkit-animation-name: fadeOutScale;
+}
+
+@-webkit-keyframes slideObliqueDown {
+    0% {
+        -webkit-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+    }
+    15% {
+        -webkit-transform: translate3d(100%, -20%, 0);
+    }
+    30% {
+        -webkit-transform: translate3d(20%, 80%, 0);
+    }
+    50% {
+        -webkit-transform: translate3d(350%, 10%, 0);
+    }
+    70% {
+        -webkit-transform: translate3d(150%, 100%, 0);
+    }
+    90% {
+        -webkit-transform: translate3d(360%, 80%, 0);
+    }
+    99% {
+        -webkit-transform: translate3d(360%, 80%, 0);
+    }
+}
+
+.slideObliqueDown {
+    -webkit-animation-name: slideObliqueDown;
+    animation-name: slideObliqueDown;
+    -webkit-animation-duration: 3s;
+}
+
+
+@-webkit-keyframes elementClicked {
+    0% {
+        -webkit-transform: scale(.95);
+    }
+   100% {
+        -webkit-transform: scale(1);
+    }
+}
+
+
+.elementClicked {
+    -webkit-animation-name: elementClicked;
+    animation-name: elementClicked;
+    -webkit-animation-duration: .3s;
+}
+
+
+@-webkit-keyframes rotate360 {
+    0% {
+        -webkit-transform-origin: center;
+        transform-origin: center;
+        opacity: 1;
+    }
+
+    30% {
+        -webkit-transform: translate(0, 20%);
+    }
+
+    50% {
+        -webkit-transform: translate(0, 0);
+    }
+
+    80% {
+        -webkit-transform: translate(0, -20%);
+    }
+
+    100% {
+        -webkit-transform: translate(0, 0);
+    }
+
+    /*
+    100% {
+        -webkit-transform-origin: center;
+        transform-origin: center;
+        -webkit-transform: rotate3d(0, 0, 1, 360deg);
+    }
+    */
+}
+
+
+.msg-container {
+    position: absolute;
+    z-index: 9999;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,.3);
+}
+.msg-container .msgbox {
+    width: 16rem;
+    height: 9rem;
+    background-color: #fff;
+    margin: 7rem auto;
+    border-radius: .5rem;
+}
+.msg-container .msgbox .content {
+    color: #8d8d8d;
+    height: 4.6rem;
+    font-size: .8rem;
+    border-bottom: 1px solid #ccc;
+    padding: 1rem;
+}
+
+.msg-container .msgbox .btns {
+    text-align: center;
+}
+
+.msg-container .msgbox .btns a {
+    font-size: 1rem;
+    color: #2c62c8;
+    line-height: 2.5rem;
+}
+.msg-container .msgbox .btns.pressed {
+    background: #f4f5f9;
+}
+
+
+
+.rotate360 {
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-duration: 3s;
+    -webkit-animation-name: rotate360;
+    animation-name: rotate360;
+    -webkit-animation-timing-function: linear;
+}
+
+.filtergrey img {
+    -webkit-transform: translateZ(0);
+    -webkit-filter: grayscale(100%);
+}
