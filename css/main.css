@@ -428,9 +428,12 @@ code.lang-markdown .bullet {
 }
 
 @media (max-width: 690px) {
+  body {
+    font-size: 20px;
+  }
   .content-wrap {
     width: auto;
-    padding: 0 1em;
+    padding: 0 .5em;
   }
   .header {
   }
@@ -442,6 +445,7 @@ code.lang-markdown .bullet {
     font-size: 1em;
   }
   .article {
+    width: 100%;
     margin: 1em 0 2.5em;
   }
   .archive {
