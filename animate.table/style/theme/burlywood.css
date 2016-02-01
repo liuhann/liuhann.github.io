@@ -1,0 +1,21 @@
+body {
+  font-size: 12px; }
+
+.burlywood .ultra-header .ultra-cell {
+  padding: 8px 10px;
+  background-color: #de8714;
+  color: #fff; }
+.burlywood .ultra-body .ultra-row .ultra-cell {
+  border-bottom: 1px solid burlywood;
+  padding: 5px; }
+.burlywood .ultra-body .ultra-row:first-child .ultra-cell {
+  border-top: 1px solid burlywood; }
+.burlywood .pagination {
+  height: 50px; }
+  .burlywood .pagination ul.numbers li {
+    border: 1px solid burlywood; }
+    .burlywood .pagination ul.numbers li.current {
+      background-color: #de8714;
+      color: #fff; }
+
+/*# sourceMappingURL=burlywood.css.map */

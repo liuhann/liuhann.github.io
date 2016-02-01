@@ -13,6 +13,10 @@ body, html {
   margin: 0;
   -webkit-transition: -webkit-transform 0.4s cubic-bezier(0.22, 0.61, 0.36, 1); }
 
+a {
+  color: #333;
+  text-decoration: none; }
+
 /* Clearfix hack by Nicolas Gallagher: http://nicolasgallagher.com/micro-clearfix-hack/ */
 .clearfix:before, .clearfix:after {
   content: " ";
