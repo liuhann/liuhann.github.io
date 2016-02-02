@@ -245,9 +245,6 @@ function didoIng(item) {
 
 function renderTick() {
 	var w = $(container).width();
-	$(".running .tick").css("width", w/2-32);
-	$(".running .op").css("left", w/2-32);
-	
 	var item = getCurrentRunning();
 	
 	if (item) {

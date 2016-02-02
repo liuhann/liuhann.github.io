@@ -271,7 +271,6 @@ a.big-btn {
 	line-height: 2em;
 	padding-right: 2em;
 	padding-left: 2em;
-	border-left: 1px solid #dfdfdf;
 }
 
 .main .running .info .hint {
@@ -293,6 +292,7 @@ a.big-btn {
 	position: absolute;
 	left: 0;
 	top: 0;
+	width: 40%;
 	text-align: center;
 	color: #555;
 	font-size: 1.25em;
@@ -302,7 +302,6 @@ a.big-btn {
 
 .main .running .op {
 	font-size: 1.5em;
-	/* line-height: 2em; */
 	font-family: "fontello";
 	position: absolute;
 	color: #7D7396;
@@ -314,6 +313,8 @@ a.big-btn {
 	border: 2px solid #EAE8E8;
 	padding: .5em .5em .5em .6em;
 	text-align: center;
+	left: 50%;
+	margin-left: -1em;
 }
 
 .main .running .pause:before {
