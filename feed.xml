@@ -5,9 +5,25 @@
     <atom:link href="http://localhost:8080/feed.xml" rel="self" type="application/rss+xml"></atom:link>
     <link>http://localhost:8080</link>
     <description>Space of fronteer</description>
-    <pubDate>Sat, 16 Jan 2016 08:00:00 +0800</pubDate>
+    <pubDate>Tue, 02 Feb 2016 08:00:00 +0800</pubDate>
     <generator>Wintersmith - https://github.com/jnordberg/wintersmith</generator>
     <language>en</language>
+    <item>
+      <title>Re-Make of Dido Timer</title>
+      <link>http://localhost:8080/articles/20160202-didotimer-remake/</link>
+      <pubDate>Tue, 02 Feb 2016 08:00:00 +0800</pubDate>
+      <guid isPermaLink="true">http://localhost:8080/articles/20160202-didotimer-remake/</guid>
+      <author></author>
+      <description>&lt;p&gt;This is the dido-timer, which is first published as mobile app in cordova in the end of 2014. And now it can be run on browsers. &lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/articles/20160202-didotimer-remake/preview.png&quot; alt=&quot;preview&quot;&gt;&lt;/p&gt;
+&lt;h2 id=&quot;-&quot;&gt; &lt;/h2&gt;
+&lt;p&gt;&lt;img src=&quot;/articles/20160202-didotimer-remake/1.png&quot; alt=&quot;preview&quot;&gt;
+&lt;img src=&quot;/articles/20160202-didotimer-remake/2.png&quot; alt=&quot;preview&quot;&gt;
+&lt;img src=&quot;/articles/20160202-didotimer-remake/3.png&quot; alt=&quot;preview&quot;&gt;
+&lt;img src=&quot;/articles/20160202-didotimer-remake/4.png&quot; alt=&quot;preview&quot;&gt;&lt;/p&gt;
+&lt;p&gt;Let’s &lt;a href=&quot;http://liuhann.github.io/dido-timer/index.html&quot;&gt;Go and see&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
     <item>
       <title>The animate.table alpha preview</title>
       <link>http://localhost:8080/articles/20160120-previewof-animatetable/</link>
