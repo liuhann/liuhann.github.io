@@ -18,21 +18,17 @@
 
     <link type="text/css" rel="stylesheet" href="css/animate.css"><!--通用CSS样式 -->
     <link type="text/css" rel="stylesheet" href="css/style.css?14"><!--通用CSS样式 -->
-    <script type="text/javascript" src="js/deviceshell.js"></script>
-
+    <script type="text/javascript" src="../mockdevice/js/deviceshell.js"></script>
 </head>
 
 <body>
     <div id="iphone">
         <audio src="spring.mp3" onloadeddata="RedPackageDirector.mediaLoaded()" autoplay="true" controls="none" id="myaudio"  loop="loop" style="display: none;" />
     </div>
-
     <script>
         $("#iphone").deviceshell({
-            width: 400
+            width: $(window).height()/2-10
         });
-        $("#iphone").css("left", $(window).width()/2-200);
-        $("#iphone").css("top", 50);
     </script>
     <script type="text/javascript" src="js/rp.js?14"></script>
 

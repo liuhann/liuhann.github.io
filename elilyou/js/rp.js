@@ -11,8 +11,11 @@ $(function() {
             RedPackageDirector.play();
     });
 });
+var isMobile =/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent);
 
 var RedPackageDirector = (function(container) {
+
+
 
     var WIDTH = $(container).width();
     var HEIGHT = $(container).height();
@@ -600,7 +603,7 @@ var RedPackageDirector = (function(container) {
         mediaLoaded: mediaLoaded,
         play: play
     }
-}("#iphone .screen"));
+}(isMobile? "#iphone": "#iphone .screen"));
 
 ;
 (function(window, document, undefined) {

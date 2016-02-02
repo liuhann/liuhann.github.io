@@ -5,6 +5,10 @@
     -webkit-text-size-adjust:none;
 }
 
+#iphone {
+    margin: 0 auto;
+    position: relative;
+}
 html, body {
     background: #ebebeb;
     font-family:Tahoma,Arial,Roboto,Helvetica,sans-serif;
