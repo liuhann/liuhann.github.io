@@ -10,10 +10,12 @@ function drawCal(y,m,weekFirst, container) {
 	
 	var dateHeight = Math.floor(parseInt($(container).height())/6);
 	var dateWidth = Math.floor(parseInt($(container).width())/7)-3 - 8;
-	
+
+	/*
 	if (dateHeight>50) {
 		dateHeight=50;
 	}
+	*/
 	
 	var currentWeek = weekFirst; 
 	while (true) {
