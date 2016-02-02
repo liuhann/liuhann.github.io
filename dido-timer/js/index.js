@@ -144,7 +144,7 @@ function pageTiming(d) {
 	$(".main .time").show();
 	$(".main .running").show();
 	
-	$(".main .bottom .time").html("时间记录");
+	$(".main .bottom .time").html("Timer");
 	$(".bottom .item.time").removeClass("blink");
 	$(".bottom .item").removeClass("sibon");
 	$(".main .bottom .time").addClass("sibon");
