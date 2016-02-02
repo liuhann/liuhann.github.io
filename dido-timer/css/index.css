@@ -301,18 +301,18 @@ a.big-btn {
 }
 
 .main .running .op {
-	font-size: 28px;
-	line-height: 28px;
+	font-size: 1.5em;
+	/* line-height: 2em; */
 	font-family: "fontello";
 	position: absolute;
 	color: #7D7396;
-	top: -12px;
-	width: 26px;
+	top: -.5em;
+	width: 1em;
 	background: #FAFBFE;
-	height: 26px;
+	height: 1em;
 	border-radius: 50%;
 	border: 2px solid #EAE8E8;
-	padding: 15px;
+	padding: .5em .5em .5em .6em;
 	text-align: center;
 }
 
