@@ -3,7 +3,10 @@
 
 ;(function($) {
 
-    function DeviceShell(container, width, type) {
+    function DeviceShell(container, options) {
+
+        var width = options.width;
+        var type = options.type;
 
         var barder_color = "#ccc";
         var shell_color = "#fff";
@@ -30,8 +33,6 @@
         $(container).css("position", "relative");
 
         if (type==="iphone") {
-
-
             $(container).css("width", width);
             $(container).css("height", width * 2);
 
@@ -110,7 +111,7 @@
 
     $.fn.deviceshell = function(options) {
 
-        var shell = new DeviceShell(this, options.width,  options.type);
+        var shell = new DeviceShell(this, options);
         return shell.getScreen();
     };
 

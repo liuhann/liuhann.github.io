@@ -17,16 +17,25 @@
 </head>
 <body>
 
+<div id="ipad"></div>
 <div id="iphone"></div>
 
 <script>
+	$("#ipad").deviceshell({
+		width: 800,
+		type: 'ipad'
+	});
+	$("#ipad").css("position", "absolute").css("left", 360);
+	$("#ipad").css("top", 50);
+</script>
+
+<script>
 	$("#iphone").deviceshell({
-		width: 400
+		width: 260
 	});
 
-	$("#iphone").css("left", $(window).width()/2-200);
-	$("#iphone").css("top", 50);
-
+	$("#iphone").css("position", "absolute").css("left", 460);
+	$("#iphone").css("top", 200);
 
 </script>
 </body>

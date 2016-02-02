@@ -22,7 +22,6 @@ function HoneyComber(container, config_div) {
     }
 
     function play() {
-
         var div = $("<div class='scene'></div>");
         div.css("position","absolute");
         div.css("overflow", "hidden");
