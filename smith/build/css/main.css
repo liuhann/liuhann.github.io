@@ -33,7 +33,7 @@ p {
 pre {
   font-size: 0.9em;
   overflow: auto;
-  background: #395C85;
+  background: #111;
   color: #fff;
   border: 1px dashed #d2d2d2;
   border-radius: 0.25em;
@@ -341,7 +341,7 @@ code {
 
 pre code {
   display: block;
-  line-height: 1.1;
+  line-height: 2em;
 }
 
 p code {
@@ -476,4 +476,23 @@ code.lang-markdown .bullet {
   footer .about p {
     margin-bottom: 1em;
   }
+}
+
+
+body.article-detail h2 {
+  padding: .5em;
+  font-size: 1.5em;
+  margin: 0;
+  color: #000;
+  background-color: #E4E9E2;
+}
+
+body.article-detail h3 {
+  color: #298032;
+  font-style: normal;
+  text-align: left;
+  font-size: 1.2em;
+}
+body.article-detail section.content p {
+  text-indent: 2em;
 }
