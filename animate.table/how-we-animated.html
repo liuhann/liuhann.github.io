@@ -2,8 +2,18 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title></title>
+    <title>Animate.Table</title>
+
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/underscore-min.js"></script>
+    <script type="text/javascript" src="js/animate.table.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="style/main.css">
+
+    <link rel="stylesheet" type="text/css" href="style/animations.css">
     <link rel="stylesheet" type="text/css" href="style/theme/monster.css">
+    <link rel="stylesheet" type="text/css" href="style/ultra.css">
+
     <script>
         var rowData =  [{
             "singer": "Justin Bieber",
@@ -774,7 +784,6 @@
                 console.log(inClass, outClass);
                 $("#configs").html(" { \n   pageEntranceAnimation:" + inClass + " \n    pageExistAnimation:" + outClass + "\n }");
 
-
                 options.pageEntranceAnimation = inClass;
                 options.pageExistAnimation = outClass;
 
@@ -787,17 +796,17 @@
 
     <style>
         .ultratable .ultra-body .ultra-cell h2.order {
-            text-aoptiongn: center;
+            text-align:  center;
             font-size: 28px;
             margin: 5px 0;
         }
 
         .ultratable .ultra-body .ultra-cell .last-week {
-            text-aoptiongn: center;
+            text-align: center;
         }
 
         .ultratable .ultra-body .ultra-cell .song {
-            optionne-height: 20px;
+            line-height: 20px;
             font-weight: 800;
             font-size: 16px;
         }
@@ -812,8 +821,8 @@
             background-attachment: scroll;
             background-position: center center;
             background-size: cover;
-            width: 60px;
-            height: 60px;
+            width: 80px;
+            height: 80px;
             display: inherit;
         }
 
@@ -822,7 +831,7 @@
     <script type="text/javascript">
         var options = {
             headers: [" RANK ", "Singer", "Song"],
-            headerWidth: ["100px", "80px", "400px"],
+            headerWidth: ["120px", "120px", "400px"],
             page: {
                 current: 1,
                 per: 6
@@ -838,119 +847,158 @@
         };
     </script>
 </head>
+
 <body>
+<div class="splash">
+    <div class="wrapper">
+        <div class="title">
+            <span class="extra">animate</span>.<span>table</span>
+        </div>
+        <div class="desc">
+            Table updated with animation
+        </div>
+        <div class="btngroup">
+            <button class="smaller"><a href="how-we-animated.html">HOW WE ANIMATED</a></button>
+            <button ><a href="https://codeload.github.com/liuhann/animate.table/zip/master">DOWNLOAD</a></button>
+            <button >
+                <svg aria-hidden="true" class="octicon octicon-mark-github" height="28" role="img" version="1.1" viewBox="0 0 16 16" width="28"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59 0.4 0.07 0.55-0.17 0.55-0.38 0-0.19-0.01-0.82-0.01-1.49-2.01 0.37-2.53-0.49-2.69-0.94-0.09-0.23-0.48-0.94-0.82-1.13-0.28-0.15-0.68-0.52-0.01-0.53 0.63-0.01 1.08 0.58 1.23 0.82 0.72 1.21 1.87 0.87 2.33 0.66 0.07-0.52 0.28-0.87 0.51-1.07-1.78-0.2-3.64-0.89-3.64-3.95 0-0.87 0.31-1.59 0.82-2.15-0.08-0.2-0.36-1.02 0.08-2.12 0 0 0.67-0.21 2.2 0.82 0.64-0.18 1.32-0.27 2-0.27 0.68 0 1.36 0.09 2 0.27 1.53-1.04 2.2-0.82 2.2-0.82 0.44 1.1 0.16 1.92 0.08 2.12 0.51 0.56 0.82 1.27 0.82 2.15 0 3.07-1.87 3.75-3.65 3.95 0.29 0.25 0.54 0.73 0.54 1.48 0 1.07-0.01 1.93-0.01 2.2 0 0.21 0.15 0.46 0.55 0.38C13.71 14.53 16 11.53 16 8 16 3.58 12.42 0 8 0z"></path></svg>
+                <a href="https://codeload.github.com/liuhann/animate.table/zip/master">Folk Me</a>
+            </button>
+        </div>
 
-<h2>Choose your row effects</h2>
-<p>
-    You can choose row change animation by using pageEntranceAnimation and pageExistAnimation. The animation come from <a href="http://tympanus.net/Development/PageTransitions/">this</a>。
-    There would be more animations in future
-</p>
-
-<div id="dl-menu" class="dl-menuwrapper">
-    <p>choose an animation pair from here and use them in your configuration</p>
-    <select id="animation-select">
-        <optgroup label="Move">
-            <option data-animation="1"><a href="#">Move to left/ from right</a></option>
-            <option data-animation="2"><a href="#">Move to right/ from left</a></option>
-            <option data-animation="3"><a href="#">Move to top/ from bottom</a></option>
-            <option data-animation="4"><a href="#">Move to bottom/ from top</a></option>
-        </optgroup>
-        <optgroup label="Fade">
-            <option data-animation="5"><a href="#">Fade / from right</a></option>
-            <option data-animation="6"><a href="#">Fade / from left</a></option>
-            <option data-animation="9"><a href="#">Fade left / Fade right</a></option>
-            <option data-animation="10"><a href="#">Fade right / Fade left</a></option>
-            <option data-animation="11"><a href="#">Fade top / Fade bottom</a></option>
-            <option data-animation="12"><a href="#">Fade bottom / Fade top</a></option>
-        </optgroup>
-        <optgroup label="Different easing">
-            <ul class="dl-submenu">
-                <option data-animation="13"><a href="#">Different easing / from right</a></option>
-                <option data-animation="14"><a href="#">Different easing / from left</a></option>
+        <div class="min-header">
+            <div>
+                <span class="extra">animate</span>.<span class="title">table</span>
+            </div>
+            <ul>
+                <li><a href="https://codeload.github.com/liuhann/animate.table/zip/master">Download</a></li>
+                <li><a href="https://github.com/liuhann/animate.table">Github</a></li>
             </ul>
-        </optgroup>
-        <optgroup label="Scale">
-            <option data-animation="17"><a href="#">Scale down / from right</a></option>
-            <option data-animation="18"><a href="#">Scale down / from left</a></option>
-            <option data-animation="21"><a href="#">Scale down / scale down</a></option>
-            <option data-animation="22"><a href="#">Scale up / scale up</a></option>
-            <option data-animation="23"><a href="#">Move to left / scale up</a></option>
-            <option data-animation="24"><a href="#">Move to right / scale up</a></option>
-            <option data-animation="25"><a href="#">Move to top / scale up</a></option>
-            <option data-animation="26"><a href="#">Move to bottom / scale up</a></option>
-            <option data-animation="27"><a href="#">Scale down / scale up</a></option>
-        </optgroup>
-        <optgroup label="Glue">
-            <option data-animation="28"><a href="#">Glue left / from right</a></option>
-            <option data-animation="29"><a href="#">Glue right / from left</a></option>
-            <option data-animation="30"><a href="#">Glue bottom / from top</a></option>
-            <option data-animation="31"><a href="#">Glue top / from bottom</a></option>
-        </optgroup>
-        <optgroup label="Foptionp">
-            <option data-animation="32"><a href="#">Foptionp right</a></option>
-            <option data-animation="33"><a href="#">Foptionp left</a></option>
-            <option data-animation="34"><a href="#">Foptionp top</a></option>
-            <option data-animation="35"><a href="#">Foptionp bottom</a></option>
-        </optgroup>
-        <optgroup label="Push / Pull">
-            <option data-animation="38"><a href="#">Push left / from right</a></option>
-            <option data-animation="39"><a href="#">Push right / from left</a></option>
-            <option data-animation="40"><a href="#">Push top / from bottom</a></option>
-            <option data-animation="41"><a href="#">Push bottom / from top</a></option>
+        </div>
+    </div>
+</div>
+<div class="list">
+    <div class="wrapper">
+        <div class="nav">
+            <div id="nav-table"></div>
+        </div>
+        <div class="content" id="content">
+            <h2>Choose your row effects</h2>
+            <p>
+                You can choose row change animation by using pageEntranceAnimation and pageExistAnimation. The animation come from <a href="http://tympanus.net/Development/PageTransitions/">this</a>。
+                There would be more animations in future
+            </p>
+            <div id="dl-menu" class="dl-menuwrapper">
+                <p>choose an animation pair from here and use them in your configuration</p>
+                <select id="animation-select">
+                    <optgroup label="Move">
+                        <option data-animation="1"><a href="#">Move to left/ from right</a></option>
+                        <option data-animation="2"><a href="#">Move to right/ from left</a></option>
+                        <option data-animation="3"><a href="#">Move to top/ from bottom</a></option>
+                        <option data-animation="4"><a href="#">Move to bottom/ from top</a></option>
+                    </optgroup>
+                    <optgroup label="Fade">
+                        <option data-animation="5"><a href="#">Fade / from right</a></option>
+                        <option data-animation="6"><a href="#">Fade / from left</a></option>
+                        <option data-animation="9"><a href="#">Fade left / Fade right</a></option>
+                        <option data-animation="10"><a href="#">Fade right / Fade left</a></option>
+                        <option data-animation="11"><a href="#">Fade top / Fade bottom</a></option>
+                        <option data-animation="12"><a href="#">Fade bottom / Fade top</a></option>
+                    </optgroup>
+                    <optgroup label="Different easing">
+                        <ul class="dl-submenu">
+                            <option data-animation="13"><a href="#">Different easing / from right</a></option>
+                            <option data-animation="14"><a href="#">Different easing / from left</a></option>
+                        </ul>
+                    </optgroup>
+                    <optgroup label="Scale">
+                        <option data-animation="17"><a href="#">Scale down / from right</a></option>
+                        <option data-animation="18"><a href="#">Scale down / from left</a></option>
+                        <option data-animation="21"><a href="#">Scale down / scale down</a></option>
+                        <option data-animation="22"><a href="#">Scale up / scale up</a></option>
+                        <option data-animation="23"><a href="#">Move to left / scale up</a></option>
+                        <option data-animation="24"><a href="#">Move to right / scale up</a></option>
+                        <option data-animation="25"><a href="#">Move to top / scale up</a></option>
+                        <option data-animation="26"><a href="#">Move to bottom / scale up</a></option>
+                        <option data-animation="27"><a href="#">Scale down / scale up</a></option>
+                    </optgroup>
+                    <optgroup label="Glue">
+                        <option data-animation="28"><a href="#">Glue left / from right</a></option>
+                        <option data-animation="29"><a href="#">Glue right / from left</a></option>
+                        <option data-animation="30"><a href="#">Glue bottom / from top</a></option>
+                        <option data-animation="31"><a href="#">Glue top / from bottom</a></option>
+                    </optgroup>
+                    <optgroup label="Foptionp">
+                        <option data-animation="32"><a href="#">Foptionp right</a></option>
+                        <option data-animation="33"><a href="#">Foptionp left</a></option>
+                        <option data-animation="34"><a href="#">Foptionp top</a></option>
+                        <option data-animation="35"><a href="#">Foptionp bottom</a></option>
+                    </optgroup>
+                    <optgroup label="Push / Pull">
+                        <option data-animation="38"><a href="#">Push left / from right</a></option>
+                        <option data-animation="39"><a href="#">Push right / from left</a></option>
+                        <option data-animation="40"><a href="#">Push top / from bottom</a></option>
+                        <option data-animation="41"><a href="#">Push bottom / from top</a></option>
 
-            <option data-animation="42"><a href="#">Push left / pull right</a></option>
-            <option data-animation="43"><a href="#">Push right / pull left</a></option>
-            <option data-animation="44"><a href="#">Push top / pull bottom</a></option>
-            <option data-animation="45"><a href="#">Push bottom / pull top</a></option>
-        </optgroup>
-        <optgroup label="Fold / Unfold">
-            <option data-animation="46"><a href="#">Fold left / from right</a></option>
-            <option data-animation="47"><a href="#">Fold right / from left</a></option>
-            <option data-animation="48"><a href="#">Fold top / from bottom</a></option>
-            <option data-animation="49"><a href="#">Fold bottom / from top</a></option>
-            <option data-animation="50"><a href="#">Move to right / unfold left</a></option>
-            <option data-animation="51"><a href="#">Move to left / unfold right</a></option>
-            <option data-animation="52"><a href="#">Move to bottom / unfold top</a></option>
-            <option data-animation="53"><a href="#">Move to top / unfold bottom</a></option>
-        </optgroup>
-        <optgroup label="Room">
-            <option data-animation="54"><a href="#">Room to left</a></option>
-            <option data-animation="55"><a href="#">Room to right</a></option>
-            <option data-animation="56"><a href="#">Room to top</a></option>
-            <option data-animation="57"><a href="#">Room to bottom</a></option>
-        </optgroup>
-        <optgroup label="Cube">
-            <option data-animation="58"><a href="#">Cube to left</a></option>
-            <option data-animation="59"><a href="#">Cube to right</a></option>
-            <option data-animation="60"><a href="#">Cube to top</a></option>
-            <option data-animation="61"><a href="#">Cube to bottom</a></option>
-        </optgroup>
-        <optgroup label="Carousel">
-            <option data-animation="62"><a href="#">Carousel to left</a></option>
-            <option data-animation="63"><a href="#">Carousel to right</a></option>
-            <option data-animation="64"><a href="#">Carousel to top</a></option>
-            <option data-animation="65"><a href="#">Carousel to bottom</a></option>
-        </optgroup>
-        <option data-animation="66"><a href="#">Sides</a></option>
-        <option data-animation="67"><a href="#">Soptionde</a></option>
-    </select>
+                        <option data-animation="42"><a href="#">Push left / pull right</a></option>
+                        <option data-animation="43"><a href="#">Push right / pull left</a></option>
+                        <option data-animation="44"><a href="#">Push top / pull bottom</a></option>
+                        <option data-animation="45"><a href="#">Push bottom / pull top</a></option>
+                    </optgroup>
+                    <optgroup label="Fold / Unfold">
+                        <option data-animation="46"><a href="#">Fold left / from right</a></option>
+                        <option data-animation="47"><a href="#">Fold right / from left</a></option>
+                        <option data-animation="48"><a href="#">Fold top / from bottom</a></option>
+                        <option data-animation="49"><a href="#">Fold bottom / from top</a></option>
+                        <option data-animation="50"><a href="#">Move to right / unfold left</a></option>
+                        <option data-animation="51"><a href="#">Move to left / unfold right</a></option>
+                        <option data-animation="52"><a href="#">Move to bottom / unfold top</a></option>
+                        <option data-animation="53"><a href="#">Move to top / unfold bottom</a></option>
+                    </optgroup>
+                    <optgroup label="Room">
+                        <option data-animation="54"><a href="#">Room to left</a></option>
+                        <option data-animation="55"><a href="#">Room to right</a></option>
+                        <option data-animation="56"><a href="#">Room to top</a></option>
+                        <option data-animation="57"><a href="#">Room to bottom</a></option>
+                    </optgroup>
+                    <optgroup label="Cube">
+                        <option data-animation="58"><a href="#">Cube to left</a></option>
+                        <option data-animation="59"><a href="#">Cube to right</a></option>
+                        <option data-animation="60"><a href="#">Cube to top</a></option>
+                        <option data-animation="61"><a href="#">Cube to bottom</a></option>
+                    </optgroup>
+                    <optgroup label="Carousel">
+                        <option data-animation="62"><a href="#">Carousel to left</a></option>
+                        <option data-animation="63"><a href="#">Carousel to right</a></option>
+                        <option data-animation="64"><a href="#">Carousel to top</a></option>
+                        <option data-animation="65"><a href="#">Carousel to bottom</a></option>
+                    </optgroup>
+                    <option data-animation="66"><a href="#">Sides</a></option>
+                    <option data-animation="67"><a href="#">Soptionde</a></option>
+                </select>
+            </div>
+                <div id="mytable" style="overflow: hidden;">
+                </div>
+
+                <script>
+                    var ultraTable = $("#mytable").animatedTable(options).data(rowData);
+                </script>
 
 
-<pre>
+
+
+                            <pre>
 <code class="json" id="configs">
     {
-        pageEntranceAnimation: "pt-page-scaleUp",
-        pageExistAnimation: "pt-page-rotatePushLeft"
+    pageEntranceAnimation: "pt-page-scaleUp",
+    pageExistAnimation: "pt-page-rotatePushLeft"
     }
 </code>
 </pre>
-<div id="mytable" style="overflow: hidden;">
+    </div>
 </div>
-
-
-<script>
-    var ultraTable = $("#mytable").animatedTable(options).data(rowData);
-</script>
+</div>
+<script src="js/menuData.js"></script>
 
 </body>
 </html>

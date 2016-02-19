@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Animate.Table</title>
+
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/underscore-min.js"></script>
+    <script type="text/javascript" src="js/animate.table.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="style/main.css">
+
+    <link rel="stylesheet" type="text/css" href="style/animations.css">
+    <link rel="stylesheet" type="text/css" href="style/theme/burlywood.css">
+    <link rel="stylesheet" type="text/css" href="style/ultra.css">
+
+    <script type="text/javascript">
+        var optionsData = [
+            {
+                key: "styles",
+                desc: "the class name added to your container"
+            }, {
+                key: "headers",
+                desc: "An array of string/html for header of table"
+            }, {
+                key: "headerWidth",
+                desc: "An array of number for header widths"
+            }, {
+                key: "rowTemplates",
+                desc: "An array of template for the row cells. You can use <a href='http://underscorejs.org/#template' target='_blank'> underscore  template</a>,and the default template interpolate setting is {{field}}"
+            }, {
+                key: "pageEntranceWithHeader",
+                desc: "Add the same effect for header. the default value is true"
+            }, {
+                key: "pageEntranceCellDelay",
+                desc: "Set each row effects delay million seconds.The default value is 40. ex. the second row play animation with a delay of 40ms,and the third is 80ms,and so on.."
+            }, {
+                key: "pageEntranceAnimation",
+                desc: "Row begin drawing effects。Default is 'pt-page-moveFromLeft'， You can use <a href='index.html?sub=sub/animation-selector.html'>animation selector page</a>  "
+            }, {
+                key: "pageExistAnimation",
+                desc: "Row destory(when paging) effects。Default is 'pt-page-rotatePushLeft'"
+            }, {
+                key: "rowUpdateEffect",
+                desc: "Row date update effects. Default is 'pulse'. "
+            }, {
+                key: "rowUpdateSelector",
+                desc: "When row updated, specify the inner element to have a update effect by css selector "
+            }, {
+                key: "bodyHeight",
+                desc: "The table content body height. most of the animation require this to be set"
+            }, {
+                key: "bodyWidth",
+                desc: "The table content body width. most of the animation require this to be set"
+            }, {
+                key: "rows",
+                desc: "The rows data array."
+            }
+        ];
+
+        var apiData = [
+            {
+                method: "data(rowsData[Array])",
+                desc: "reset the table data, if rowData is undefined, then return the table data."
+            },
+            {
+                method: "insertRow(rowData[Object], index[int])",
+                desc: "insert a row to the table. if index is null, then row is appended to the table"
+            }, {
+                method: "rowAdded(callback[function])",
+                desc: "Callback when row is added. the callback param is  (row[HTMLElement], rowData[Object], index[int], rowsData[Array])"
+            }, {
+                method: "clear()",
+                desc: "Clear the table data"
+            }, {
+                method: "updateRow(rowData[Object], index[int])",
+                desc: "update a row with row index"
+            }, {
+                method: "getDisplayedRowsData()",
+                desc: "Get current displayed rows data, return a Array of data"
+            }
+        ]
+    </script>
+
+</head>
+
+<body>
+<div class="splash">
+    <div class="wrapper">
+        <div class="title">
+            <span class="extra">animate</span>.<span>table</span>
+        </div>
+        <div class="desc">
+            Table updated with animation
+        </div>
+        <div class="btngroup">
+            <button class="smaller"><a href="how-we-animated.html">HOW WE ANIMATED</a></button>
+            <button ><a href="https://codeload.github.com/liuhann/animate.table/zip/master">DOWNLOAD</a></button>
+            <button >
+                <svg aria-hidden="true" class="octicon octicon-mark-github" height="28" role="img" version="1.1" viewBox="0 0 16 16" width="28"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59 0.4 0.07 0.55-0.17 0.55-0.38 0-0.19-0.01-0.82-0.01-1.49-2.01 0.37-2.53-0.49-2.69-0.94-0.09-0.23-0.48-0.94-0.82-1.13-0.28-0.15-0.68-0.52-0.01-0.53 0.63-0.01 1.08 0.58 1.23 0.82 0.72 1.21 1.87 0.87 2.33 0.66 0.07-0.52 0.28-0.87 0.51-1.07-1.78-0.2-3.64-0.89-3.64-3.95 0-0.87 0.31-1.59 0.82-2.15-0.08-0.2-0.36-1.02 0.08-2.12 0 0 0.67-0.21 2.2 0.82 0.64-0.18 1.32-0.27 2-0.27 0.68 0 1.36 0.09 2 0.27 1.53-1.04 2.2-0.82 2.2-0.82 0.44 1.1 0.16 1.92 0.08 2.12 0.51 0.56 0.82 1.27 0.82 2.15 0 3.07-1.87 3.75-3.65 3.95 0.29 0.25 0.54 0.73 0.54 1.48 0 1.07-0.01 1.93-0.01 2.2 0 0.21 0.15 0.46 0.55 0.38C13.71 14.53 16 11.53 16 8 16 3.58 12.42 0 8 0z"></path></svg>
+                <a href="https://github.com/liuhann/animate.table">Folk Me</a>
+            </button>
+        </div>
+    </div>
+</div>
+<div class="list">
+    <div class="wrapper">
+        <div class="nav">
+            <div id="nav-table"></div>
+        </div>
+        <div class="content" id="content">
+
+            <h2>Options and API</h2>
+
+            <h3>Options</h3>
+            <div id="options">
+
+            </div>
+
+            <h3>API</h3>
+
+            <p>To get the animate table object use </p>
+<pre>
+    <code>
+        var animatedTable = $("#yourtable").animatedTable();
+        animatedTable.data();
+    </code>
+
+</pre>
+            <div id="apis">
+
+            </div>
+
+            <script>
+                $("#options").animatedTable({
+                    headers: ["Option","Description"],
+                    headerWidth:["200px", "600px"],
+                    styles:"burlywood",
+                    pageEntranceAnimation: "pt-page-scaleUp",
+                    rows: optionsData
+                });
+                $("#apis").animatedTable({
+                    headers: ["method","Description"],
+                    headerWidth:["300px", "500px"],
+                    styles:"burlywood",
+                    pageEntranceAnimation: "pt-page-scaleUp",
+                    rows: apiData
+                });
+            </script>
+
+        </div>
+    </div>
+</div>
+
+<script src="js/menuData.js"></script>
+
+</body>
+</html>

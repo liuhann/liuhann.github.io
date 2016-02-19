@@ -224,6 +224,7 @@
         function appendRow(rowData, index) {
             var row = generateRow(rowData, index);
             bodycontent.append(row);
+            body.css("height", $(bodycontent).height());
             return row;
         }
 
@@ -366,13 +367,12 @@
             if (options.rows) {
                 setData(options.rows);
             }
+
             if (options.bodyHeight && options.bodyWidth) {
                 body.css("height", options.bodyHeight);
                 body.css("width", options.bodyWidth);
             } else {
-
                 console.log($(bodycontent).height(), $(bodycontent).width());
-
                 body.css("height", $(bodycontent).height());
                 body.css("width", $(bodycontent).width());
             }

@@ -29,7 +29,8 @@ a {
 
 body {
   font-family: 'Lato', Calibri, Arial, sans-serif;
-  background: #fff; }
+  background: #fff;
+  font-size: 18px; }
 
 .splash {
   background: #35B9F9;
@@ -110,20 +111,22 @@ body.min {
   margin: 0 auto;
   width: 1080px; }
 
+h2 {
+  margin-top: 0;
+  margin-bottom: 20px; }
+
 .list {
-  margin-top: 50px; }
+  margin-top: 40px; }
   .list .nav {
     float: left;
     width: 260px; }
   .list #nav-table .ultra-cell {
     border-right: none;
     border-bottom: none;
-    font-size: 16px;
     padding: 5px 10px;
     color: #333; }
     .list #nav-table .ultra-cell .sub {
-      margin-left: 10px;
-      font-size: 14px; }
+      margin-left: 10px; }
   .list .content {
     padding: 10px;
     float: left;
