@@ -2,6 +2,7 @@
 title: A study game - Listen and choose
 author: Hand
 date: 2016-02-15
+demourl: /listennchoose/index.html
 template: article.jade
 ---
 
