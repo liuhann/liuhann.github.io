@@ -15,7 +15,9 @@ body, html {
 
 a {
   color: #333;
-  text-decoration: none; }
+  text-decoration: none;
+  cursor: pointer;
+  color: #0059f9; }
 
 /* Clearfix hack by Nicolas Gallagher: http://nicolasgallagher.com/micro-clearfix-hack/ */
 .clearfix:before, .clearfix:after {
@@ -31,48 +33,54 @@ body {
 
 .splash {
   background: #35B9F9;
-  height: 480px;
-  padding-top: 120px;
+  height: 80px;
   color: #fff; }
   .splash .wrapper > .title {
     text-align: center;
-    font-size: 72px;
-    color: #F1FF51; }
+    font-size: 36px;
+    color: #F1FF51;
+    line-height: 80px;
+    float: left; }
     .splash .wrapper > .title span.extra {
       color: #fff; }
   .splash .wrapper .desc {
     text-align: center;
-    margin-top: 20px;
-    font-size: 36px; }
+    font-size: 18px;
+    float: left;
+    line-height: 90px;
+    margin-left: 20px; }
   .splash .wrapper .btngroup {
     text-align: center;
-    margin-top: 50px;
-    margin-bottom: 25px; }
+    float: right;
+    line-height: 80px; }
     .splash .wrapper .btngroup button {
-      width: 220px;
+      padding: 20px 10px;
+      line-height: 80px;
       word-spacing: normal;
       margin-bottom: 5px;
       font-family: "Raleway", sans-serif;
-      font-size: 22px;
+      font-size: 16px;
       font-weight: 700;
       text-transform: uppercase;
-      color: #333;
       display: inline-block;
       vertical-align: middle;
-      padding: 0 20px;
+      padding: 5px 10px;
       text-align: center;
       line-height: 35px;
+      margin: 0 5px;
       background: #f1ff51;
       -webkit-border-radius: 2px;
       -moz-border-radius: 2px;
       border-radius: 2px;
-      line-height: 60px;
-      padding: 0 20px;
       text-align: center;
-      border: none;
-      margin: 10px; }
-      .splash .wrapper .btngroup button.smaller {
-        font-size: 16px; }
+      border: none; }
+      .splash .wrapper .btngroup button a {
+        color: #333;
+        vertical-align: middle; }
+      .splash .wrapper .btngroup button svg {
+        vertical-align: middle; }
+      .splash .wrapper .btngroup button:hover {
+        background: #a2ff0e; }
   .splash .wrapper .min-header {
     opacity: 0;
     font-size: 28px; }

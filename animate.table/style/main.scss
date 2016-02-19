@@ -18,6 +18,8 @@ body, html {
 a {
   color: #333;
   text-decoration: none;
+  cursor: pointer;
+  color: #0059f9;
 }
 
 /* Clearfix hack by Nicolas Gallagher: http://nicolasgallagher.com/micro-clearfix-hack/ */
@@ -31,15 +33,16 @@ body {
 
 .splash {
   background: #35B9F9;
-  height: 480px;
-  padding-top: 120px;
+  height: 80px;
   color: #fff;
 
   .wrapper {
     >.title {
       text-align: center;
-      font-size: 72px;
+      font-size: 36px;
       color: #F1FF51;
+      line-height: 80px;
+      float: left;
       span.extra {
         color: #fff;
       }
@@ -47,40 +50,50 @@ body {
 
     .desc {
       text-align: center;
-      margin-top: 20px;
-      font-size: 36px;
+      font-size: 18px;
+      float: left;
+      line-height: 90px;
+      margin-left: 20px;
     }
 
     .btngroup {
       text-align: center;
-      margin-top: 50px;
-      margin-bottom: 25px;
+      float: right;
+      line-height: 80px;
+
       button {
-        width: 220px;
+        padding: 20px 10px;
+        line-height: 80px;
         word-spacing: normal;
         margin-bottom: 5px;
         font-family: "Raleway", sans-serif;
-        font-size: 22px;
+        font-size: 16px;
         font-weight: 700;
         text-transform: uppercase;
-        color: #333;
         display: inline-block;
         vertical-align: middle;
-        padding: 0 20px;
+        padding: 5px 10px;
         text-align: center;
         line-height: 35px;
+        margin: 0 5px;
         background: #f1ff51;
         -webkit-border-radius: 2px;
         -moz-border-radius: 2px;
         border-radius: 2px;
-        line-height: 60px;
-        padding: 0 20px;
         text-align: center;
         border: none;
-        margin: 10px;
-
+        a {
+          color: #333;
+          vertical-align: middle;
+        }
+        svg {
+          vertical-align: middle;
+        }
         &.smaller {
-          font-size: 16px;
+        }
+
+        &:hover {
+          background: #a2ff0e;
         }
       }
     }
