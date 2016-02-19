@@ -5,9 +5,44 @@
     <atom:link href="http://localhost:8080/feed.xml" rel="self" type="application/rss+xml"></atom:link>
     <link>http://localhost:8080</link>
     <description>Space of fronteer</description>
-    <pubDate>Tue, 02 Feb 2016 08:00:00 +0800</pubDate>
+    <pubDate>Mon, 15 Feb 2016 08:00:00 +0800</pubDate>
     <generator>Wintersmith - https://github.com/jnordberg/wintersmith</generator>
     <language>en</language>
+    <item>
+      <title>A study game - Listen and choose</title>
+      <link>http://localhost:8080/articles/201602-listen-n-choose/</link>
+      <pubDate>Mon, 15 Feb 2016 08:00:00 +0800</pubDate>
+      <guid isPermaLink="true">http://localhost:8080/articles/201602-listen-n-choose/</guid>
+      <author></author>
+      <description>&lt;p&gt;The game is made with cocos2d-js(html5) in this time last year . And at that time I has just learn cocos for one or two weeks, the code looks pretty :)&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/articles/201602-listen-n-choose/preview.png&quot; alt=&quot;preview&quot;&gt;&lt;/p&gt;
+&lt;h2 id=&quot;first-let-s-go-and-see&quot;&gt;First, let’s go and see&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&quot;/articles/201602-listen-n-choose/1.png&quot; alt=&quot;preview&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://localhost:8080/listennchoose/index.html&quot;&gt;Listen and choose&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;a-kick-start-of-cocos-js&quot;&gt;A kick start of cocos-js&lt;/h2&gt;
+&lt;p&gt;A Project json like this  &lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;{
+  &amp;quot;project_type&amp;quot;: &amp;quot;javascript&amp;quot;,
+  &amp;quot;debugMode&amp;quot;: 0,
+  &amp;quot;showFPS&amp;quot;: true,
+  &amp;quot;frameRate&amp;quot;: 60,
+  &amp;quot;id&amp;quot;: &amp;quot;gameCanvas&amp;quot;,
+  &amp;quot;renderMode&amp;quot;: 0,
+  &amp;quot;modules&amp;quot;: [
+    &amp;quot;cocos2d&amp;quot;,
+    &amp;quot;extensions&amp;quot;,
+    &amp;quot;external&amp;quot;
+  ],
+  &amp;quot;jsList&amp;quot;: [
+    &amp;quot;src/GameScene.js&amp;quot;,
+    &amp;quot;src/app.js&amp;quot;,
+    &amp;quot;src/resource.js&amp;quot;
+  ]
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;and a html which include cocos2d-js-v.js  and div for drawing canvas &lt;/p&gt;
+&lt;p&gt;At last prepare your Scene and resources. &lt;/p&gt;
+</description>
+    </item>
     <item>
       <title>Re-Make of Dido Timer</title>
       <link>http://localhost:8080/articles/20160202-didotimer-remake/</link>
