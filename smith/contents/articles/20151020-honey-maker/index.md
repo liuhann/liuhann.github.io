@@ -2,6 +2,7 @@
 title: Honeycomb slide show maker
 author: Hand
 date: 2015-10-20
+demourl: /honeymaker/maker.html
 template: article.jade
 ---
 

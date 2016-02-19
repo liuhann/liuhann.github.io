@@ -176,7 +176,21 @@ footer .copy, footer .copy a {
   float: left;
   width: 17em;
   background: #fff;
-  height: 23em;
+  height: 25em;
+}
+
+.article nav.visit {
+  height: 3rem;
+  text-align: center;
+}
+
+.article nav.visit a {
+  text-decoration: none;
+  background-color: #4CAF50;
+  color: #fff;
+  padding: .3em .8em;
+  line-height: 3em;
+  margin: 0 1em;
 }
 
 .details.article {
@@ -186,6 +200,8 @@ footer .copy, footer .copy a {
   background: #fff;
   height: inherit;
 }
+
+
 
 .details.article .content {
   padding: .5em;

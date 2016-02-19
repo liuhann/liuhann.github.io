@@ -10,14 +10,14 @@
     <language>en</language>
     <item>
       <title>A study game - Listen and choose</title>
-      <link>http://localhost:8080/articles/201602-listen-n-choose/</link>
+      <link>http://localhost:8080/articles/20160215-listen-n-choose/</link>
       <pubDate>Mon, 15 Feb 2016 08:00:00 +0800</pubDate>
-      <guid isPermaLink="true">http://localhost:8080/articles/201602-listen-n-choose/</guid>
+      <guid isPermaLink="true">http://localhost:8080/articles/20160215-listen-n-choose/</guid>
       <author></author>
       <description>&lt;p&gt;The game is made with cocos2d-js(html5) in this time last year . And at that time I has just learn cocos for one or two weeks, the code looks pretty :)&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;/articles/201602-listen-n-choose/preview.png&quot; alt=&quot;preview&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/articles/20160215-listen-n-choose/preview.png&quot; alt=&quot;preview&quot;&gt;&lt;/p&gt;
 &lt;h2 id=&quot;first-let-s-go-and-see&quot;&gt;First, let’s go and see&lt;/h2&gt;
-&lt;p&gt;&lt;img src=&quot;/articles/201602-listen-n-choose/1.png&quot; alt=&quot;preview&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/articles/20160215-listen-n-choose/1.png&quot; alt=&quot;preview&quot;&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a href=&quot;http://localhost:8080/listennchoose/index.html&quot;&gt;Listen and choose&lt;/a&gt;&lt;/p&gt;
 &lt;h2 id=&quot;a-kick-start-of-cocos-js&quot;&gt;A kick start of cocos-js&lt;/h2&gt;
 &lt;p&gt;A Project json like this  &lt;/p&gt;
@@ -134,6 +134,16 @@ $(&amp;quot;#iphone&amp;quot;).deviceshell({
 &lt;p&gt;So take a look at this and enjoy&lt;/p&gt;
 &lt;h2 id=&quot;demo&quot;&gt;Demo&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&quot;http://localhost:8080/honeymaker/maker.html&quot;&gt;Take a look&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    <item>
+      <title>Sunny girl walking down</title>
+      <link>http://localhost:8080/articles/20160214-sunny-girl%20walking%20down/</link>
+      <pubDate>Sat, 16 May 2015 08:00:00 +0800</pubDate>
+      <guid isPermaLink="true">http://localhost:8080/articles/20160214-sunny-girl%20walking%20down/</guid>
+      <author></author>
+      <description>&lt;p&gt;A girl walking to the school on sunny day&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/articles/20160214-sunny-girl%20walking%20down/preview.png&quot; alt=&quot;preview&quot;&gt;&lt;/p&gt;
 </description>
     </item>
     <item>

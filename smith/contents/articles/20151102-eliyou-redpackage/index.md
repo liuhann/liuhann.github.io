@@ -2,6 +2,7 @@
 title: The eliyou red package
 author: Hand
 date: 2015-11-06
+demourl: /elilyou/index.html
 template: article.jade
 ---
 

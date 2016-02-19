@@ -2,6 +2,8 @@
 title: The device shell for device preview
 author: Hand
 date: 2016-01-11
+demourl: /mockdevice/iphone.html
+github: https://github.com/liuhann/shell
 template: article.jade
 ---
 

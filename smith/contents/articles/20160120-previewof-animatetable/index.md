@@ -2,6 +2,8 @@
 title: The animate.table alpha preview
 author: Hand
 date: 2016-01-16
+demourl: http://liuhann.github.io/animate.table/index.html
+github: https://github.com/liuhann/animate.table
 template: article.jade
 ---
 

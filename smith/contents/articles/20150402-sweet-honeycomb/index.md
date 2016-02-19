@@ -2,6 +2,7 @@
 title: The sweet sweet honeycomb
 author: Hand
 date: 2015-04-02
+demourl: /honeycomb/index.html
 template: article.jade
 ---
 

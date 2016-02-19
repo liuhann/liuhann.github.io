@@ -2,6 +2,7 @@
 title: Re-Make of Dido Timer   
 author: Hand
 date: 2016-02-02
+demourl: /dido-timer/index.html
 template: article.jade
 ---
 
