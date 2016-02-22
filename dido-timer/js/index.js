@@ -494,15 +494,18 @@ function removeRunning() {
 	running = null;
 }
 
-
 function pageTodo() {
 	if ($(".main .todo:hidden").length==0) {
-		$(".main .todo").hide();
-		$(".running .info").addClass("off");
+		$(".main .todo").removeClass("zoomInRightDown").addClass("zoomOutRightDown")
+			.on('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend',
+			function(){
+				$(this).removeClass("zoomOutRightDown").hide().off("webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend");
+			});
+		$(".running .info").addClass("off").removeClass("on");
 		return;
 	} else {
-		$(".main .todo").show();
-		$(".running .info").addClass("on");
+		$(".main .todo").addClass("zoomInRightDown").show();
+		$(".running .info").addClass("on").removeClass("off");
 	}
 	
 	$(".main .todo ul li.item").remove();

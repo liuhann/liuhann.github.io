@@ -120,6 +120,24 @@ $(&amp;quot;#iphone&amp;quot;).deviceshell({
 </description>
     </item>
     <item>
+      <title>My handy codes</title>
+      <link>http://localhost:8080/articles/00-handy-codes/</link>
+      <pubDate>Tue, 15 Dec 2015 08:00:00 +0800</pubDate>
+      <guid isPermaLink="true">http://localhost:8080/articles/00-handy-codes/</guid>
+      <author></author>
+      <description>&lt;p&gt;Quick code reference&lt;/p&gt;
+&lt;p&gt;Front code collections for quickly input&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/articles/00-handy-codes/preview.png&quot; alt=&quot;preview&quot;&gt;&lt;/p&gt;
+&lt;h3 id=&quot;callback-when-animation-ends&quot;&gt;Callback when animation ends&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;var ANI_EVENT_NAME = &amp;#39;webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend&amp;#39;;
+$(ele).on(ANI_EVENT_NAME,
+    function(){
+        $(this).off(ANI_EVENT_NAME);
+    }
+);
+&lt;/code&gt;&lt;/pre&gt;</description>
+    </item>
+    <item>
       <title>The eliyou red package</title>
       <link>http://localhost:8080/articles/20151102-eliyou-redpackage/</link>
       <pubDate>Fri, 06 Nov 2015 08:00:00 +0800</pubDate>

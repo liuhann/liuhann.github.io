@@ -74,6 +74,26 @@
         </article>
         <article class="article intro">
           <header>
+            <p class="date"><span>15. December 2015</span></p>
+            <h2><a href="/articles/00-handy-codes/">My handy codes</a></h2>
+          </header>
+          <section class="content"><p>Quick code&nbsp;reference</p>
+<p>Front code collections for quickly&nbsp;input</p>
+<p><img src="/articles/00-handy-codes/preview.png" alt="preview"></p>
+<h3 id="callback-when-animation-ends">Callback when animation&nbsp;ends</h3>
+<pre><code>var ANI_EVENT_NAME = &#39;webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend&#39;;
+$(ele).on(ANI_EVENT_NAME,
+    function(){
+        $(this).off(ANI_EVENT_NAME);
+    }
+);
+</code></pre>
+          </section>
+          <nav class="visit"><a href="/articles/00-handy-codes/">Article</a>
+          </nav>
+        </article>
+        <article class="article intro">
+          <header>
             <p class="date"><span>06. November 2015</span></p>
             <h2><a href="/articles/20151102-eliyou-redpackage/">The eliyou red package</a></h2>
           </header>
