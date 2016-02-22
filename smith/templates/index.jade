@@ -18,9 +18,8 @@ block content
             a(href=article.url) more
       nav.visit
         if article.metadata.demourl
-          a(href=article.metadata.demourl) DEMO
+          a(href=article.metadata.demourl , target="_blank") DEMO
         a(href=article.url) Article
-
 
 block prepend footer
   div.nav

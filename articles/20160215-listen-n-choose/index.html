@@ -21,13 +21,16 @@
     <div id="content">
       <div class="content-wrap clearfix">
         <article class="article details">
-          <section class="content"><p>The game is made with cocos2d-js(html5) in this time last year . And at that time I has just learn cocos for one or two weeks, the code looks pretty&nbsp;:)</p>
+          <section class="content"><p>The game for kids  is made with cocos2d-js(html5) in this time last&nbsp;year. </p>
 <p><img src="/articles/20160215-listen-n-choose/preview.png" alt="preview"></p>
-<h2 id="first-let-s-go-and-see">First, let’s go and&nbsp;see</h2>
-<p><img src="/articles/20160215-listen-n-choose/1.png" alt="preview"></p>
-<p><a href="/listennchoose/index.html">Listen and&nbsp;choose</a></p>
-<h2 id="a-kick-start-of-cocos-js">A kick start of&nbsp;cocos-js</h2>
-<p>A Project json like&nbsp;this  </p>
+<h2 id="a-kick-start-of-cocos-js-pure-html5-">A kick start of cocos-js (pure&nbsp;html5)</h2>
+<h3 id="1-prepare-the-html">1. Prepare the&nbsp;html</h3>
+<pre><code>&lt;body style=&quot;padding:0; margin: 0; background: #000;&quot;&gt;
+    &lt;canvas id=&quot;gameCanvas&quot;&gt;&lt;/canvas&gt;
+    &lt;script type=&quot;text/javascript&quot; src=&quot;cocos2d-js-v3.10.js&quot; charset=&quot;UTF-8&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;main.js&quot;&gt;&lt;/script&gt;
+&lt;/body&gt;
+</code></pre><h3 id="2-a-file-with-name-project-json-like-this">2. A file with name project.json like&nbsp;this</h3>
 <pre><code>{
   &quot;project_type&quot;: &quot;javascript&quot;,
   &quot;debugMode&quot;: 0,
@@ -46,8 +49,22 @@
     &quot;src/resource.js&quot;
   ]
 }
-</code></pre><p>and a html which include cocos2d-js-v.js  and div for drawing&nbsp;canvas </p>
-<p>At last prepare your Scene and&nbsp;resources. </p>
+</code></pre><p> In this file, the jsList is the game js files to include. And the other configuration is the same as&nbsp;cocos2d-x</p>
+<h3 id="3-write-your-js-and-include-resources-enjoy-">3. Write your js and include resources,&nbsp;Enjoy~!</h3>
+<pre><code>window.onload = function(){
+    cc.game.onStart = function(){
+        cc.view.adjustViewPort(true);
+        cc.view.setDesignResolutionSize(1024, 768, cc.ResolutionPolicy.SHOW_ALL);
+        cc.view.resizeWithBrowserSize(true);
+        //load resources
+        cc.LoaderScene.preload(g_resources, function () {
+            cc.director.runScene(new PopoScene());
+        }, this);
+    };
+    cc.game.run();
+}
+</code></pre><h2 id="conclusion">Conclusion</h2>
+<p>The main difference between cocos2d-html and cocos2d-native is the cocos2d single javascript source&nbsp;file。 </p>
 </section>
         </article>
       </div>

@@ -6,19 +6,21 @@ demourl: /listennchoose/index.html
 template: article.jade
 ---
 
-The game is made with cocos2d-js(html5) in this time last year . And at that time I has just learn cocos for one or two weeks, the code looks pretty :)
+The game for kids  is made with cocos2d-js(html5) in this time last year. 
 
 ![preview](preview.png)
 
-## First, let's go and see
-
-![preview](1.png)
-
-[Listen and choose](/listennchoose/index.html)
-
-## A kick start of cocos-js
+## A kick start of cocos-js (pure html5)
  
-A Project json like this  
+### 1. Prepare the html
+ 
+    <body style="padding:0; margin: 0; background: #000;">
+        <canvas id="gameCanvas"></canvas>
+        <script type="text/javascript" src="cocos2d-js-v3.10.js" charset="UTF-8"></script>
+        <script src="main.js"></script>
+    </body>
+ 
+### 2. A file with name project.json like this  
 
     {
       "project_type": "javascript",
@@ -39,7 +41,32 @@ A Project json like this
       ]
     }
  
-and a html which include cocos2d-js-v.js  and div for drawing canvas 
+ In this file, the jsList is the game js files to include. And the other configuration is the same as cocos2d-x
 
-At last prepare your Scene and resources. 
+
+### 3. Write your js and include resources, Enjoy~!
+
+    window.onload = function(){
+        cc.game.onStart = function(){
+            cc.view.adjustViewPort(true);
+            cc.view.setDesignResolutionSize(1024, 768, cc.ResolutionPolicy.SHOW_ALL);
+            cc.view.resizeWithBrowserSize(true);
+            //load resources
+            cc.LoaderScene.preload(g_resources, function () {
+                cc.director.runScene(new PopoScene());
+            }, this);
+        };
+        cc.game.run();
+    }
+
+
+## Conclusion
+
+The main difference between cocos2d-html and cocos2d-native is the cocos2d single javascript source file。 
+
+
+ 
+ 
+
+
 

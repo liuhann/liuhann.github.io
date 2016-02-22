@@ -14,13 +14,16 @@
       <pubDate>Mon, 15 Feb 2016 08:00:00 +0800</pubDate>
       <guid isPermaLink="true">http://localhost:8080/articles/20160215-listen-n-choose/</guid>
       <author></author>
-      <description>&lt;p&gt;The game is made with cocos2d-js(html5) in this time last year . And at that time I has just learn cocos for one or two weeks, the code looks pretty :)&lt;/p&gt;
+      <description>&lt;p&gt;The game for kids  is made with cocos2d-js(html5) in this time last year. &lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;/articles/20160215-listen-n-choose/preview.png&quot; alt=&quot;preview&quot;&gt;&lt;/p&gt;
-&lt;h2 id=&quot;first-let-s-go-and-see&quot;&gt;First, let’s go and see&lt;/h2&gt;
-&lt;p&gt;&lt;img src=&quot;/articles/20160215-listen-n-choose/1.png&quot; alt=&quot;preview&quot;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;http://localhost:8080/listennchoose/index.html&quot;&gt;Listen and choose&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&quot;a-kick-start-of-cocos-js&quot;&gt;A kick start of cocos-js&lt;/h2&gt;
-&lt;p&gt;A Project json like this  &lt;/p&gt;
+&lt;h2 id=&quot;a-kick-start-of-cocos-js-pure-html5-&quot;&gt;A kick start of cocos-js (pure html5)&lt;/h2&gt;
+&lt;h3 id=&quot;1-prepare-the-html&quot;&gt;1. Prepare the html&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;&amp;lt;body style=&amp;quot;padding:0; margin: 0; background: #000;&amp;quot;&amp;gt;
+    &amp;lt;canvas id=&amp;quot;gameCanvas&amp;quot;&amp;gt;&amp;lt;/canvas&amp;gt;
+    &amp;lt;script type=&amp;quot;text/javascript&amp;quot; src=&amp;quot;cocos2d-js-v3.10.js&amp;quot; charset=&amp;quot;UTF-8&amp;quot;&amp;gt;&amp;lt;/script&amp;gt;
+    &amp;lt;script src=&amp;quot;main.js&amp;quot;&amp;gt;&amp;lt;/script&amp;gt;
+&amp;lt;/body&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;2-a-file-with-name-project-json-like-this&quot;&gt;2. A file with name project.json like this&lt;/h3&gt;
 &lt;pre&gt;&lt;code&gt;{
   &amp;quot;project_type&amp;quot;: &amp;quot;javascript&amp;quot;,
   &amp;quot;debugMode&amp;quot;: 0,
@@ -39,8 +42,22 @@
     &amp;quot;src/resource.js&amp;quot;
   ]
 }
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;and a html which include cocos2d-js-v.js  and div for drawing canvas &lt;/p&gt;
-&lt;p&gt;At last prepare your Scene and resources. &lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt; In this file, the jsList is the game js files to include. And the other configuration is the same as cocos2d-x&lt;/p&gt;
+&lt;h3 id=&quot;3-write-your-js-and-include-resources-enjoy-&quot;&gt;3. Write your js and include resources, Enjoy~!&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;window.onload = function(){
+    cc.game.onStart = function(){
+        cc.view.adjustViewPort(true);
+        cc.view.setDesignResolutionSize(1024, 768, cc.ResolutionPolicy.SHOW_ALL);
+        cc.view.resizeWithBrowserSize(true);
+        //load resources
+        cc.LoaderScene.preload(g_resources, function () {
+            cc.director.runScene(new PopoScene());
+        }, this);
+    };
+    cc.game.run();
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h2&gt;
+&lt;p&gt;The main difference between cocos2d-html and cocos2d-native is the cocos2d single javascript source file。 &lt;/p&gt;
 </description>
     </item>
     <item>
@@ -49,14 +66,8 @@
       <pubDate>Tue, 02 Feb 2016 08:00:00 +0800</pubDate>
       <guid isPermaLink="true">http://localhost:8080/articles/20160202-didotimer-remake/</guid>
       <author></author>
-      <description>&lt;p&gt;This is the dido-timer, which is first published as mobile app in cordova in the end of 2014. And now it can be run on browsers. &lt;/p&gt;
+      <description>&lt;p&gt;This is the dido-timer, which is first published as mobile app in cordova in the end of 2014. And now it can be run on browsers with mobile shell. &lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;/articles/20160202-didotimer-remake/preview.png&quot; alt=&quot;preview&quot;&gt;&lt;/p&gt;
-&lt;h2 id=&quot;-&quot;&gt; &lt;/h2&gt;
-&lt;p&gt;&lt;img src=&quot;/articles/20160202-didotimer-remake/1.png&quot; alt=&quot;preview&quot;&gt;
-&lt;img src=&quot;/articles/20160202-didotimer-remake/2.png&quot; alt=&quot;preview&quot;&gt;
-&lt;img src=&quot;/articles/20160202-didotimer-remake/3.png&quot; alt=&quot;preview&quot;&gt;
-&lt;img src=&quot;/articles/20160202-didotimer-remake/4.png&quot; alt=&quot;preview&quot;&gt;&lt;/p&gt;
-&lt;p&gt;Let’s &lt;a href=&quot;http://liuhann.github.io/dido-timer/index.html&quot;&gt;Go and see&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     <item>
