@@ -172,11 +172,12 @@ footer .copy, footer .copy a {
 /* article */
 
 .article {
-  margin: 1em .5em 0em;
+  margin: 1em .4em 0em;
   float: left;
   width: 17em;
   background: #fff;
   height: 25em;
+  border: 1px solid #ddd;
 }
 
 .article nav.visit {
@@ -242,6 +243,7 @@ footer .copy, footer .copy a {
 
 .article.intro .content p {
   padding: .2em;
+  margin: .5em;
   margin-bottom: 0;
 }
 .article.intro .content p:first-child {
@@ -249,6 +251,7 @@ footer .copy, footer .copy a {
   height: 2.4em;
   padding: .5em;
   color: #5A5A59;
+  overflow: hidden;
 }
 
 .article.intro .content .more {
