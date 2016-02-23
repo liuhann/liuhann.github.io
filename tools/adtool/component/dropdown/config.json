@@ -1,0 +1,7 @@
+{
+	"componentName": "dropdown",
+	"template": "dropdown1.handlebars",
+	"css": "css/dropdown.css",
+	"sample": ["sample.json"],
+	"js": ["component/dropdown/dropdown.js"]
+}

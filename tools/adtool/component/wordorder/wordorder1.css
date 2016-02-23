@@ -1,0 +1,46 @@
+@CHARSET "UTF-8";
+.orderlist {
+  width: 250px;
+  float: left;
+}
+.orderanswer {
+  width: 100px;
+  float: left;
+}
+
+.mb10 {
+  margin-bottom: 10px;
+}
+
+.bg_blue {
+  border: 1px #1E64A5 solid;
+  background: #E9EFF6;
+  padding: 6px 12px;
+  display: inline-block;
+  background: -webkit-gradient(linear, left top, left bottom, from(#DEF), to(#ACF));
+  background: -moz-linear-gradient(top, #DEF, #ACF);
+  background: linear-gradient(top, #DEF, #ACF);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#FFDDEEFF, endColorstr=#FFAACCFF);
+  -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#FFDDEEFF, endColorstr=#FFAACCFF)";
+}
+
+.pr10 {
+  padding-right: 10px;
+}
+
+em {
+  font-style: normal;
+}
+
+.bg_red {
+	background: #fcc;
+    background: -webkit-gradient(linear, left top, left bottom, from(#FDD), to(#FAA));
+  	background: -moz-linear-gradient(top, #FDD, #FAA);
+  	background: linear-gradient(top, #FDD, #FAA);
+  	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#FFFFDDDD, endColorstr=#FFFFAAAA);
+  	-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#FFFFDDDD, endColorstr=#FFFFAAAA)";
+}
+
+.sort_item {
+
+}

@@ -1,0 +1,10 @@
+{
+	"componentName": "WordOrder",
+	"css": "wordorder1.css",
+    "template": "wordorder1.handlebars",
+	"sample": ["sample.json"],
+	"js": [ "component/wordorder/order.js",
+			"component/wordorder/jquery-ui.min.js",
+			"component/wordorder/jquery.ui.touch-punch.min.js"
+	      ]
+}

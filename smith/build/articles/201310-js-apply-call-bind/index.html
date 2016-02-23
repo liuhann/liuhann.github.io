@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0">
+    <title>JavaScript Apply, Call, and Bind - Hand's blog
+    </title>
+    <link rel="alternate" href="http://localhost:8080/feed.xml" type="application/rss+xml" title="Space of fronteer">
+    <!--link(rel='stylesheet', href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic|Anonymous+Pro:400,700,400italic,700italic|Merriweather:400,700,300')-->
+    <link rel="stylesheet" href="/css/main.css">
+  </head>
+  <body class="article-detail">
+    <header class="header">
+      <div class="content-wrap">
+        <h1>JavaScript Apply, Call, and Bind</h1>
+        <p class="author">Written by <span class="author">Hand</span>
+        </p>
+      </div>
+    </header>
+    <div id="content">
+      <div class="content-wrap clearfix">
+        <article class="article details">
+          <section class="content"><p>We will discuss every scenario in which we use these three methods in JavaScript. While Apply and Call come with ECMAScript 3 (available on <span class="caps">IE</span> 6, 7, 8, and modern browsers), ECMAScript 5 (available on only modern browsers) added the Bind method. These 3 Function methods are workhorses and sometimes you absolutely need one of them. Let’s begin with the Bind&nbsp;method. </p>
+<p><img src="/articles/201310-js-apply-call-bind/preview.png" alt="preview"></p>
+<h2 id="bind-">Bind()</h2>
+<h3 id="javascript-s-bind-allows-us-to-set-the-this-value-on-methods-">JavaScript’s Bind Allows Us to Set the this Value on&nbsp;Methods </h3>
+<p>When the button below is clicked, the text field is populated with a random&nbsp;name.</p>
+<pre><code>var user = {
+    data :[
+        {name:&quot;T. Woods&quot;, age:37},
+        {name:&quot;P. Mickelson&quot;, age:43}
+    ],
+    clickHandler:function (event) {
+        var randomNum = ((Math.random () * 2 | 0) + 1) - 1; // random number between 0 and 1
+        // This line is adding a random person from the data array to the text field
+        $(&quot;input&quot;).val (this.data[randomNum].name + &quot; &quot; + this.data[randomNum].age);
+    }
+}
+​// Assign an eventHandler to the button&#39;s click event
+$ (&quot;button&quot;).click (user.clickHandler);
+</code></pre><p>When you click the button, you get an error because this in the clickHandler () method is bound to the button <span class="caps">HTML</span> element, since that is the object that the clickHandler method is executed&nbsp;on.</p>
+<p>This particular problem is quite common in JavaScript, and JavaScript frameworks like Backbone.js and libraries like jQuery automatically do the bindings for us, so that this is always bound to the object we expect it to be bound&nbsp;to.</p>
+<p>To fix the problem in the preceding example, we can use the bind method thus:
+Instead of this&nbsp;line:</p>
+<pre><code> $ (&quot;button&quot;).click (user.clickHandler.bind (user));
+</code></pre><h3 id="bind-allows-us-to-borrow-methods">Bind() Allows us to <strong>Borrow</strong>&nbsp;Methods</h3>
+<p>In JavaScript, we can pass functions around, return them, borrow them, and the like. And the bind () method makes it super easy to borrow&nbsp;methods.</p>
+<p>Here is an example using bind () to borrow a&nbsp;method:</p>
+<pre><code>    var cars = {
+            data:[
+                {name:&quot;Honda Accord&quot;, age:14},
+                {name:&quot;Tesla Model S&quot;, age:2}
+            ]
+        }
+    // We can borrow the showData () method from the user object we defined in the last example.
+    // Here we bind the user.showData method to the cars object we just created.
+    cars.showData = user.showData.bind (cars);
+    cars.showData(); // Honda Accord 14
+</code></pre><p>One problem with this example is that we are adding a new method (showData) on the cars object and we might not want to do that just to borrow a method because the cars object might already have a property or method name showData. We don’t want to overwrite it accidentally. As we will see in our discussion of Apply and Call below, it is best to borrow a method using either the Apply or Call&nbsp;method. </p>
+<h3 id="javascript-s-bind-allows-us-to-curry-a-function-">JavaScript’s Bind Allows Us to Curry a&nbsp;Function </h3>
+<p>Function Currying, also known as partial function application, is the use of a function (that accept one or more arguments) that returns a new function with some of the arguments already set. The function that is returned has access to the stored arguments and variables of the outer function. This sounds way more complex than it actually is, so let’s&nbsp;code.</p>
+<pre><code>//So we are passing null because we are not using the &quot;this&quot; keyword in our greet function.​
+var greetAnAdultMale = greet.bind (null, &quot;male&quot;, 45);
+greetAnAdultMale (&quot;John Hartlove&quot;); // &quot;Hello, Mr. John Hartlove.&quot;​
+var greetAYoungster = greet.bind (null, &quot;&quot;, 16);
+greetAYoungster (&quot;Alex&quot;); // &quot;Hey, Alex.&quot;​
+greetAYoungster (&quot;Emma Waterloo&quot;); // &quot;Hey, Emma Waterloo.&quot;​
+</code></pre><h2 id="javascript-s-apply-and-call-methods">JavaScript’s Apply and Call&nbsp;Methods</h2>
+<p>The Apply and Call methods are two of the most often used Function methods in JavaScript, and for good reason: they allow us to borrow functions and set the this value in function invocation. In addition, the apply function in particular allows us to execute a function with an array of parameters, such that each parameter is passed to the function individually when the function executes—great for variadic functions; a variadic function takes varying number of arguments, not a set number of arguments as most functions&nbsp;do.</p>
+<h3 id="set-the-this-value-with-apply-or-call">Set the this value with Apply or&nbsp;Call</h3>
+<p>Just as in the bind () example, we can also set the this value when invoking functions by using the Apply or Call methods. The first parameter in the call and apply methods set the this value to the object that the function is invoked&nbsp;upon.</p>
+<p>Here is a very quick, illustrative example for starters before we get into more complex usages of Apply and&nbsp;Call:</p>
+<pre><code>    // global variable for demonstration​
+    var avgScore = &quot;global avgScore&quot;;
+    //global function​
+    function avg (arrayOfScores) {
+        // Add all the scores and return the total​
+        var sumOfScores = arrayOfScores.reduce (function (prev, cur, index, array) {
+            return prev + cur;
+        });
+        // The &quot;this&quot; keyword here will be bound to the global object, unless we set the &quot;this&quot; with Call or Apply​
+        this.avgScore = sumOfScores / arrayOfScores.length;
+    }
+    var gameController = {
+        scores  :[20, 34, 55, 46, 77],
+        avgScore:null​
+    }
+    // If we execute the avg function thus, &quot;this&quot; inside the function is bound to the global window object:​
+    avg (gameController.scores);
+    // Proof that the avgScore was set on the global window object​
+    console.log (window.avgScore); // 46.4​
+    console.log (gameController.avgScore); // null​
+    // reset the global avgScore​
+    avgScore = &quot;global avgScore&quot;;
+    // To set the &quot;this&quot; value explicitly, so that &quot;this&quot; is bound to the gameController,​
+    // We use the call () method:​
+    avg.call (gameController, gameController.scores);
+    console.log (window.avgScore); //global avgScore​
+    console.log (gameController.avgScore); // 46.4​
+</code></pre><p>Note that the first argument to call () sets the this value. In the preceding example, it is set to the gameController object. The other arguments after the first argument are passed as parameters to the avg () function.<br>The apply and call methods are almost identical when setting the this value except that you pass the function parameters to apply () as an array, while you have to list the parameters individually to pass them to the call () method. More on this follows. Meanwhile, the apply () method also has another feature that the call () method doesn’t have, as we will soon&nbsp;see.</p>
+<h4 id="use-call-or-apply-to-set-this-in-callback-functions">Use Call or Apply To Set this in Callback&nbsp;Functions</h4>
+<p>The Apply, Call, and Bind methods are all used to set the this value when invoking a method, and they do it in slightly different ways to allow use direct control and versatility in our JavaScript code. The this value in JavaScript is as important as any other part of the language, and we have the 3 aforementioned methods are the essential tools to setting and using this effectively and&nbsp;properly.</p>
+<h2 id="borrowing-functions-with-apply-and-call-a-must-know-">Borrowing Functions with Apply and Call (A Must&nbsp;Know)</h2>
+<p>The most common use for the Apply and Call methods in JavaScript is probably to borrow functions. We can borrow functions with the Apply and Call methods just as we did with the bind method, but in a more versatile&nbsp;manner.</p>
+</section>
+        </article>
+      </div>
+    </div>
+    <footer>
+      <div class="content-wrap clearfix">
+        <div class="nav"><a href="/">« Full blog</a></div>
+        <section class="about"><p>A good part for the fronteers</p>
+
+        </section>
+        <section class="copy">
+          <p>&copy; 2016 Someone &mdash; powered by&nbsp;<a href="https://github.com/jnordberg/wintersmith">Wintersmith</a>
+          </p>
+        </section>
+      </div>
+    </footer>
+  </body>
+</html>

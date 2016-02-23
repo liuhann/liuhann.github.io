@@ -1,0 +1,157 @@
+/**activity_single_choice start**/
+.activity_single_choice {
+  *zoom: 1;
+  margin-bottom: 6px;
+  line-height: 28px;
+}
+.activity_single_choice:before,
+.activity_single_choice:after {
+  display: table;
+  content: "";
+  line-height: 0;
+}
+.activity_single_choice:after {
+  clear: both;
+}
+.activity_single_choice .bold {
+  font-size: 18px;
+}
+.activity_single_choice .left_side {
+  float: left;
+  display: inline;
+  margin-right: 12px;
+  line-height: 30px;
+  margin-bottom: 5px;
+}
+.activity_single_choice .right_side {
+  clear: both;
+  float: left;
+  display: inline;
+  display: inline-block;
+}
+.activity_single_choice .right_side span{
+  vertical-align: middle;
+}
+.activity_single_choice .right_side .choose {
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0 6px;
+}
+.activity_single_choice .right_side .choose input {
+  width: 100%;
+  height: 100%;
+  display: none;
+}
+.activity_single_choice .right_side li {
+  position: relative;
+  margin-bottom: 12px;
+}
+.activity_single_choice .right_side .icon_r {
+  position: absolute;
+  left: -20px;
+  top: 2px;
+}
+.activity_single_choice .right_side .icon_e {
+  position: absolute;
+  left: -20px;
+  top: 6px;
+}
+/**activity_single_choice end**/
+/**activity_single_choice1 start**/
+.activity_single_choice1  {
+  float: left;
+  display: inline;
+  width: 420px;
+  height: 100%;
+}
+.activity_single_choice1  .left_side {
+  height: 30px;
+  line-height: 30px;
+  margin-bottom: 15px;
+}
+.activity_single_choice1  .left_side .bold {
+  font-size: 18px;
+  vertical-align: top;
+}
+.activity_single_choice1  .right_side {
+  float: left;
+  display: inline;
+  display: inline-block;
+}
+.activity_single_choice1  .right_side .bold {
+  vertical-align: top;
+}
+.activity_single_choice1  .right_side li {
+  position: relative;
+  height: 160px;
+}
+.activity_single_choice1  .right_side li .choose {
+  width: 24px;
+  height: 24px;
+  display: inline-block;
+  vertical-align: top;
+  margin: 0 10px 15px;
+}
+.activity_single_choice1  .right_side li i {
+  display: none;
+  position: absolute;
+  top: 0px;
+  left: -25px;
+  width: 20px;
+  height: 20px;
+}
+.activity_single_choice1  .right_side li.chosedLi i {
+  display: block;
+}
+
+.activity_single_choice1  .right_side .choose input {
+  width: 100%;
+  height: 100%;
+  display: none;
+}
+
+.activity_single_choice1 .float_style{
+  width: 258px;
+}
+/**activity_single_choice1 end**/
+/**activity_single_choice2 start**/
+.activity_single_choice2 {
+  height: 100%;
+  margin-bottom: 10px;
+}
+.activity_single_choice2 .left_side {
+  height: 30px;
+  line-height: 30px;
+  margin-bottom: 15px;
+}
+.activity_single_choice2 .left_side .bold {
+  font-size: 18px;
+  vertical-align: top;
+}
+.activity_single_choice2 .right_side {
+  display: inline-block;
+}
+.activity_single_choice2 .right_side .bold {
+  vertical-align: top;
+}
+.activity_single_choice2 .right_side .choose {
+  display: inline-block;
+  vertical-align: top;
+  margin: 0 10px 15px;
+}
+.activity_single_choice2 .right_side .choose input {
+  width: 100%;
+  height: 100%;
+  display: none;
+}
+.activity_single_choice2 .right_side li {
+  position: relative;
+  height: 36px;
+}
+.activity_single_choice2 .right_side .icon_r,
+.activity_single_choice2 .right_side .icon_e {
+  position: absolute;
+  top: 0px;
+  left: -25px;
+}
+/**activity_single_choice2 end**/

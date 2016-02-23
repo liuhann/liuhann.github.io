@@ -1,0 +1,49 @@
+{
+    "id": "jalsdfkjl300lj230jl-2342jl23",
+    "name": "",
+    "image": "",
+    "type": "highlight",
+    "type id": "1125",
+    "creator": "Hugo",
+    "date of birth": "2014-03-01",
+    "description": "",
+    "tags": [
+        "exercise",
+        "test",
+        "highlight"
+    ],
+    "estimated duration": "4",
+    "count": "5",
+    "content": [
+        {
+            "list": [
+                {
+                    "plain": true,
+                    "value": "1 conclude"
+                },
+                {
+                    "sep": " ",
+                    "value": "close summarise recap recall",
+                    "answer1": [
+                        3
+                    ]
+                }
+            ]
+        },
+        {
+            "list": [
+                {
+                    "plain": true,
+                    "value": "2 explain"
+                },
+                {
+                    "sep": " ",
+                    "value": "clarify define express illustrate",
+                    "answer1": [
+                        3
+                    ]
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,121 @@
+{
+    "id":"jalsdfkjl300lj230jl-2342jl23",
+    "name":"",
+    "image":"",
+    "type":"multiple-choice question",
+    "type id":"1103",
+    "creator":"Hugo",
+    "date of birth":"2014-03-01",
+    "description":"",
+    "tags":[
+        "exercise", "test", "multiple-choice question"
+    ],
+    "estimated duration":"1",
+    "count":"2",
+    "title": {
+		"en": "Look at the answers to exercise 3 and answer these questions.",
+		"zh": ""
+	},
+    "content":[
+        {
+            "order":"1",
+            "question":{
+                "stem":{
+                    "en":"Which sentences are about a situation that is permanent or a fact?",
+                    "zh":"请选出单词中的元音字母。"
+                },
+                "content":{
+                    "type":"text",
+                    "text":"mouse",
+                    "image":"",
+                    "sound":""
+                }
+            },
+            "answers":{
+                "text":"",
+                "choices":[
+                    {
+                        "type":"text",
+                        "text":"Peter is waiting for his friends.",
+                        "image":"",
+                        "sound":"",
+                        "flag":"right"
+                    },
+                    {
+                        "type":"text",
+                        "text":"He is studying really hard for his exams this month.",
+                        "image":"",
+                        "sound":"",
+                        "flag":"right"
+                    },
+                    {
+                        "type":"text",
+                        "text":" His parents own a restaurant.",
+                        "image":"",
+                        "sound":"",
+                        "flag":"right"
+                    },
+                    {
+                        "type":"text",
+                        "text":" He practises the piano most mornings.",
+                        "image":"",
+                        "sound":"",
+                        "flag":"wrong"
+                    }
+                ],
+                "clen":0,
+                "order_type":"Number"
+            }
+        },
+        {
+            "order":"2",
+            "question":{
+                "stem":{
+                    "en":"Which sentences are about everyday habits?",
+                    "Chinese":"请选出单词中的元音字母。"
+                },
+                "content":{
+                    "type":"text",
+                    "text":"orange",
+                    "image":"",
+                    "sound":""
+                }
+            },
+            "answers":{
+                "text":"",
+                "choices":[
+                    {
+                        "type":"text",
+                        "text":"Peter is waiting for his friends.",
+                        "image":"",
+                        "sound":"",
+                        "flag":"wrong"
+                    },
+                    {
+                        "type":"text",
+                        "text":"He is studying really hard for his exams this month.",
+                        "image":"",
+                        "sound":"",
+                        "flag":"right"
+                    },
+                    {
+                        "type":"text",
+                        "text":"His parents own a restaurant.",
+                        "image":"",
+                        "sound":"",
+                        "flag":"right"
+                    },
+                    {
+                        "type":"text",
+                        "text":"He practises the piano most mornings.",
+                        "image":"",
+                        "sound":"",
+                        "flag":"wrong"
+                    }
+                ],
+                "clen":2,
+                "order_type":"Number"
+            }
+        }
+    ]
+}

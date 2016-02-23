@@ -1,0 +1,84 @@
+
+@mixin card-layout($width) {
+  width: $width;
+  height: $width * 3/4;
+  position: relative;
+
+
+  &:not(.online) {
+    -webkit-filter: grayscale(100%);
+    filter: grayscale(100%);
+  }
+
+  background-color: #fff;
+  background-image: url('../img/bg_online.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position-y:-$width*0.42;
+  //-webkit-filter: grayscale(100%);
+
+  border: 2px solid #888888;
+  border-radius: .5rem;
+  background-size: cover;
+  position: relative;
+  -webkit-transition: -webkit-transform .3s cubic-bezier(0.18, 0.89, 0.32, 1.28), opacity .3s ease-out,  -webkit-filter .3s ease-out;
+  overflow: hidden;
+  box-sizing: border-box;
+
+  .head {
+    $base: floor($width * 0.33);
+    $ppecent: 0.08;
+    width: $base;
+    height: $base;
+    padding: floor($base * $ppecent);
+    position: absolute;
+    left: $base;
+    top: $base * 0.4;
+    z-index: 99;
+    box-sizing: border-box;
+    -webkit-transition: transform .5s cubic-bezier(0.31, 1.01, 0.44, 1.14);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -webkit-transform: rotateY(0deg);
+    border-radius: 50%;
+    background-color: #fff;
+
+    &.back {
+      -webkit-transform: rotateY(-180deg);
+    }
+
+    &.grey {
+      -webkit-filter: grayscale(100%);
+      filter: grayscale(100%);
+    }
+
+    img {
+      width: $base - 2*floor($base * $ppecent);
+      height: $base - 2*floor($base * $ppecent);
+      border-radius: 50%;
+    }
+  }
+
+  &.online {
+    .head {
+      /* background-color: #9AEC1D;*/
+    }
+  }
+  .name {
+    margin-top: $width*0.5;
+    font-size: $width*0.06;
+    text-align: center;
+  }
+
+  .offclass {
+    position: absolute;
+    bottom: 0;
+    width: $width;
+    font-size: $width*0.06;
+    padding-top: $width*0.02;
+    padding-bottom: $width*0.02;
+    background-color: #9EBBE3;
+    color: #fff;
+    display: none;
+  }
+}

@@ -1,0 +1,18 @@
+<div class="list">
+   <div class="left_side">
+    <span class="bold">{{#if order}}{{order}}{{else}}{{head}}{{/if}}</span>
+    {{#if question.sound}}<span class="listen"><audio style="display:none" src="{{question.sound}}"></audio></span>{{/if}}
+    <span>{{{question.text}}}</span>
+    </div>
+    <ul class="right_side" id="schoice_{{head}}">
+        {{#each answers}}<li>
+            <span>{{order_items @index ../order_type}}</span>
+            <a class="choose" href="javascript:;">
+                <input type="radio" name="select_{{../head}}" value="{{@index}}"/>
+            </a>
+            {{text}} 
+            {{#if image}}<img class="attached-image" data-src="{{image}}" src="{{image}}">{{/if}}
+            <i></i>
+        </li>{{/each}}
+    </ul>
+</div>

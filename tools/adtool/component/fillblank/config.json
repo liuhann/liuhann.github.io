@@ -1,0 +1,8 @@
+{
+	"componentName": "fillUpBlank",
+	"template": "fillblank1.handlebars",
+	"css": "fillblank1.css", 
+	"sample": ["sample.json"],
+	"js": ["component/fillblank/fills-up.js",
+	"component/fillblank/keyboard.js"]
+}

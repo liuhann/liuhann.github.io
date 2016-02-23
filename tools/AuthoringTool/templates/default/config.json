@@ -1,0 +1,13 @@
+{
+  "name": "default",
+
+  "default": {
+    "html": "preview.html",
+    "padding": [
+        20, 20, 20, 20
+    ],
+
+    "styles" :["css/style.css"],
+    "images":[]
+  }
+}

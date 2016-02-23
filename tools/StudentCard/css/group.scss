@@ -1,0 +1,250 @@
+@import "./card.scss";
+
+.group-scene {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  overflow: hidden;
+  text-align: center;
+  font-size: 0;
+  display: none;
+  //transform: translateY(-100%);
+}
+
+.group1 {
+  .cardlist {
+    background-color: #e1f5fe;
+  }
+  .title {
+    background-color: #03a9f5;
+  }
+}
+
+.group2 {
+  .cardlist {
+    background-color: #fff9e1;
+  }
+  .title {
+    background-color: #fec107;
+  }
+}
+
+.group3 {
+  .cardlist {
+    background-color: #e8f8ee;
+  }
+  .title {
+    background-color: #009788;
+  }
+}
+.group4 {
+  .cardlist {
+    background-color: #fbe9e7;
+  }
+  .title {
+    background-color: #fe5722;
+  }
+}
+.group5 {
+  .cardlist {
+    background-color: #f9fbe6;
+  }
+  .title {
+    background-color: #cddc39;
+  }
+}
+.group6 {
+  .cardlist {
+    background-color: #eee8f6;
+  }
+  .title {
+    background-color: #673bb7;
+  }
+}
+.group7 {
+  .cardlist {
+    background-color: #fff3e0;
+  }
+  .title {
+    background-color: #ff9801;
+  }
+}
+
+.group8 {
+  .cardlist {
+    background-color: #e0f8fa;
+  }
+  .title {
+    background-color: #00bcd5;
+  }
+}
+
+.group9 {
+  .cardlist {
+    background-color: #efebea;
+  }
+  .title {
+    background-color: #795547;
+  }
+}
+
+.group10 {
+  .cardlist {
+    background-color: #e8f6e9;
+  }
+  .title {
+    background-color: #4cb050;
+  }
+}
+
+$title_ratio: 0.045;
+@mixin group($width, $height, $row, $screenheight) {
+
+  width: $width;
+  height: $height;
+
+  .title {
+    height: $screenheight * $title_ratio;
+    line-height: $screenheight * $title_ratio;
+    text-align: center;
+    color: #fff;
+    font-size: $screenheight * $title_ratio * 0.6;
+  }
+
+  .cardlist {
+    height: $height - $title_ratio*$screenheight;
+    overflow: hidden;
+    .card {
+      display: inline-block;
+      $cw: ($width/$row) * 0.96;
+      margin: ($width/$row) * 0.01 ($width/$row) * 0.02;
+      @include card-layout($cw);
+    }
+  }
+}
+
+@mixin group-layout($width, $height) {
+  .group {
+
+  }
+
+  &.gn1 {
+    .group {
+      @include group($width, $height, 6, $height);
+    }
+  }
+
+  &.gn2 {
+    .group {
+      $gw: $width/2;
+      $gh: $height;
+      @include group($gw, $gh, 3, $height);
+    }
+  }
+
+  &.gn3 {
+    .group {
+      $gw: $width/3;
+      $gh: $height;
+      @include group($gw, $gh, 2, $height);
+    }
+  }
+  &.gn4 {
+    .group {
+      $gw: $width/2;
+      $gh: $height/2;
+      @include group($gw, $gh, 3, $height);
+    }
+  }
+  &.gn5 {
+    .group {
+      $gw: $width/3;
+      $gh: $height/2;
+      @include group($gw, $gh, 3, $height);
+    }
+    .group1{
+      margin-left: 2px;
+    }
+  }
+
+  &.gn6 {
+    .group {
+      $gw: $width/3;
+      $gh: $height/2;
+      @include group($gw, $gh, 3, $height);
+    }
+  }
+
+  &.gn7 {
+    .group {
+      $gw: $width/4;
+      $gh: $height/2;
+      @include group($gw, $gh, 3, $height);
+    }
+    .group1 {
+      margin-left: 2px;
+    }
+  }
+
+  &.gn8 {
+    .group {
+      $gw: $width/4;
+      $gh: $height/2;
+      @include group($gw, $gh, 3, $height);
+    }
+  }
+  &.gn9 {
+    .group {
+      $gw: $width/3;
+      $gh: $height/3;
+      @include group($gw, $gh, 3, $height);
+    }
+  }
+  &.gn10 {
+    .group {
+      $gw: $width/5;
+      $gh: $height/2;
+      @include group($gw, $gh, 2, $height);
+    }
+  }
+}
+
+
+.s1024 {
+  $width : 1024px;
+  $height: 768px;
+
+  .group {
+    display: inline-block;
+    overflow: hidden;
+  }
+
+  @include group-layout($width, $height);
+
+}
+
+
+.s1280 {
+  $width : 1280px;
+  $height: 800px;
+
+  .group {
+    display: inline-block;
+    overflow: hidden;
+  }
+  @include group-layout($width, $height);
+}
+
+.s1920 {
+  $width : 1920px;
+  $height: 1080px;
+
+  .group {
+    display: inline-block;
+    overflow: hidden;
+  }
+
+  @include group-layout($width, $height);
+}

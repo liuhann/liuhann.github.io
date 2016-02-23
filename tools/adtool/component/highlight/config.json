@@ -1,0 +1,7 @@
+{
+	"componentName": "highLight",
+	"template":  "highlight1.handlebars",
+	"css": "css/highlight.css",
+	"sample": ["sample.json"],
+	"js": ["component/highlight/highlight.js"]
+}

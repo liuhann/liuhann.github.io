@@ -1,0 +1,19 @@
+<div class="choose_list">
+	<div class="left_side">
+		<span class="bold">{{order}}</span>
+	</div>
+	
+	<ul class="right_side" id="mchoice_{{head}}">
+		<li><span>{{question.stem.en}}</span></li>
+		{{#each answers.choices}}
+		<li class="anw" data-index="{{@index}}">
+    		<span class="mar">{{order_items @index ../answers.order_type}}</span>
+    		<a class="choose">
+    			<input type="checkbox" value="1">
+    		</a>
+    		<span>{{text}}</span>
+    		<i></i>
+    	</li>
+    	{{/each}}
+	</ul>
+</div>

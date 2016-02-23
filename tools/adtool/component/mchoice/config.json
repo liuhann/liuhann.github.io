@@ -1,0 +1,7 @@
+{
+		"componentName": "multipleChoice",
+		"template": "mchoice1.handlebars",
+		"css":"css/mult_choice.css",
+		"sample": ["sample.json"],
+		"js": ["component/mchoice/mchoice.js"]
+}

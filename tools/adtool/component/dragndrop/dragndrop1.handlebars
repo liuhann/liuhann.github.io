@@ -1,0 +1,50 @@
+
+<div id="dnd_{{number}}">
+	<div class="options" id="dnd_opt_{{number}}">
+		{{#each reference.content}}
+			<a href="javascript:;" id="dnd_drag_{{@root.number}}_{{id}}" data-order="{{id}}" class="drag">{{content.text}}</a>
+		{{/each}}
+	</div>
+
+	<div class="questions_list">
+		{{#each targets.content}}
+			<div class="list" data-answer="{{answer.id}}">
+				<span class="bold">{{order_items @index ../order_type}}</span>
+				
+				{{#if question.sound}}
+            		<span class="listen" data-sound="{{question.sound}}"><audio style="display:none" src="{{question.sound}}"></audio></span>
+            	{{/if}}
+            	
+            	{{#if multipleDropArea}}
+					<div class="subtargets" id="dnd_drop_{{@root.number}}_{{@index}}">
+	            		{{#each question.list}}
+							{{#if textplain}}
+								<span>{{{textplain}}}</span>
+							{{else}}
+								{{#each answer}}
+									<div class="subtarget">
+									</div>
+								{{/each}}
+							{{/if}}
+						{{/each}}
+					</div>
+				{{else}}
+					{{#each question.list}}
+						{{#if textplain}}
+							<span>{{{textplain}}}</span>
+						{{else}}
+							{{#if ../../singleAnswer}}
+								<div class="line1 length" id="dnd_drop_{{@root.number}}_{{@../index}}">
+                                </div>
+							{{else}}
+							<div class="length line{{answer.length}}" id="dnd_drop_{{@root.number}}_{{@../index}}">
+							</div>
+							{{/if}}
+						{{/if}}
+					{{/each}}
+            	{{/if}}
+	        <i class=""></i>
+		</div>
+		{{/each}}
+	</div>
+</div>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+
+    <script src="js/jquery-2.1.4.min.js"></script>
+    <script src="js/d3.v3.min.js"></script>
+    <script src="js/datatables.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/chart.css">
+    <script src="initData.js"></script>
+
+</head>
+<body class="gs1280">
+
+    <div class="container">
+        <div class="tabs left">
+            <div class="tab" onclick="Accuracy.showAllHomework()">Homework</div>
+            <div class="tab unactive right" onclick="Accuracy.showInClass()">In Class</div>
+        </div>
+        <div class="content">
+            <div class="date"></div>
+
+                <div class="return">
+                    <img src="img/return.png">
+                </div>
+                <div class="title">
+                </div>
+                <div class="desc"></div>
+
+            <div class="table-container">
+                <table id="table-homeworks" cellspacing="0">
+                </table>
+                <table id="table-homeworks-student" cellspacing="0">
+                </table>
+                <table id="table-inclass-ex" cellspacing="0">
+                </table>
+                <table id="table-inclass-ex-detail" cellspacing="0">
+                </table>
+            </div>
+
+            <div class="chart">
+                <svg id="chart1">
+                    <g >
+                        <g class="labels" />
+                        <g class="donuts" />
+                    </g>
+                </svg>
+
+                <svg id="chart2">
+                    <g >
+                        <g class="labels" />
+                        <g class="donuts" />
+                    </g>
+                </svg>
+            </div>
+        </div>
+    </div>
+    <script src="js/donuts.js"></script>
+    <script src="js/chart.js"></script>
+</body>
+</html>

@@ -1,0 +1,85 @@
+/*questions*/
+
+.activity_dropdown .questions {
+    margin-left: 34px;
+}
+
+.activity_dropdown .number {
+    display: block;
+    width: 30px;
+    height: 30px;
+    background: #78A2C9;
+    float: left;
+    text-align: center;
+    line-height: 30px;
+    color: #fff;
+    font-size: 17px;
+    margin-right: 10px;
+}
+
+.activity_dropdown .title_list {
+    float: left;
+    width: 920px;
+    margin-bottom: 25px;
+    line-height: 30px;
+}
+
+.activity_dropdown .title_list p {
+    font-size: 17px;
+    margin-bottom: 5px;
+}
+/*content*/
+
+.activity_dropdown {
+    padding: 0;
+}
+
+.activity_dropdown .list {
+    clear: both;
+}
+
+.activity_dropdown .list .list_number {
+    float: left;
+    height: 33px;
+    line-height: 30px;
+    font-weight: normal;
+    vertical-align: middle;
+    width:20px; 
+    margin-right:5px;
+}
+
+.activity_dropdown .list .txt {
+    float: left;
+    line-height: 30px;
+    padding-bottom: 15px;
+}
+
+.activity_dropdown .list .right_side {
+    min-width: 60px;
+	text-align: center;
+}
+.activity_dropdown .list .right_side .show_list {
+    min-width: 60px;
+	text-align: left;
+}
+.activity_dropdown .right_side {
+  position: relative;
+  height: 33px;
+  vertical-align: middle;
+  display: inline-block;
+}
+
+.activity_dropdown .show_list li {
+  padding: 5px;
+  line-height: 20px;
+  font-size: 15px;
+  color: #666; 
+  padding-left:10px;
+  cursor: pointer;
+}
+.activity_dropdown .right_side .icon_r,
+.activity_dropdown .right_side .icon_e {
+  position: absolute;
+  top: 7px;
+  right: -25px;
+}

@@ -1,0 +1,312 @@
+@import "./card.scss";
+html {
+  font-family: "Arial", "serif";
+}
+
+body {
+  background-color: #FEF6C5;
+}
+
+.card-scene {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  overflow: hidden;
+  background-color: #FEF6C5;
+}
+
+.s1024 {
+  &.p2,&.p1 {
+    margin-top: 230px;
+    text-align: center;
+    .card {
+      margin: 16px;
+      display: inline-block;
+      $width: 350px;
+      @include card-layout($width);
+    }
+  }
+
+  &.p3 {
+    margin-top: 274px;
+    text-align: center;
+    .card {
+      $width: 295px;
+      margin: 5px;
+      display: inline-block;
+      @include card-layout($width);
+    }
+  }
+
+  &.p4 {
+    margin-top: 110px;
+    text-align: center;
+    .card {
+      $width: 325px;
+      margin: 15px;
+      display: inline-block;
+      @include card-layout($width);
+    }
+  }
+
+  &.p6,&.p5 {
+    margin-top: 114px;
+    .card {
+      $width: 325px;
+      margin: 5px;
+      float: left;
+      display: inline-block;
+      @include card-layout($width);
+    }
+  }
+
+  &.p7,&.p8,&.p9,&.p10,&.p11,&.p12 {
+      margin-top: 98px;
+      .card {
+        $width: 242px;
+        margin: 5px;
+        float: left;
+        display: inline-block;
+        @include card-layout($width);
+      }
+  }
+
+  &.p13,&.p14,&.p15,&.p16,&.p17,&.p18,&.p19,&.p20 {
+    margin-top: 72px;
+    .card {
+      $width: 195px;
+      margin:3px;
+      float: left;
+      display: inline-block;
+      @include card-layout($width);
+    }
+  }
+
+  &.p21,&.p22,&.p23,&.p24,&.p25,&.p26,&.p27,&.p28,&.p29,&.p30 {
+    margin-top: 56px;
+    .card {
+      $width: 164px;
+      margin:2px;
+      float: left;
+      display: inline-block;
+      @include card-layout($width);
+    }
+  }
+}
+
+.s1280 {
+  &.p2,&.p1 {
+    margin-top: 206px;
+    text-align: center;
+    .card {
+      margin: 65px;
+      display: inline-block;
+      $width: 340px;
+      @include card-layout($width);
+    }
+  }
+
+  &.p3 {
+    margin-top: 250px;
+    text-align: center;
+    .card {
+      margin: 44px;
+      display: inline-block;
+      $width: 290px;
+      @include card-layout($width);
+    }
+  }
+
+  &.p4 {
+    margin-top: 20px;
+    text-align: center;
+    .card {
+      margin: 30px;
+      display: inline-block;
+      $width: 380px;
+      @include card-layout($width);
+    }
+  }
+  &.p5,&.p6 {
+    margin-top: 60px;
+    text-align: center;
+    .card {
+      float: left;
+      margin: 5px;
+      display: inline-block;
+      $width: 405px;
+      @include card-layout($width);
+    }
+  }
+  &.p7,&.p8,&.p9 {
+    text-align: center;
+    .card {
+      float: left;
+      margin: 6px 40px;
+      display: inline-block;
+      $width: 336px;
+      @include card-layout($width);
+    }
+  }
+  &.p10,&.p11,&.p12 {
+    text-align: center;
+    margin-top: 45px;
+
+    margin-left: 10px;
+    .card {
+      float: left;
+      margin: 5px;
+
+      display: inline-block;
+      $width: 300px;
+      @include card-layout($width);
+    }
+  }
+  &.p13,&.p14,&.p15,&.p16,&.p17,&.p18,&.p19,&.p20 {
+    text-align: center;
+    margin-left: 10px;
+    .card {
+      float: left;
+      margin: 5px;
+
+      display: inline-block;
+      $width: 240px;
+      @include card-layout($width);
+    }
+  }
+  &.p21,&.p22,&.p23,&.p24,&.p25,&.p26,&.p27,&.p28,&.p29,&.p30 {
+    text-align: center;
+    .card {
+      float: left;
+      margin: 4px;
+      display: inline-block;
+      $width: 202px;
+      @include card-layout($width);
+    }
+  }
+}
+
+
+
+.s1920 {
+  &.p2,&.p1 {
+    margin-top: 213px;
+    text-align: center;
+    .card {
+      margin: 130px;
+      display: inline-block;
+      $width: 515px;
+      @include card-layout($width);
+    }
+  }
+
+  &.p3 {
+    margin-top: 312px;
+    text-align: center;
+    .card {
+      margin: 60px;
+      display: inline-block;
+      $width: 477px;
+      @include card-layout($width);
+    }
+  }
+
+  &.p4 {
+    text-align: center;
+    width: 1400px;
+    margin: 0 auto;
+    margin-top: 50px;
+    .card {
+      margin: 50px;
+      display: inline-block;
+      $width: 508px;
+      @include card-layout($width);
+    }
+  }
+
+  &.p5,&.p6 {
+    margin-top: 50px;
+    text-align: center;
+    .card {
+      float: left;
+      margin: 10px;
+      display: inline-block;
+      $width: 600px;
+      @include card-layout($width);
+    }
+  }
+  &.p7,&.p8,&.p9 {
+    text-align: center;
+    width: 1500px;
+    margin: 0 auto;
+    .card {
+      float: left;
+      margin: 6px 20px;
+      display: inline-block;
+      $width: 450px;
+      @include card-layout($width);
+    }
+  }
+
+  &.p10,&.p11,&.p12 {
+    text-align: center;
+    margin-left: 30px;
+    .card {
+      float: left;
+      margin: 8px;
+      display: inline-block;
+      $width: 440px;
+      @include card-layout($width);
+    }
+  }
+
+  &.p13,&.p14,&.p15,&.p16,&.p17,&.p18,&.p19,&.p20 {
+    text-align: center;
+    margin-left: 40px;
+    .card {
+      float: left;
+      margin: 5px 12px;
+      display: inline-block;
+      $width: 340px;
+      @include card-layout($width);
+    }
+  }
+  &.p21,&.p22,&.p23,&.p24,&.p25,&.p26,&.p27,&.p28,&.p29,&.p30 {
+    text-align: center;
+    margin-left: 70px;
+    .card {
+      float: left;
+      margin: 3px 10px;
+      display: inline-block;
+      $width: 275px;
+      @include card-layout($width);
+    }
+  }
+}
+
+
+
+@-webkit-keyframes zoomShow {
+  0% {
+    -webkit-transform: scale(1);
+
+  }
+  20% {
+    -webkit-transform: scale(1.2);
+
+  }
+  100% {
+    -webkit-transform: scale(1);
+  }
+}
+
+.zoomShow {
+  z-index: 1001;
+  -webkit-animation-name: zoomShow;
+  animation-name: zoomShow;
+  -webkit-animation-duration: .5s;
+}
+
+

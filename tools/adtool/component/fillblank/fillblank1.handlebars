@@ -1,0 +1,18 @@
+
+
+<ul>
+	<li class="list clearfix" data-order="{{order}}">
+		{{#if order}}
+		<span class="left_l">{{order}}</span>
+		{{/if}}
+		<div class="right_r"> 
+			{{#each list}}
+				{{#if this.plain}}
+					{{{this.text}}}
+				{{else}}
+					<input class="tex mb5 fb_blank" id="blank_{{../../activity_id}}_{{this.index}}" type="text" data-answer="{{this.answer}}">
+				{{/if}}
+			{{/each}}
+		</div>
+	</li>
+</ul>

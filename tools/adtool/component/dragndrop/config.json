@@ -1,0 +1,9 @@
+{
+	"componentName": "DragNDrop",
+	"template": "dragndrop1.handlebars",
+	"css": "dragndrop.css",
+	"sample": ["sample.json"],
+	"js": ["component/dragndrop/dragndrop.js",
+	       "component/dragndrop/jquery-ui.min.js",
+	       "component/dragndrop/jquery.ui.touch-punch.min.js"]
+}

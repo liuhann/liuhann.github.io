@@ -1,0 +1,63 @@
+{
+    "id": "jalsdfkjl300lj230jl-2342jl23",
+    "name": "",
+    "image": "",
+    "type": "single-choice question",
+    "type id": "1102",
+    "creator": "Hugo",
+    "date of birth": "2014-03-01",
+    "description": "",
+    "tags": [
+        "exercise", "test", "single-choice question"
+    ],
+    "estimated duration": "2",
+    "count": "2",
+    "content": [
+        {
+            "order": "1",
+            "question": {
+                "text": "It is too long for a question title.",
+                "image": "",
+                "sound": ""
+            },
+            "answers": [
+                {
+                    "text": "The government spent ten millions dollars on education last year.",
+                    "image": "",
+                    "sound": "",
+                    "flag": 0
+                },
+                {
+                    "text": "The government spent ten million dollars on education last year.",
+                    "image": "",
+                    "sound": "",
+                    "flag": 1
+                }
+            ],
+            "order_type": "ALPHA"
+        },
+        {
+            "order": "2",
+            "question": {
+                "text": "It is not too long for a question title.",
+                "image": "",
+                "sound": ""
+            },
+            "answers": [
+                {
+                    "text": "There were thousands of people at the football match.",
+                    "image": "",
+                    "sound": "",
+                    "flag": 1
+                },
+                    {
+                        "text": "There were a thousand of people at the football match.",
+                        "image": "",
+                        "sound": "",
+                        "flag": 0
+                }
+            ],
+            "order_type": "ALPHA"
+        }
+    ]
+}

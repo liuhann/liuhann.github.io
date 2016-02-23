@@ -1,0 +1,11 @@
+<div class="highlight">
+	<div class="row" data-choice="{{choice}}">
+		{{#if order}}<div class="order cell">{{order}}</div>{{/if}}
+		<div class="cell">
+			<div class="plain">{{title}}</div>
+			<div class="hl" id="highlight_{{head}}">
+				{{#each list}}<i{{#if type}} data-answer="{{type}}"{{/if}}>{{txt}}</i> {{/each}}
+			</div>
+		</div>
+	</div>
+</div>

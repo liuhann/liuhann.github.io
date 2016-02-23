@@ -1,0 +1,210 @@
+html {
+    font-size: 22px;
+    font-family: Arial;
+    background-color: #fff8cd;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+.template, .hidden {
+    display: none;
+}
+/**
+ * Mixin to put items on a circle
+ * [1] - Allows children to be absolutely positioned
+ * [2] - Allows the mixin to be used on a list
+ * [3] - In case box-sizing: border-box has been enabled
+ * [4] - Allows any type of direct children to be targeted
+ */
+.circle-container {
+    position: relative;
+    /* [1] */
+    width: 12rem;
+    height: 12rem;
+    padding: 0;
+    border-radius: 50%;
+    list-style: none;
+    /* [2] */
+    -moz-box-sizing: content-box;
+    -webkit-box-sizing: content-box;
+    box-sizing: content-box;
+    /* [3] */
+    margin: 3rem auto 0;
+    border: solid 1px #d0f8ff;
+    z-index: 191;
+}
+
+.circle-container > li {
+    /* [4] */
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 5rem;
+    height: 5rem;
+    margin: -2.5rem;
+    opacity: 0;
+    -webkit-transform: none;
+    -webkit-transition: -webkit-transform .3s ease-out, opacity .3s ease-out;
+}
+
+.circle-container > li.gpt-9:after {
+    content: "";
+    border-bottom: inherit;
+    background: inherit;
+    border-radius: inherit;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    z-index: 0;
+    top: 0;
+    left: 0;
+    clip: rect(35px 50px 50px 0);
+}
+.circle-container a {
+    display: block;
+    border-radius: 50%;
+    box-shadow: 0 0 0 5px #9cec1d;
+}
+
+.circle-container img {
+    display: block;
+    width: 100%;
+    border-radius: 50%;
+    /*
+    -webkit-filter: grayscale(100%);
+    filter: grayscale(100%);
+    */
+}
+
+.circle-container img:hover {
+    -webkit-filter: grayscale(0);
+    filter: grayscale(0);
+}
+
+.card {
+    border: 2px solid #888888;
+    border-radius: .5rem;
+    background-image: url('../img/bg_offline.png');
+    background-size: cover;
+    position: relative;
+    margin-top: .5rem;
+    margin-left: 1rem;
+    -webkit-transition: -webkit-transform .3s cubic-bezier(0.18, 0.89, 0.32, 1.28), opacity .3s ease-out,  background .3s ease-out;
+    float: left;
+    overflow: hidden;
+}
+
+.card.group {
+    width: 20rem;
+    height: 25rem;
+    opacity: 0;
+}
+
+.card .content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 7rem;
+    background-color: #fff;
+    border-radius: .5rem;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    -webkit-transition: top .5s cubic-bezier(0.31, 1.01, 0.44, 1.14);
+}
+
+.card .content .sub {
+    text-align: right;
+    font-size: .7rem;
+    padding-right: 1rem;
+    line-height: 1.3rem;
+    color: #666;
+    opacity: 0;
+    -webkit-transition: opacity .5s cubic-bezier(0.31, 1.01, 0.44, 1.14);
+}
+.card.group .content {
+    top: 0;
+    -webkit-transition: top .3s cubic-bezier(0, 0.79, 0.56, 1.01);
+}
+
+.card.disabled {
+    -webkit-filter: grayscale(100%);
+    filter: grayscale(100%);
+}
+
+.card .head {
+    position: absolute;
+    z-index: 99;
+    left: 6.4rem;
+    top: 2.5rem;
+    -webkit-transition: transform .5s cubic-bezier(0.31, 1.01, 0.44, 1.14);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -webkit-transform: rotateY(0deg);
+}
+
+.card .content .name {
+    margin-top: 3.5rem;
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+.card.detailed .head {
+    transform: scale(.7) translate(-9rem,-4rem);
+}
+
+.card.detailed .content .name {
+    margin-top: 1rem;
+    text-align: right;
+    padding-right: 1rem;
+    margin-bottom: 4rem;
+}
+
+.card.detailed .content {
+    top: 2.5rem;
+}
+.card.detailed .content .sub {
+    display: block;
+    font-size: .9rem;
+    line-height: 1.6rem;
+    opacity: 1;
+}
+
+
+.card.group .content .name {
+    font-size: 1rem;
+    font-weight: 300;
+    font-style: normal;
+    margin-top: 1.5rem;
+}
+
+.card .content .emailicon {
+    margin-top: .8rem;
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+.card .head.back {
+    -webkit-transform: rotateY(-180deg);
+}
+
+.card .head.grey {
+    -webkit-filter: grayscale(100%);
+    filter: grayscale(100%);
+    z-index: 99;
+}
+
+.card .head img {
+    width: 5.6rem;
+    height: 5.6rem;
+    border-radius: 50%;
+    border: .5rem solid #9cec1d;
+}
+.card .head.grey img {
+    border: .5rem solid #fff;
+}

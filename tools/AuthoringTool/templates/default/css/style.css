@@ -1,0 +1,134 @@
+
+/* ==========================================================================
+    Header
+   ========================================================================== */
+.site-header {
+  width: 100%;
+  background:#fff;
+  font-size: 16px;
+  overflow: hidden;
+  min-height:100px;
+  position:relative;
+}
+.A-head {color:#333; background:url(../images/insets_04.png) right top no-repeat; padding:15px 0 0px 0px; font-size:20px;}
+.A-head span {display:inline-block;}
+.A-head .A-head-bold {font-size:28px; font-weight:bold; margin-right:10px; padding-left:50px; background:url(../images/insets_02.png) left 3px no-repeat; height:30px; line-height:30px;}
+.site-header .A-head-line {background:url(../images/insets_01.png) left top no-repeat; width:62px; height:3px; display:inline-block; vertical-align:3px;}
+.site-header .A-head-bor {display:inline-block;height:3px;border: 0;border-top:3px solid #236096;width:70%;}
+.B-head {
+	background:url(../images/insets_05.jpg) left top no-repeat; 
+	padding-left:51px;
+	margin-top:5px; 
+	margin-left:15px;
+}
+.B-head span {
+	display:inline-block; 
+	position:relative; 
+	padding: 0 16px 0 6px;
+	background: #1E63A4;/* ie */
+	background-image: -moz-linear-gradient(left, #6192c0, #3574ae);/* Firefox */
+	background-image: -webkit-gradient(linear, left bottom, right top, color-stop(0, #6192c0), color-stop(1, #3574ae)); /* Saf4+, Chrome */
+	vertical-align: top;
+	height: 25px; 
+	line-height: 25px; 
+	font-size: 20px; 
+	color: #feffff;
+}
+.B-head em {display:inline-block; background:url(../images/insets_06.png) left top no-repeat; position:absolute; right:0px; bottom:0px; width:10px; height:10px;}
+
+
+
+h1 {
+	margin: 10px 0;
+}
+/*.main {margin:20px 0px;}
+.question_title {
+  *zoom: 1;
+  font-size: 18px;
+   clear:both;
+   margin:20px 10px 0px 32px;
+   color:#333;
+}
+.question_title:before,
+.question_title:after {
+  display: table;
+  content: "";
+  line-height: 0;
+}
+.question_title:after {
+  clear: both;
+}
+.question_title .number {
+  float: left;
+  display: inline;
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  margin-right: 8px;
+  background-color: #78A2C9;
+  text-align: center;
+  display: block;
+  color: #FFF;
+}
+.question_title div {
+  float: left;
+  display: inline;
+  line-height: 25px;
+  margin-top: 3px;
+  width:90%;
+}
+*/
+.site-footer {
+	width:100%;
+	background:#6092C0;
+	color: #ffffff;
+	height:60px;
+	line-height:60px;
+	text-align:center;
+	word-spacing:2px;
+}
+
+
+@media screen and (width:1024px){
+	.A-head {font-size:16px;}
+	.A-head .A-head-bold {font-size:20px;}
+	.B-head span {font-size:16px;}
+	.site-footer {font-size:14px;}
+}
+
+@media screen and (width:1280px) {
+	.A-head {font-size:18px;}
+	.A-head .A-head-bold {font-size:24px;}
+	.B-head span {font-size:18px;}
+	.site-footer {font-size:16px;}
+}
+
+@media screen and (width:1920px) {
+	.A-head {color:#333; font-size:20px; background:url(../images/insets_04.png) right top no-repeat; padding:15px 0 0px 0px;}
+	.A-head span {display:inline-block;}
+	.A-head .A-head-bold {font-size:28px; font-weight:bold; margin-right:10px; padding-left:50px; background:url(../images/insets_02.png) left 3px no-repeat; height:30px; line-height:30px;}
+	.site-header .A-head-line {background:url(../images/insets_01.png) left top no-repeat; width:62px; height:3px; display:inline-block; vertical-align:3px;}
+	.site-header .A-head-bor {display:inline-block;height:3px;border: 0;border-top:3px solid #236096;width:70%;}
+	.B-head {
+		background:url(../images/insets_05.jpg) left top no-repeat; 
+		padding-left:51px;
+		margin-top:5px; 
+		margin-left:15px;
+	}
+	.B-head span {
+		display:inline-block; 
+		position:relative; 
+		padding: 0 16px 0 6px;
+		background: #1E63A4;/* ie */
+		background-image: -moz-linear-gradient(left, #6192c0, #3574ae);/* Firefox */
+		background-image: -webkit-gradient(linear, left bottom, right top, color-stop(0, #6192c0), color-stop(1, #3574ae)); /* Saf4+, Chrome */
+		vertical-align: top;
+		height: 25px; 
+		line-height: 25px; 
+		font-size: 20px; 
+		color: #feffff;
+	}
+	.B-head em {display:inline-block; background:url(../images/insets_06.png) left top no-repeat; position:absolute; right:0px; bottom:0px; width:10px; height:10px;}
+	.site-footer {font-size:18px;}
+}
+

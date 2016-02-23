@@ -1,0 +1,32 @@
+{{#if commonAnswers.showMe}}
+<ul class="depict">
+    {{#each commonAnswers.answers}}
+    <li>
+        <strong>{{order_items @index ../commonAnswers.orderType}}</strong>
+        <span>{{this}}</span>
+    </li>
+    {{/each}}
+</ul>
+{{/if}}
+    <div class="list">
+        <span class="list_number">{{order}}</span>
+        <div class="txt">
+            {{#if question.sound}}
+            <span class="listen" data-sound="{{question.sound}}"><audio style="display:none" src="{{question.sound}}"></audio></span>                                 {{/if}}
+            {{{question.text}}}
+        </div>
+        {{#each items}}
+        <div class="right_side" id="dropdown_{{../activityNumber}}_{{@index}}" dropdown="yes">
+            <p></p>
+            <ul class="show_list">
+                {{#each answers}}
+                <li>
+                    <span>{{order_items @index ../orderType}}</span>
+                    {{this}}
+                </li>
+                {{/each}}
+            </ul>
+            <i></i>
+        </div>
+        {{/each}}
+    </div>

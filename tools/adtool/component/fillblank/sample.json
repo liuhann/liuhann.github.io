@@ -1,0 +1,91 @@
+ {
+    "id":"jalsdfkjl300lj230jl-2342jl23",
+    "name":"",
+    "image":"",
+    "type":"fill in the blank",
+    "type id":"1104",
+    "creator":"Hugo",
+    "date of birth":"2013-12-21",
+    "description":"",
+    "tags":[
+        "exercise", "test", "fill in the blank"
+    ],
+    "estimated duration":"5",
+    "count":"2",
+    "content":[
+        {
+            "order":"a",
+            "title": "",
+            "text":"The car is the #blank_1#  means of transport for British and Australian schoolchildren, with #blank_2# of students in both countries getting to school in this way.",
+            "splitAnswer":0,
+            "questions":[
+                {
+                    "id":"blank_1",
+                    "answer": ["most popular"],
+                    "order type":"1",
+                    "default value": "popular"
+                },
+                {
+                    "id":"blank_2",
+                    "answer": "65%",
+                    "order type":"2"
+                }
+            ]
+        },
+        {
+            "order":"2",
+            "showAnswerStyle":"self",
+            "text":"In contrast, only #blank_1# of Singaporean students use cars, and this is the #blank_2# method of transport there.",
+            "questions":[
+                {
+                    "id":"blank_1",
+                    "answer": "10%",
+                    "order type":"1"
+                },
+                {
+                    "id":"blank_2",
+                    "answer": ["least popular"],
+                    "order type":"2"
+                }
+            ]
+        },
+        {
+            "order":"3",
+            "text":" There are considerable differences in the #blank_1# for public transport.",
+            "questions":[
+                {
+                    "id":"blank_1",
+                    "answer": "figures",
+                    "order type":"1"
+                }
+            ]
+        },
+        {
+            "order":"4",
+            "text":"A large #blank_1# of students in Singapore use public transport.",
+            "questions":[
+                {
+                    "id":"blank_1",
+                    "answer": "percentage",
+                    "order type":"1"
+                }
+            ]
+        },
+        {
+            "order":"5",
+            "text":"In Britain and Australia figures for public transport are lower, being #blank_1# and #blank_2# respectively.",
+            "questions":[
+                {
+                    "id":"blank_1",
+                    "answer": "16%",
+                    "order type":"1"
+                },
+                {
+                    "id":"blank_2",
+                    "answer": "20%",
+                    "order type":"2"
+                }
+            ]
+        }
+    ]
+}

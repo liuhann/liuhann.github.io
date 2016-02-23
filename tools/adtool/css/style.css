@@ -1,0 +1,146 @@
+@CHARSET "UTF-8";
+* {
+	padding: 0;
+	margin: 0;
+}
+
+body {
+  font-family: '微软雅黑','Helvetica Neue',sans-serif,SimHei;
+  -webkit-font-smoothing: antialiased;
+  font-size: 16px;
+}
+
+.hidden {
+	display: none;
+}
+
+a {
+	cursor: pointer;
+	text-decoration: none;
+}
+
+li {
+	list-style: none;
+}
+
+.tool-title {
+	height: 2.5rem;
+	position: fixed;
+	left: 0;
+	right: 0;
+	line-height:2.5rem;
+	font-size: 1rem;
+	box-shadow: 0 0 0 1px rgba(0,0,0,.1);
+	background: #fff;
+}
+	
+.tool-left {
+	width: 6rem;
+  	overflow-y: auto;
+  	position: fixed;
+  	top: 2.5rem;
+  	left:0;
+  	bottom: 0;
+  	transition: margin-left .8s ease,margin-top .8s ease;
+  	background-color: #222;
+}
+
+.tool-left a {
+  text-align: center;
+  line-height: 3rem;
+  color: white;
+  padding: .5rem 1rem;
+  width: 4rem;
+}
+
+.tool-left a.checked {
+	background-color: #fafafa;
+	color: #444;
+}
+
+.tool-area {
+	padding: 1rem;
+	position: absolute;
+	left: 22rem;
+	right: 0rem;
+	top: 2.5rem;
+	border: 1px solid #ccc;
+	min-height: 30rem;
+	z-index: -9;
+}
+
+.tool-props {
+  position: fixed;
+  left: 4rem;
+  width: 16rem;
+  top: 2.5rem;
+  bottom: 0;
+  padding: 1rem;
+  background-color: #fafafa;
+}
+
+.tool-props ul li {
+	list-style: none;
+	padding: 8px 10px;
+}
+
+.tool-props ul li a {
+	background-color: #eee;
+	padding: 5px 10px;
+	cursor: pointer;
+}
+.tool-props ul li a:HOVER {
+	background-color: #f1f1f1;
+}
+
+.tool-props .tab a {
+  padding: .3rem 1rem;
+  border-bottom: 1px solid #ccc;
+}
+.tool-props .tab a.selected {
+  padding: .3rem 1rem;
+  border-bottom: 1px solid orange;
+}
+
+#editor {
+	display: none;
+	width: 100%;
+	min-height: 800px;
+}
+
+.msg {
+	display: none;
+	position: absolute;
+	right: 0;
+	top: 0;
+	padding: .5rem;
+	font-size: 12px;
+	background-color: green;
+	color: #fff;
+}
+
+.ace_scrollbar-v {
+	display: none;
+}
+
+#chartEditor {
+	min-width: 310px;
+	width: 1024px;
+	height: 400px;
+	margin: 0 auto;
+	padding-top: 80px;
+}
+
+.clearfix:after {
+	visibility: hidden;
+	display: block;
+	font-size: 0;
+	content: " ";
+	clear: both;
+	height: 0;
+}
+.clearfix { display: inline-table; }
+/* Hides from IE-mac \*/
+* html .clearfix { height: 1%; }
+.clearfix { display: block; }
+/* End hide from IE-mac */

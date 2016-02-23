@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Tools</title>
+
+<link rel="stylesheet" type="text/css" href="css/style.css">
+<link id="common-css" rel="stylesheet" type="text/css" href="css/blue/style/common.css">
+<link rel="stylesheet" type="text/css" href="highchart/css/style.css">
+ <style type="text/css" id="component-css">
+ 	
+ </style>
+<script id="thescript" type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="js/handlebars-v3.0.0.js"></script>
+<script type="text/javascript" src="js/common.js"></script>
+<script type="text/javascript" src="js/extract.js"></script>
+
+<!-- 编辑工具的代码 -->
+<script type="text/javascript" src="js/tools.js"></script>
+
+<!-- 压缩相关的js代码 -->
+<script type="text/javascript" src="js/jszip.min.js"></script>
+<script type="text/javascript" src="js/jszip-utils.js"></script>
+<script type="text/javascript" src="js/FileSaver.js"></script>
+
+<!-- JSON编辑相关代码 -->
+<script src="js/beautify.js" type="text/javascript" charset="utf-8"></script>
+<script src="ace/ace.js" type="text/javascript" charset="utf-8"></script>
+</head>
+<body>
+<div class="tool-title">
+	<ul id="nav"> 
+	    <li  class="active" data-tab="j_tab"><a href="javascript:;">Tools</a></li> 
+	    <li data-tab="j_tab"><a href="javascript:;">Highcharts</a></li> 
+	</ul> 	
+</div>
+<div class="j_tab">
+	<div class="msg">
+		
+	</div>
+
+	<div class="tool-left">
+		<a id="btn-add-mchoice">多选</a>
+		<a id="btn-add-schoice">单选</a>
+		<a id="btn-add-dragndrop" >拖拽</a>
+		<a id="btn-add-highlight">高亮</a>
+		<a id="btn-fill-up-blank">填空</a>
+		<a id="btn-word-order">排序</a>
+		<a id="btn-match">匹配</a>
+		<a id="btn-drop-down">下拉</a>
+	</div>
+
+	<div class="tool-props">
+		<ul>
+			<li>整体样式
+			<select id="global-css" >
+				<option value="css/blue">蓝色</option>
+				<option value="css/purple">紫色</option>
+			</select>
+			<li>样式选择:<select id="css-list">
+			</select></li>
+			<li><a id="btn-edit-css">编辑CSS</a></li>
+		</ul>
+		<ul>
+			<li><a id="btn-edit-json">编辑JSON</a></li>
+		</ul>
+		<ul>
+			<li>模板选择:<select id="template-list">
+			</select></li>
+			<li><a id="btn-edit-handlebars">编辑模板</a></li>
+		</ul>
+		<ul>
+			<li><a id="btn-preview-handlebars">保存并预览</a></li>
+			<li><a id="btn-export-zip">导出json+模板</a></li>
+			<li><a id="btn-export-html-zip">导出json+html</a></li>
+		</ul>
+
+		<ul>
+			<li><a id="btn-upload-handlebars">共享模板</a> <a id="btn-delete-template">删除模板</a></li>
+			<li><a id="btn-share-css">共享CSS</a> <a id="btn-delete-css">删除CSS</a></li>
+		</ul>
+	</div>
+
+	<div class="tool-area">
+		<div class="box">
+			<div class="headBar">
+				<div class="title">
+					<span class="title_style">6b</span>
+					<span class="title_font">Vocabulary</span>
+				</div>
+				<div class="headLine"></div>
+				<div class="title_right"></div>
+			</div>
+			<div class="subhead">
+				<div>
+					<span class="sub_icon"></span>
+					<span class="subhead_style">Personal taste<em></em></span>
+				</div>
+			</div>
+			<div class="content">
+				<div class="question_title">
+					<span class="number">2</span>
+					<div>Use a dictionary to help you replace the underlined words below with the adjectives in the box that have a similar meaning. There are two possible answers for each one.</div>
+				</div>
+				<div class="question_cont">
+				</div>
+			</div>
+		</div>
+		<div id="editor">
+		</div>
+	</div>
+</div>
+
+<div class="hide j_tab">
+	<div class="j_edit">	
+		<a href="javascript:;" class="a_create_chart_1">Create Chart</a>
+		<div class="pd"></div>
+		<a href="javascript:;" class="a_create_chart_2">Show/Hide Code</a>
+	</div>
+	<div id="container" style="min-width: 310px; width:1024px; height: 400px; margin: 0 auto; padding-top:80px;">
+	</div>
+	<div id="chartEditor" class="hide">
+	</div>
+
+	<!-- highcharts js -->
+	<script src="highchart/js/highcharts.js"></script>
+	<script src="highchart/js/exporting.js"></script>
+	<script type="text/javascript" src="highchart/js/mychart.js"></script>
+</div>
+
+<script type="text/javascript" src="highchart/js/tab.js"></script>
+
+</body>
+</html>

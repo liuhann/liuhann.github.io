@@ -1,0 +1,7 @@
+{
+	"componentName": "match",
+	"template": "match.handlebars",
+	"css": "match.css",
+	"sample": ["sample.json"],
+	"js": [ "component/wordlink/match.js"]
+}

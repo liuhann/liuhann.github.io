@@ -1,0 +1,8 @@
+{
+	"componentName": "singleChoice",
+	"template": "schoice1.handlebars",
+	"css":"css/single_choice.css",
+	"sample": ["sample.json"],
+	"js": ["component/schoice/single-choice.js"],
+	"imgs": ["img/icon.png"]
+}

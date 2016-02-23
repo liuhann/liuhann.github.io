@@ -1,0 +1,25 @@
+
+{{#if title}}
+	<div class="question_title">
+		<span class="number">{{count}}</span>
+		<p >{{title.en}}</p>
+	</div>
+{{/if}}
+
+<div class="pos_r fb_wrap">
+		<p class="mb15 ti_pl20 fb" data-order="1">
+			90%
+			<b class="fright">10%</b>
+		</p>
+		{{#each content}}
+			<p class="mb15 ti_pl20 fb" data-order="{{order}}">
+				{{#each list}}
+					{{#if this.plain}}
+						{{this.text}}
+					{{else}}
+						<input class="tex purple_input mb5 fright fb_blank" id="blank_{{../../activity_id}}_{{@index}}" type="text"  data-answer="{{this.answer}}">
+					{{/if}}
+				{{/each}}
+			</p>
+		{{/each}}
+</div>

@@ -1,0 +1,20 @@
+<div class="question_content" id="wordlink_{{activityNumber}}">
+    <div class="left_side">
+        {{#each content.left}}
+        <a href="javascript:;" a="{{@index}}">
+            <strong>{{order_items @index ../content.leftOrder}}</strong>
+            <span>{{{this}}}</span>
+        </a>
+        {{/each}}
+    </div>
+    <div class="right_side">
+        {{#each content.right}}
+        <a href="javascript:;">
+            <strong>{{order_items @index ../content.rightOrder}}</strong>
+            <span>{{{this}}}</span>
+            <i></i>
+        </a>
+        {{/each}}
+    </div>
+    <div style="clear:both;"></div>
+</div>

@@ -1,0 +1,17 @@
+{
+  "manifest_version": 10,
+  "version": "2.0.1",
+  "name": "ActivityTools",
+  "description": "Making activity pages",
+  "browser_action": {
+      "default_title": "Activity 设计工具",
+      "default_popup": "popup.html"  
+  },
+  
+  "background": {
+      "scripts": [ "js/jquery-2.1.0.min.js","js/samples.js", "js/tools.js","js/common.js"
+      ,"js/handlebars-v3.0.0.js"]
+   },
+        
+  "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'; unsafe-inline"
+}

@@ -1,0 +1,272 @@
+{
+    "_id": "",
+    "id": "jalsdfkjl300lj230jl-2342jl23",
+    "name": "",
+    "image": "",
+    "type": "drop down",
+    "type id": "1124",
+    "creator": "Hugo",
+    "date of birth": "2014-03-01",
+    "description": "",
+    "tags": [
+        "exercise",
+        "test",
+        "drag n drop"
+    ],
+    "estimated duration": "2",
+    "count": "1",
+    "content": [
+        {
+            "reference": {
+                "title": {
+                    "English": "List of Headings"
+                },
+                "multiDrop": true, 
+                "content": [
+                    {
+                        "id": "1",
+                        "name": "I",
+                        "content": {
+                            "type": "text",
+                            "text": "anxious",
+                            "image": "",
+                            "sound": ""
+                        }
+                    },
+                    {
+                        "id": "2",
+                        "name": "II",
+                        "content": {
+                            "type": "text",
+                            "text": "apprehensive",
+                            "image": "",
+                            "sound": ""
+                        }
+                    },
+                    {
+                        "id": "3",
+                        "name": "III",
+                        "content": {
+                            "type": "text",
+                            "text": "assertive",
+                            "image": "",
+                            "sound": ""
+                        }
+                    },
+                    {
+                        "id": "4",
+                        "name": "IV",
+                        "content": {
+                            "type": "text",
+                            "text": "charming",
+                            "image": "",
+                            "sound": ""
+                        }
+                    },
+                    {
+                        "id": "5",
+                        "name": "V",
+                        "content": {
+                            "type": "text",
+                            "text": "cheerful",
+                            "image": "",
+                            "sound": ""
+                        }
+                    },
+                    {
+                        "id": "6",
+                        "name": "VI",
+                        "content": {
+                            "type": "text",
+                            "text": "clumsy",
+                            "image": "",
+                            "sound": ""
+                        }
+                    },
+                    {
+                        "id": "7",
+                        "name": "VII",
+                        "content": {
+                            "type": "text",
+                            "text": "cynical",
+                            "image": "",
+                            "sound": ""
+                        }
+                    },
+                    {
+                        "id": "8",
+                        "name": "VIII",
+                        "content": {
+                            "type": "text",
+                            "text": "egotistical",
+                            "image": "",
+                            "sound": ""
+                        }
+                    },
+                    {
+                        "id": "9",
+                        "name": "IX",
+                        "content": {
+                            "type": "text",
+                            "text": "gullible",
+                            "image": "",
+                            "sound": ""
+                        }
+                    },
+                    {
+                        "id": "10",
+                        "name": "X",
+                        "content": {
+                            "type": "text",
+                            "text": "self-confident",
+                            "image": "",
+                            "sound": ""
+                        }
+                    },
+                    {
+                        "id": "11",
+                        "name": "XI",
+                        "content": {
+                            "type": "text",
+                            "text": "self-conscious",
+                            "image": "",
+                            "sound": ""
+                        }
+                    },
+                    {
+                        "id": "12",
+                        "name": "XII",
+                        "content": {
+                            "type": "text",
+                            "text": "sensible",
+                            "image": "",
+                            "sound": ""
+                        }
+                    },
+                    {
+                        "id": "13",
+                        "name": "XIII",
+                        "content": {
+                            "type": "text",
+                            "text": "tactful",
+                            "image": "",
+                            "sound": ""
+                        }
+                    },
+                    {
+                        "id": "14",
+                        "name": "XIV",
+                        "content": {
+                            "type": "text",
+                            "text": "well-liked",
+                            "image": "",
+                            "sound": ""
+                        }
+                    }
+                ]
+            },
+            "targets": {
+                "count": "",
+                "content": [
+               		{
+                        "question": {
+                            "list": [
+                            	 {
+                                	"textplain": "一个答案,填多个answer就是都算对 singleAnswer:true"
+                                },
+                                {
+                                    "answer": [
+										9,10,11
+                                    ]
+
+                                }
+                            ]
+                        },
+                        "singleAnswer": true
+                    },
+                    {
+                        "question": {
+                            "list": [
+                           		 {
+                                	"textplain": "多个答案，无次序multipleDropArea:true"
+                                },
+                                {
+                                    "answer": [
+                                        1,2
+                                    ]
+                                }
+                            ]
+                        },
+                        "multipleDropArea": true
+                    },
+                     {
+                        "question": {
+                            "list": [
+                            	 {
+                                	"textplain": "多个答案，有次序+checkAnswerOrder:true"
+                                },
+                                {
+                                    "answer": [
+                                        3
+                                    ]
+                                }, {
+                                	 "answer": [
+                                       4,5
+                                    ]
+                                }
+                            ]
+                        },
+                        "multipleDropArea": true,
+                        "checkAnswerOrder": true
+                    },
+                    {
+                        "question": {
+                            "list": [
+                             {
+                                	"textplain": "多个答案，按一道判题，无次序 checkAnswerOrder: false"
+                                },
+                                {
+                                    "answer": [
+                                        6,7,8
+                                    ]
+                                }
+                            ]
+                        }
+                    },
+                     {
+                        "question": {
+                            "list": [
+                               {
+                                	"textplain": "多个答案，按一道判题，有次序  checkAnswerOrder: true"
+                                },
+                                {
+                                    "answer": [
+                                        6,7,8,9
+                                    ]
+                                }
+                            ]
+                        },
+                        "checkAnswerOrder": true
+                    },
+                     {
+                        "question": {
+                            "list": [
+                             	{
+                                	"textplain": "多个答案，单独判题，无次序 separateCheck: true"
+                                },
+                                {
+                                    "answer": [
+                                        6,7,8,9
+                                    ]
+                                }
+                            ]
+                        },
+                        "separateCheck": true
+                    }
+                    
+                ],
+                "order_type": ""
+            }
+        }
+    ]
+}
