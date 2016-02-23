@@ -46,11 +46,10 @@ li {
 }
 
 .tool-left a {
-  text-align: center;
-  line-height: 3rem;
-  color: white;
-  padding: .5rem 1rem;
-  width: 4rem;
+	text-align: center;
+	color: white;
+	padding: .5rem 1rem;
+	display: inline-block
 }
 
 .tool-left a.checked {
