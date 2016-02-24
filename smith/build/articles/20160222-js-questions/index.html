@@ -262,7 +262,40 @@ console.log(3);
 </code></pre><p>1和4的次序比较肯定，但是2在setTimeout之中，延时为0。为什么反而在3之后执行呢？</p>
 <p>有个关键问题就是浏览器是单线程执行的。关于 <a href="http://javascript.info/tutorial/events-and-timing-depth">Javascript Event and Timing</a>
 简单来讲，就是任何事件、定时任务都要等浏览器空闲了才会被执行。&nbsp;那么setTimeout增加了一个任务，必须要等当前代码全部执行完成。 </p>
-<h1 id="-">结论</h1>
+<h2 id="-15">问题15</h2>
+<h3 id="-">以下代码输出为？</h3>
+<pre><code>var hero = {
+    _name: &#39;John Doe&#39;,
+    getSecretIdentity: function (){
+        return this._name;
+    }
+};
+
+var stoleSecretIdentity = hero.getSecretIdentity;
+
+console.log(stoleSecretIdentity());
+console.log(hero.getSecretIdentity());
+</code></pre><p>又是一道送分题啊，从题目就能看出了，知识点是this的含义：表示函数的调用方。  第一个调用方是global，第二个是hero。&nbsp;所以答案是</p>
+<pre><code>undefined
+John Doe
+</code></pre><p>为了解决第一个调用的问题，更改为 </p>
+<pre><code>var stoleSecretIdentity = hero.getSecretIdentity.bind(hero);
+</code></pre><p>这是必考的送分题，同学们要记住啊！ </p>
+<h2 id="-16">问题16</h2>
+<h3 id="-">以下代码输出为？</h3>
+<pre><code>var a={},
+    b={key:&#39;b&#39;},
+    c={key:&#39;c&#39;};
+
+a[b]=123;
+a[c]=456;
+
+console.log(a[b]);
+</code></pre><p>有点糊涂吧， 答案是 456 . 大家可能看出来了， b是一个对象，却作为对象a的属性key来设置。 这在实际场景中是不会出现的，除非是出现bug写法，但是js的确允许这样，&nbsp;将b设置为key时进行stringify处理。</p>
+<p>所以</p>
+<pre><code>a[&quot;[object Object]&quot;] = 123;
+a[&quot;[object Object]&quot;] = 456;
+</code></pre><h1 id="-">结论</h1>
 <p>看了这个学<span class="caps">ES6</span>会更轻松的</p>
 </section>
         </article>

@@ -371,7 +371,63 @@ foo2等同于
 有个关键问题就是浏览器是单线程执行的。关于 [Javascript Event and Timing](http://javascript.info/tutorial/events-and-timing-depth)
 简单来讲，就是任何事件、定时任务都要等浏览器空闲了才会被执行。 那么setTimeout增加了一个任务，必须要等当前代码全部执行完成。 
  
-  
+
+## 问题15
+
+### 以下代码输出为？ 
+
+    var hero = {
+        _name: 'John Doe',
+        getSecretIdentity: function (){
+            return this._name;
+        }
+    };
+    
+    var stoleSecretIdentity = hero.getSecretIdentity;
+    
+    console.log(stoleSecretIdentity());
+    console.log(hero.getSecretIdentity());
+
+又是一道送分题啊，从题目就能看出了，知识点是this的含义：表示函数的调用方。  第一个调用方是global，第二个是hero。
+所以答案是
+ 
+    undefined
+    John Doe
+    
+为了解决第一个调用的问题，更改为 
+
+    var stoleSecretIdentity = hero.getSecretIdentity.bind(hero);
+    
+这是必考的送分题，同学们要记住啊！ 
+
+
+
+## 问题16
+
+### 以下代码输出为？ 
+
+
+    var a={},
+        b={key:'b'},
+        c={key:'c'};
+    
+    a[b]=123;
+    a[c]=456;
+    
+    console.log(a[b]);
+
+有点糊涂吧， 答案是 456 . 大家可能看出来了， b是一个对象，却作为对象a的属性key来设置。 这在实际场景中是不会出现的，除非是出现bug写法，但是js的确允许这样，
+将b设置为key时进行stringify处理。
+
+所以
+
+    a["[object Object]"] = 123;
+    a["[object Object]"] = 456;
+
+
+
+
+
   
   
 # 结论 
