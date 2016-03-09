@@ -2,7 +2,7 @@ html {
   font-family: "Arial", "serif"; }
 
 body {
-  background-color: #FEF6C5; }
+  background-image: url("../img/ssback.png"); }
 
 .card-scene {
   position: absolute;
@@ -10,8 +10,7 @@ body {
   right: 0;
   top: 0;
   bottom: 0;
-  overflow: hidden;
-  background-color: #FEF6C5; }
+  overflow: hidden; }
 
 .s1024.p2, .s1024.p1 {
   margin-top: 230px;

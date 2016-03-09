@@ -34,7 +34,7 @@ $(function () {
 
         },
         xAxis: [{
-            categories: ['LISTENING', 'READING', 'WRITING', 'SPEAKING', 'VOCAB', 'GRAMMER'],
+            categories: ['LISTENING', 'READING', 'WRITING', 'SPEAKING', 'VOCAB', 'GRAMMAR'],
             crosshair: true
         }],
             yAxis: [{ // Primary yAxis

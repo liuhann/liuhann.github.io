@@ -34,7 +34,12 @@ var users = [
 //Card.offline(userid);
 
 
+
+
 var Card = (function(c,g) {
+
+    var RANDOM_BACKGRONDS = ["#52b8f0","#8edc34","#f6eb42","#8ce8c1","#f5a5c7","#ed5157","#f1831a","#f316a7","#52fb6d","#46a1ed","#f34d87","#edb535"];
+
     var cardTemplate =
         '<div class="card user">'
             + '<div class="head back"><img></div>'
@@ -75,12 +80,14 @@ var Card = (function(c,g) {
         if(typeof(users)==='string') {
             users = JSON.parse(users);
         }
-        cusers = users;
+        //cusers = users;
         for(var i=0; i<users.length; i++) {
             /**修改更新逻辑： 当某个学生卡并未在页面画出时， 增加这个学生， 否则仅更新头像*/
             if ($("#usercard-" + users[i].id).length===0) {
+                cusers.push(users[i]);
                 Card.add(users[i]);
             } else {
+                cusers[i].head = users[i].head;
                 $("#usercard-" + users[i].id).find(".head img").attr("src", users[i].head);
             }
         }
@@ -90,6 +97,11 @@ var Card = (function(c,g) {
     function add(user, i) {
         var cloned = $(cardTemplate);
         cloned.data("user", user);
+
+        if (!user.headBackgroundColor) {
+            user.headBackgroundColor = RANDOM_BACKGRONDS[Math.floor(Math.random()*RANDOM_BACKGRONDS.length)];
+        }
+
         cloned.find(".head img").attr("src", user.head).click(function() {
             localStorage.setItem("users", JSON.stringify(cusers));
 
@@ -103,6 +115,7 @@ var Card = (function(c,g) {
             location.href = "chart.html?name=" + user.name + "&head="+ user.head;
         });
         cloned.attr("id" , "usercard-" + user.id);
+        cloned.css("background", "linear-gradient(rgb(205, 205, 205) 42%, rgb(255, 255, 255) 1px)");
 
         if (user.name) {
             cloned.find(".name").html(user.name);
@@ -154,7 +167,6 @@ var Card = (function(c,g) {
                 clz = "s1920";
             }
             clz = "s1280";
-
             $(".card-scene").removeClass().addClass("card-scene").addClass(clz);
             $(".group-scene").removeClass().addClass("group-scene").addClass(clz);
 
@@ -172,10 +184,12 @@ var Card = (function(c,g) {
     }
 
     function userOnline(i) {
-        $(".card.user[userid='" + i +"']").addClass("online");
-
         var ucard = $("#usercard-" + i);
         if (ucard.hasClass("online")) return;
+
+
+        var userData = getUserById(i);
+        $(".card.user[userid='" + i +"']").addClass("online").css("background", "linear-gradient(" + userData.headBackgroundColor + " 42%, #fff 1px)");
 
         getUserById(i).online = true;
 
@@ -184,15 +198,21 @@ var Card = (function(c,g) {
         ucard.find(".head.grey").addClass("back");
 
         ucard.addClass("zoomShow");
+
+        console.log("linear-gradient(" +  + " 42%, #fff 1px)");
+        ucard.css("background", "linear-gradient(" + userData.headBackgroundColor + " 42%, #fff 1px)");
+
         setTimeout(function() {
             ucard.removeClass("zoomShow")
         }, 2000);
     }
 
     function userOffline(i) {
-        $(".card.user[userid='" + i +"']").removeClass("online");
+        $(".card.user[userid='" + i +"']").removeClass("online").css("background", "linear-gradient(rgb(205, 205, 205) 42%, rgb(255, 255, 255) 1px)");
 
         var ucard = $("#usercard-" + i);
+
+        ucard.css("background", "linear-gradient(rgb(205, 205, 205) 42%, rgb(255, 255, 255) 1px)");
 
         getUserById(i).online = false;
 
@@ -245,7 +265,9 @@ var Card = (function(c,g) {
                 cloned.attr("userid", groupInfo[i].StudentsListItemColl[j].StudentName);
 
                 if (user.online) {
-                    cloned.addClass("online");
+                    cloned.addClass("online").css("background", "linear-gradient(" + user.headBackgroundColor + " 42%, #fff 1px)");
+                } else {
+                    cloned.css("background", "linear-gradient(rgb(205, 205, 205) 42%, rgb(255, 255, 255) 1px)");
                 }
 
                 cloned.find(".head img").attr("src", user.head);
@@ -318,7 +340,10 @@ var Card = (function(c,g) {
 
 //module.exports = Card;
 $(function() {
-    htmlready();
+    //$(".card-scene").css("background-image","url('img/ssback.png')");
+    if(window.htmlready) {
+        htmlready();
+    }
     //Card.init(usersh);
    //Card.group(genGroup(4));
 });
