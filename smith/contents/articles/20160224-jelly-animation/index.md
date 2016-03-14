@@ -3,6 +3,8 @@ title: An animation css from toptal.com - jelly
 author: Hand
 date: 2016-02-24
 template: article.jade
+demourl: /show/jelly-animation/index.html
+
 ---
 
 A quite smooth and relax animation. The animation code is long but it's worthy

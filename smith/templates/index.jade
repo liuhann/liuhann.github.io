@@ -19,7 +19,9 @@ block content
       nav.visit
         if article.metadata.demourl
           a(href=article.metadata.demourl , target="_blank") DEMO
-        a(href=article.url) Article
+
+        if article.metadata.detaillink != 'no'
+          a(href=article.url) DETAIL
 
 block prepend footer
   div.nav

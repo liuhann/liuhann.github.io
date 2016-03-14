@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0">
+    <title>ReactJS - Template Method Pattern - Hand's blog
+    </title>
+    <link rel="alternate" href="http://localhost:8080/feed.xml" type="application/rss+xml" title="MY CONTENTS FOR LOOK BACK">
+    <!--link(rel='stylesheet', href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic|Anonymous+Pro:400,700,400italic,700italic|Merriweather:400,700,300')-->
+    <link rel="stylesheet" href="/css/main.css">
+  </head>
+  <body class="article-detail">
+    <header class="header">
+      <div class="content-wrap">
+        <h1>ReactJS - Template Method Pattern</h1>
+        <p class="author">Written by <span class="author">Hand</span>
+        </p>
+      </div>
+    </header>
+    <div id="content">
+      <div class="content-wrap clearfix">
+        <article class="article details">
+          <section class="content"><p>The Template Method Pattern let you redefine certain steps of an algorithm without changing the algorithm’s structure. It is important for the <span class="caps">UI</span>&nbsp;design</p>
+<p><img src="/articles/20160313-react-abstract-method/preview.png" alt="preview"></p>
+<h2 id="1-using-mixin-as-the-parent-class">1 Using mixin as the parent&nbsp;class</h2>
+<pre><code>var parentMixin = {
+    render: function () {
+        var abstract = this.abstractMethod();
+        return (
+            &lt;div&gt;
+                ..html code here
+                {editor}
+                ..other html 
+            &lt;/div&gt;
+        );
+    }
+};
+</code></pre><p>the parentMixin make the abstractMethod which is implemented by the children . As the children like&nbsp;this:</p>
+<h2 id="2-implement-method-at-children">2 Implement method at&nbsp;children</h2>
+<pre><code>var Child = React.createClass({
+    mixins: [parentMixin], // Use the mixin
+    abstractMethod: function() {
+           // implementation
+    }
+});
+</code></pre><p>So the children has no render() method. In stead it has method abstractMethod().  The common code is put in the mixin and the child’s row is ‘fill the&nbsp;block’</p>
+<h2 id="3-detect-method-existing">3 Detect method&nbsp;existing</h2>
+<p>We can add some check code at the render() of&nbsp;mixin</p>
+<pre><code>var parentMixin = {
+    render: function () {
+        /**Check method*/
+        if(!_.isFunction(this.abstractMethod)) {
+             return &lt;div&gt;
+                 Your component require to implement abstractMethod() method
+             &lt;/div&gt;;
+        }
+        var abstract = this.abstractMethod();
+        return (
+            &lt;div&gt;
+                ..html code here
+                {editor}
+                ..other html 
+            &lt;/div&gt;
+        );
+    }
+};
+</code></pre></section>
+        </article>
+      </div>
+    </div>
+    <footer>
+      <div class="content-wrap clearfix">
+        <div class="nav"><a href="/">« Full blog</a></div>
+        <section class="about"><p>This is hand’s blog. There are a lot of  work and collection. </p>
+
+        </section>
+        <section class="copy">
+          <p>&copy; 2016 LiuHan &mdash; powered by&nbsp;<a href="https://github.com/jnordberg/wintersmith">Wintersmith</a>
+          </p>
+        </section>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,30 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0">
-    <title>An animation css from toptal.com - jelly - Hand's blog
-    </title>
-    <link rel="alternate" href="http://localhost:8080/feed.xml" type="application/rss+xml" title="MY CONTENTS FOR LOOK BACK">
-    <!--link(rel='stylesheet', href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic|Anonymous+Pro:400,700,400italic,700italic|Merriweather:400,700,300')-->
-    <link rel="stylesheet" href="/css/main.css">
-  </head>
-  <body class="article-detail">
-    <header class="header">
-      <div class="content-wrap">
-        <h1>An animation css from toptal.com - jelly</h1>
-        <p class="author">Written by <span class="author">Hand</span>
-        </p>
-      </div>
-    </header>
-    <div id="content">
-      <div class="content-wrap clearfix">
-        <article class="article details">
-          <section class="content"><p>A quite smooth and relax animation. The animation code is long but it’s&nbsp;worthy</p>
-<p><img src="/articles/20160224-jelly-animation/preview.png" alt="preview"></p>
-<h2 id="codes">Codes</h2>
-<pre><code>.jelly-animation {
+.jelly-animation {
     -webkit-animation: jelly-answer 1s ease-in both;
     animation: jelly-answer 1s ease-in both
 }
@@ -522,21 +496,3 @@
         transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)
     }
 }
-</code></pre></section>
-        </article>
-      </div>
-    </div>
-    <footer>
-      <div class="content-wrap clearfix">
-        <div class="nav"><a href="/">« Full blog</a></div>
-        <section class="about"><p>This is hand’s blog. There are a lot of  work and collection. </p>
-
-        </section>
-        <section class="copy">
-          <p>&copy; 2016 LiuHan &mdash; powered by&nbsp;<a href="https://github.com/jnordberg/wintersmith">Wintersmith</a>
-          </p>
-        </section>
-      </div>
-    </footer>
-  </body>
-</html>

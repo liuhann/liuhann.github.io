@@ -4,10 +4,72 @@
     <title>Hand's blog</title>
     <atom:link href="http://localhost:8080/feed.xml" rel="self" type="application/rss+xml"></atom:link>
     <link>http://localhost:8080</link>
-    <description>Space of fronteer</description>
-    <pubDate>Wed, 24 Feb 2016 08:00:00 +0800</pubDate>
+    <description>MY CONTENTS FOR LOOK BACK</description>
+    <pubDate>Sun, 13 Mar 2016 08:00:00 +0800</pubDate>
     <generator>Wintersmith - https://github.com/jnordberg/wintersmith</generator>
     <language>en</language>
+    <item>
+      <title>ReactJS - Template Method Pattern</title>
+      <link>http://localhost:8080/articles/20160313-react-abstract-method/</link>
+      <pubDate>Sun, 13 Mar 2016 08:00:00 +0800</pubDate>
+      <guid isPermaLink="true">http://localhost:8080/articles/20160313-react-abstract-method/</guid>
+      <author></author>
+      <description>&lt;p&gt;The Template Method Pattern let you redefine certain steps of an algorithm without changing the algorithm’s structure. It is important for the UI design&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/articles/20160313-react-abstract-method/preview.png&quot; alt=&quot;preview&quot;&gt;&lt;/p&gt;
+&lt;h2 id=&quot;1-using-mixin-as-the-parent-class&quot;&gt;1 Using mixin as the parent class&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;var parentMixin = {
+    render: function () {
+        var abstract = this.abstractMethod();
+        return (
+            &amp;lt;div&amp;gt;
+                ..html code here
+                {editor}
+                ..other html 
+            &amp;lt;/div&amp;gt;
+        );
+    }
+};
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;the parentMixin make the abstractMethod which is implemented by the children . As the children like this:&lt;/p&gt;
+&lt;h2 id=&quot;2-implement-method-at-children&quot;&gt;2 Implement method at children&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;var Child = React.createClass({
+    mixins: [parentMixin], // Use the mixin
+    abstractMethod: function() {
+           // implementation
+    }
+});
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;So the children has no render() method. In stead it has method abstractMethod().  The common code is put in the mixin and the child’s row is ‘fill the block’&lt;/p&gt;
+&lt;h2 id=&quot;3-detect-method-existing&quot;&gt;3 Detect method existing&lt;/h2&gt;
+&lt;p&gt;We can add some check code at the render() of mixin&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;var parentMixin = {
+    render: function () {
+        /**Check method*/
+        if(!_.isFunction(this.abstractMethod)) {
+             return &amp;lt;div&amp;gt;
+                 Your component require to implement abstractMethod() method
+             &amp;lt;/div&amp;gt;;
+        }
+        var abstract = this.abstractMethod();
+        return (
+            &amp;lt;div&amp;gt;
+                ..html code here
+                {editor}
+                ..other html 
+            &amp;lt;/div&amp;gt;
+        );
+    }
+};
+&lt;/code&gt;&lt;/pre&gt;</description>
+    </item>
+    <item>
+      <title>In class student login and group effects</title>
+      <link>http://localhost:8080/articles/20160310-inclass-students/</link>
+      <pubDate>Tue, 01 Mar 2016 08:00:00 +0800</pubDate>
+      <guid isPermaLink="true">http://localhost:8080/articles/20160310-inclass-students/</guid>
+      <author></author>
+      <description>&lt;p&gt;A work of me from screen cast show.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/articles/20160310-inclass-students/preview.png&quot; alt=&quot;preview&quot;&gt;&lt;/p&gt;
+</description>
+    </item>
     <item>
       <title>An animation css from toptal.com - jelly</title>
       <link>http://localhost:8080/articles/20160224-jelly-animation/</link>
@@ -526,19 +588,24 @@
       <description>&lt;p&gt;Postaljs是一款js pub/sub 库，相当于为页面应用提供了一个新的事件/消息系统。 作为原始JS开发，貌似对这种事件系统需求不大，然而要使用组件化开发，无论是reactjs还是angular，这种事件系统都会起到很大的作用。   &lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;/articles/20160223-postal-js/preview.png&quot; alt=&quot;preview&quot;&gt;&lt;/p&gt;
 &lt;h2 id=&quot;why-postaljs&quot;&gt;Why PostalJS&lt;/h2&gt;
-&lt;p&gt;其实，我开发js这么多年，一直也没有感觉有一个事件系统或者消息系统的需要。 主要原因还是在整个DOM页面中，要调用谁或者发送消息，直接 $ 一下就好了，当然也和应用性质相关。 &lt;/p&gt;
-&lt;p&gt;最近使用Reactjs开发， 页面组件化倒是实现了，但有个关键问题就是组件间通讯。&lt;/p&gt;
+&lt;p&gt;其实，我开发js这么多年，一直也没有感觉有一个事件系统或者消息系统的需要。 主要原因还是在整个DOM页面中，要调用谁或者发送消息，直接 $ 一下就好了，当然也和应用性质相关。 
+最近使用Reactjs开发， 页面组件化倒是实现了，但有个关键问题就是组件间通讯。&lt;/p&gt;
 &lt;p&gt;我们知道reactjs组件是以一个树状形式组织的，作为UI组件化，相信这样的结构是有道理的，我们的DOM本身也是一个树状结构。 然而组件之间的调用只能有2个方式：&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;父调用子，使用refs&lt;/li&gt;
 &lt;li&gt;子调用父，使用props&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;很多时候，如果2个组件间不是这样的关系，就只能一个组件逐层往上调用，直到一个共同的祖先，在顺次调用下去。这样是非常不合理的，我想跨越层次结构调用的需求是必然存在的。&lt;/p&gt;
-&lt;p&gt;为此，一个解决方法是将所有组件扁平化，虽然解决了逐层调用的尴尬问题，但也造成组件和ui原始特性的不匹配，有可能造成更大的不合理。 &lt;/p&gt;
+&lt;p&gt;特别的，在层次关系结构中，子调用父本身就是个很别扭的事情，就react而言，其实是应该是增加一个callback属性，专门用于子级元素的回调。&lt;/p&gt;
+&lt;p&gt;另外，我们也可以才用一个方法是将所有组件扁平化，虽然解决了逐层调用的尴尬问题，但也造成组件和ui原始特性的不匹配，有可能造成更大的不合理。 &lt;/p&gt;
 &lt;p&gt;在react官方，也给出的解决方案就是建议使用一个消息系统。 &lt;a href=&quot;https://github.com/postaljs/postal.js&quot;&gt;PostalJS&lt;/a&gt; 就是一个很好的选择。&lt;/p&gt;
-&lt;p&gt;Postal是一个典型的事件订阅框架。 这也是我们学计算机一个经典模型，它在DOM模型中事件的逐层传递特性之外，将消息发到通道(channel)中。&lt;/p&gt;
-&lt;p&gt;可以定义多个通道，每个通道可能有多个生产者/消费者。 生产者就对应调用方，消费者对应被调用方。&lt;/p&gt;
-&lt;p&gt;当然作为消息系统本身， 还能实现更多的功能。在react中，我们还是用来解决跨层组件调用问题。&lt;/p&gt;
+&lt;p&gt;Postal是一个典型的事件订阅框架。 这也是我们学计算机一个经典模型，它在DOM模型中事件的逐层传递特性(event bubble)之外，增加了一个事件模型。&lt;/p&gt;
+&lt;p&gt;这个事件模型其实是我们计算机的一个经典模型就是生产者/消费者模式： 在postal中：  &lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;定义多个通道(channel)，生产者将消息(topic)发步(publish)到通道中，消息还可以携带数据。&lt;/li&gt;
+&lt;li&gt;消费者订阅(subscribe)一个通道的某种消息，进而进行后续处理&lt;/li&gt;
+&lt;li&gt;publish方和subscribe方是多对多的关系。&lt;/li&gt;
+&lt;/ol&gt;
 &lt;h2 id=&quot;-&quot;&gt;安装&lt;/h2&gt;
 &lt;h3 id=&quot;-&quot;&gt;普通安装&lt;/h3&gt;
 &lt;p&gt;引入 postal.lodash.min.js 即可 &lt;/p&gt;
@@ -570,7 +637,9 @@
            // added by the sender.
        }
 });
-&lt;/code&gt;&lt;/pre&gt;</description>
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&quot;-&quot;&gt;结论&lt;/h2&gt;
+&lt;p&gt;不光用于react，在我们js开发中，有类似需求的场景都可以采用postal来进行处理。 &lt;/p&gt;
+</description>
     </item>
     <item>
       <title>A study game - Listen and choose</title>
@@ -984,9 +1053,7 @@ console.log(a[b]);
 &lt;p&gt;所以&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;a[&amp;quot;[object Object]&amp;quot;] = 123;
 a[&amp;quot;[object Object]&amp;quot;] = 456;
-&lt;/code&gt;&lt;/pre&gt;&lt;h1 id=&quot;-&quot;&gt;结论&lt;/h1&gt;
-&lt;p&gt;看了这个学ES6会更轻松的&lt;/p&gt;
-</description>
+&lt;/code&gt;&lt;/pre&gt;</description>
     </item>
     <item>
       <title>The eliyou red package</title>

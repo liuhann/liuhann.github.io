@@ -187,11 +187,15 @@ footer .copy, footer .copy a {
 
 .article nav.visit a {
   text-decoration: none;
-  background-color: #4CAF50;
-  color: #fff;
-  padding: .3em .8em;
+  border: 2px solid #f35626;
+  line-height: 1.375;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
   line-height: 3em;
-  margin: 0 1em;
+  font-weight: 700;
+  color: #f35626;
+  cursor: pointer;
+  -webkit-animation: hue 60s infinite linear;
 }
 
 .details.article {

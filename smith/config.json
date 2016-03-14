@@ -2,8 +2,8 @@
   "locals": {
     "url": "http://localhost:8080",
     "name": "Hand's blog",
-    "owner": "Someone",
-    "description": "Space of fronteer"
+    "owner": "LiuHan",
+    "description": "MY CONTENTS FOR LOOK BACK"
   },
   "plugins": [
     "./plugins/paginator.coffee"
